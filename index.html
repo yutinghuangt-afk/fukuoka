@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
@@ -92,6 +92,27 @@
         .map-btn:hover {
             opacity: 0.85;
         }
+        /* 排序按鈕樣式 */
+        .sort-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.15s;
+        }
+        .sort-btn:hover {
+            background: #f3f4f6;
+        }
+        .sort-btn:disabled {
+            opacity: 0.3;
+            cursor: default;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
@@ -136,7 +157,7 @@
             <h3 class="text-xl font-bold mb-4">管理員登入</h3>
             <div class="mb-4">
                 <label class="block text-sm mb-1">帳號</label>
-                <input type="text" id="admin-user" class="w-full border p-2 rounded" placeholder="fukuoka2025">
+                <input type="text" id="admin-user" class="w-full border p-2 rounded" placeholder="fukuoka2026">
             </div>
             <div class="mb-6">
                 <label class="block text-sm mb-1">密碼</label>
@@ -152,11 +173,17 @@
     <script>
         const defaultData = {
             info: {
-                title: "福岡 × 由布院 × 太宰府｜8人旅行攻略",
+                title: "福岡旅行攻略",
                 subtitle: "2026.09.29 - 10.04｜5夜6天",
                 people: 8,
                 stay: "GRAND BASE Hakata Naraya（福岡市博多區奈良屋町8-12）",
-                totalCost: 0
+                heroDesc: "跨海8人同行。博多美食、由布院、太宰府祈願，每一刻都是回憶。",
+                highlights: [
+                    { icon: "✈️", label: "出發日期", value: "2026.09.29" },
+                    { icon: "🏠", label: "住宿飯店", value: "GRAND BASE Hakata" },
+                    { icon: "👥", label: "旅行人數", value: "8人同行" },
+                    { icon: "🗓️", label: "旅行天數", value: "5夜6天" }
+                ]
             },
             itinerary: [
                 { day: 1, date: "9/29 (二)", title: "抵達日", items: [
@@ -223,15 +250,15 @@
                 { name: "博多車站", desc: "福岡交通樞紐，也是買伴手禮與購物的好地方。", tag: "購物", mapUrl: "https://www.google.com/maps/search/博多駅+福岡" }
             ],
             food: [
-                { name: "一蘭拉麵 總本店", cat: "拉麵", desc: "福岡起家的拉麵名店，總本店氣勢非凡。", reserve: false },
-                { name: "燒肉", cat: "燒肉", desc: "Day 2 午餐預定，品嚐在地和牛。", reserve: true },
-                { name: "湯之坪小食", cat: "小食", desc: "可樂餅、布丁銅鑼燒等各種街頭美食。", reserve: false },
-                { name: "B-speak蛋糕捲", cat: "甜點", desc: "口感綿密不甜膩，建議早點購買。", reserve: false },
-                { name: "ShinShin拉麵", cat: "拉麵", desc: "深受當地人喜愛的豚骨拉麵，天神本店常排隊。", reserve: true },
-                { name: "暖暮拉麵", cat: "拉麵", desc: "曾獲得九州拉麵總選舉第一名。", reserve: false },
-                { name: "The Full Full Hakata", cat: "麵包", desc: "招牌明太子法國麵包，必買！", reserve: false },
-                { name: "努努雞", cat: "小食", desc: "冰著吃的炸雞，博多特色伴手禮。", reserve: false },
-                { name: "福砂屋長崎蛋糕", cat: "甜點", desc: "底部砂糖顆粒是精華。", reserve: false }
+                { name: "一蘭拉麵 總本店", cat: "拉麵", desc: "福岡起家的拉麵名店，總本店氣勢非凡。", reserve: false, mapUrl: "https://www.google.com/maps/search/一蘭拉麵+總本店+福岡" },
+                { name: "燒肉", cat: "燒肉", desc: "Day 2 午餐預定，品嚐在地和牛。", reserve: true, mapUrl: "" },
+                { name: "湯之坪小食", cat: "小食", desc: "可樂餅、布丁銅鑼燒等各種街頭美食。", reserve: false, mapUrl: "" },
+                { name: "B-speak蛋糕捲", cat: "甜點", desc: "口感綿密不甜膩，建議早點購買。", reserve: false, mapUrl: "https://www.google.com/maps/search/B-speak+由布院" },
+                { name: "ShinShin拉麵", cat: "拉麵", desc: "深受當地人喜愛的豚骨拉麵，天神本店常排隊。", reserve: true, mapUrl: "https://www.google.com/maps/search/ShinShin拉麵+天神+福岡" },
+                { name: "暖暮拉麵", cat: "拉麵", desc: "曾獲得九州拉麵總選舉第一名。", reserve: false, mapUrl: "https://www.google.com/maps/search/暖暮拉麵+太宰府" },
+                { name: "The Full Full Hakata", cat: "麵包", desc: "招牌明太子法國麵包，必買！", reserve: false, mapUrl: "https://www.google.com/maps/search/The+Full+Full+Hakata" },
+                { name: "努努雞", cat: "小食", desc: "冰著吃的炸雞，博多特色伴手禮。", reserve: false, mapUrl: "https://www.google.com/maps/search/努努雞+福岡" },
+                { name: "福砂屋長崎蛋糕", cat: "甜點", desc: "底部砂糖顆粒是精華。", reserve: false, mapUrl: "https://www.google.com/maps/search/福砂屋+博多" }
             ],
             reservations: [
                 { item: "和服租借花水木", status: "未預約", note: "1.5個月前需預約" },
@@ -247,9 +274,30 @@
             ]
         };
 
-        if (!localStorage.getItem('fukuokaTravelData')) {
-            localStorage.setItem('fukuokaTravelData', JSON.stringify(defaultData));
-        }
+        // ── 資料初始化：若 localStorage 沒有資料，或舊資料缺少 highlights / food.mapUrl，則補齊 ──
+        (function initData() {
+            const raw = localStorage.getItem('fukuokaTravelData');
+            if (!raw) {
+                localStorage.setItem('fukuokaTravelData', JSON.stringify(defaultData));
+                return;
+            }
+            const saved = JSON.parse(raw);
+            // 補 highlights
+            if (!saved.info.highlights) {
+                saved.info.highlights = defaultData.info.highlights;
+            }
+            // 補 heroDesc
+            if (!saved.info.heroDesc) {
+                saved.info.heroDesc = defaultData.info.heroDesc;
+            }
+            // 補 food.mapUrl（舊資料可能沒有）
+            saved.food.forEach((f, i) => {
+                if (f.mapUrl === undefined) {
+                    f.mapUrl = (defaultData.food[i] && defaultData.food[i].mapUrl) || "";
+                }
+            });
+            localStorage.setItem('fukuokaTravelData', JSON.stringify(saved));
+        })();
 
         function getData() {
             return JSON.parse(localStorage.getItem('fukuokaTravelData'));
@@ -283,25 +331,24 @@
                     day.items.forEach(item => total += (item.cost || 0));
                 });
 
+                // highlights 卡片（從 data.info.highlights 動態渲染）
+                const highlights = data.info.highlights || defaultData.info.highlights;
+                const highlightCards = highlights.map(h => `
+                    <div class="card p-6 border-t-4 border-blue-900 text-center">
+                        <div class="text-3xl mb-2">${h.icon}</div>
+                        <p class="text-xs text-gray-500 mb-1">${h.label}</p>
+                        <p class="font-bold text-sm">${h.value}</p>
+                    </div>
+                `).join('');
+
                 container.innerHTML = `
                     <div class="text-center mb-12">
                         <h1 class="text-4xl md:text-5xl font-bold mb-4 magazine-title">${data.info.title}</h1>
-                        <p class="text-xl text-gray-600">${data.info.subtitle}</p>
+                        <p class="text-xl text-gray-600 mb-4">${data.info.subtitle}</p>
+                        <p class="text-gray-500 max-w-xl mx-auto">${data.info.heroDesc || ''}</p>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                        <div class="card p-6 border-t-4 border-blue-900">
-                            <h3 class="font-bold text-lg mb-2">👥 旅行人數</h3>
-                            <p class="text-2xl">${data.info.people} 人同行</p>
-                        </div>
-                        <div class="card p-6 border-t-4 border-blue-900">
-                            <h3 class="font-bold text-lg mb-2">🏨 住宿地點</h3>
-                            <p class="text-sm">${data.info.stay}</p>
-                        </div>
-                        <div class="card p-6 border-t-4 border-blue-900">
-                            <h3 class="font-bold text-lg mb-2">💰 預估交通費</h3>
-                            <p class="text-2xl text-orange-700">¥${total.toLocaleString()} <span class="text-sm text-gray-500">/ 人</span></p>
-                            <p class="text-sm text-gray-400">總計：¥${(total * data.info.people).toLocaleString()} (8人)</p>
-                        </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+                        ${highlightCards}
                     </div>
                     <h2 class="text-2xl font-bold mb-6 flex items-center">
                         <span class="w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center mr-2 text-sm">01</span>
@@ -378,6 +425,7 @@
                                         ${item.reserve ? '<span class="text-xs bg-red-100 text-red-600 px-2 py-1 rounded">需預約</span>' : ''}
                                     </div>
                                     <p class="text-gray-600 text-sm mt-1">${item.desc}</p>
+                                    ${item.mapUrl ? `<a href="${item.mapUrl}" target="_blank" class="map-btn mt-2">🗺️ 查看地圖</a>` : ''}
                                 </div>
                             `;
                         });
@@ -432,6 +480,7 @@
                 container.innerHTML = `
                     <h2 class="text-3xl font-bold mb-8 text-center magazine-title">後台管理系統</h2>
                     <div class="flex flex-wrap gap-2 mb-8 bg-white p-4 rounded shadow-sm">
+                        <button onclick="renderAdminSection('home')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded">首頁管理</button>
                         <button onclick="renderAdminSection('itinerary')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded">行程管理</button>
                         <button onclick="renderAdminSection('attractions')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded">景點管理</button>
                         <button onclick="renderAdminSection('food')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded">美食管理</button>
@@ -440,7 +489,7 @@
                     </div>
                     <div id="admin-section-content"></div>
                 `;
-                renderAdminSection('itinerary');
+                renderAdminSection('home');
             }
         }
 
@@ -453,7 +502,48 @@
             const content = document.getElementById('admin-section-content');
             const data = getData();
 
-            if (section === 'itinerary') {
+            // ── 首頁管理 ──────────────────────────────────────────
+            if (section === 'home') {
+                const d = data.info;
+                if (!d.highlights) d.highlights = defaultData.info.highlights;
+
+                content.innerHTML = `
+                    <h3 class="text-xl font-bold mb-4">首頁管理</h3>
+                    <div class="bg-white p-6 rounded shadow-sm mb-6 space-y-4">
+                        <div>
+                            <label class="block text-sm font-bold mb-1">主標題</label>
+                            <input class="w-full border p-2 rounded" value="${escHtml(d.title)}"
+                                onchange="updateInfo('title', this.value)">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-1">副標題（日期）</label>
+                            <input class="w-full border p-2 rounded" value="${escHtml(d.subtitle)}"
+                                onchange="updateInfo('subtitle', this.value)">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-1">首頁描述文字</label>
+                            <textarea class="w-full border p-2 rounded" rows="3"
+                                onchange="updateInfo('heroDesc', this.value)">${escHtml(d.heroDesc || '')}</textarea>
+                        </div>
+                    </div>
+                    <h4 class="font-bold mb-3">快速資訊卡片（4張）</h4>
+                    <div class="space-y-3 mb-2">
+                        ${d.highlights.map((h, i) => `
+                            <div class="bg-white p-4 rounded shadow-sm flex gap-3 items-center">
+                                <input class="border p-1 rounded w-14 text-center text-xl" value="${escHtml(h.icon)}"
+                                    onchange="updateHighlight(${i}, 'icon', this.value)" title="Emoji 圖示">
+                                <input class="border p-1 rounded w-1/3" value="${escHtml(h.label)}"
+                                    onchange="updateHighlight(${i}, 'label', this.value)" placeholder="標籤">
+                                <input class="border p-1 rounded flex-1" value="${escHtml(h.value)}"
+                                    onchange="updateHighlight(${i}, 'value', this.value)" placeholder="內容">
+                            </div>
+                        `).join('')}
+                    </div>
+                    <p class="text-xs text-gray-400 mt-2">※ 修改後即時儲存，點「首頁」即可預覽更新。</p>
+                `;
+
+            // ── 行程管理 ──────────────────────────────────────────
+            } else if (section === 'itinerary') {
                 let html = '<h3 class="text-xl font-bold mb-4">行程管理</h3>';
                 data.itinerary.forEach((day, dayIdx) => {
                     html += `
@@ -470,8 +560,8 @@
                     day.items.forEach((item, itemIdx) => {
                         html += `
                             <tr class="border-b">
-                                <td class="py-2"><input type="text" value="${item.time}" onchange="updateItinerary(${dayIdx}, ${itemIdx}, 'time', this.value)" class="border rounded px-1 w-16"></td>
-                                <td class="py-2"><input type="text" value="${item.event}" onchange="updateItinerary(${dayIdx}, ${itemIdx}, 'event', this.value)" class="border rounded px-1 w-full"></td>
+                                <td class="py-2"><input type="text" value="${escHtml(item.time)}" onchange="updateItinerary(${dayIdx}, ${itemIdx}, 'time', this.value)" class="border rounded px-1 w-16"></td>
+                                <td class="py-2"><input type="text" value="${escHtml(item.event)}" onchange="updateItinerary(${dayIdx}, ${itemIdx}, 'event', this.value)" class="border rounded px-1 w-full"></td>
                                 <td class="py-2"><input type="number" value="${item.cost}" onchange="updateItinerary(${dayIdx}, ${itemIdx}, 'cost', this.value)" class="border rounded px-1 w-20"></td>
                                 <td class="py-2"><button onclick="deleteItineraryItem(${dayIdx}, ${itemIdx})" class="text-red-500">刪除</button></td>
                             </tr>
@@ -481,47 +571,70 @@
                 });
                 content.innerHTML = html;
 
+            // ── 景點管理（含排序） ────────────────────────────────
             } else if (section === 'attractions') {
                 let html = `
                     <div class="flex justify-between items-center mb-4">
                         <h3 class="text-xl font-bold">景點管理</h3>
-                        <button onclick="addAttraction()" class="bg-blue-600 text-white px-4 py-2 rounded">+ 新增景點</button>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs text-gray-400">↑↓ 可調整顯示順序</span>
+                            <button onclick="addAttraction()" class="bg-blue-600 text-white px-4 py-2 rounded">+ 新增景點</button>
+                        </div>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="space-y-3">
                 `;
                 data.attractions.forEach((attr, idx) => {
+                    const isFirst = idx === 0;
+                    const isLast = idx === data.attractions.length - 1;
                     html += `
-                        <div class="bg-white p-4 rounded shadow-sm border">
-                            <div class="mb-2"><label class="text-xs text-gray-500">名稱</label><input type="text" value="${attr.name}" onchange="updateAttraction(${idx}, 'name', this.value)" class="w-full border rounded p-1"></div>
-                            <div class="mb-2"><label class="text-xs text-gray-500">標籤</label><input type="text" value="${attr.tag}" onchange="updateAttraction(${idx}, 'tag', this.value)" class="w-full border rounded p-1"></div>
-                            <div class="mb-2"><label class="text-xs text-gray-500">說明</label><textarea onchange="updateAttraction(${idx}, 'desc', this.value)" class="w-full border rounded p-1 h-20">${attr.desc}</textarea></div>
-                            <div class="mb-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="${attr.mapUrl || ''}" onchange="updateAttraction(${idx}, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs"></div>
-                            <button onclick="deleteAttraction(${idx})" class="text-red-500 text-sm">刪除此景點</button>
+                        <div class="bg-white p-4 rounded shadow-sm border flex gap-3 items-start">
+                            <div class="flex flex-col gap-1 pt-1 shrink-0">
+                                <button class="sort-btn" onclick="moveItem('attractions', ${idx}, -1)" ${isFirst ? 'disabled' : ''} title="上移">▲</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', ${idx}, 1)" ${isLast ? 'disabled' : ''} title="下移">▼</button>
+                            </div>
+                            <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2">
+                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="${escHtml(attr.name)}" onchange="updateAttraction(${idx}, 'name', this.value)" class="w-full border rounded p-1"></div>
+                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="${escHtml(attr.tag)}" onchange="updateAttraction(${idx}, 'tag', this.value)" class="w-full border rounded p-1"></div>
+                                <div class="md:col-span-2"><label class="text-xs text-gray-500">說明</label><textarea onchange="updateAttraction(${idx}, 'desc', this.value)" class="w-full border rounded p-1 h-16">${escHtml(attr.desc)}</textarea></div>
+                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="${escHtml(attr.mapUrl || '')}" onchange="updateAttraction(${idx}, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..."></div>
+                            </div>
+                            <button onclick="deleteAttraction(${idx})" class="text-red-400 text-sm shrink-0 mt-1">✕</button>
                         </div>
                     `;
                 });
                 html += '</div>';
                 content.innerHTML = html;
 
+            // ── 美食管理（含排序＋Google Maps） ──────────────────
             } else if (section === 'food') {
                 let html = `
                     <div class="flex justify-between items-center mb-4">
                         <h3 class="text-xl font-bold">美食管理</h3>
-                        <button onclick="addFood()" class="bg-blue-600 text-white px-4 py-2 rounded">+ 新增餐廳</button>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs text-gray-400">↑↓ 可調整顯示順序</span>
+                            <button onclick="addFood()" class="bg-blue-600 text-white px-4 py-2 rounded">+ 新增餐廳</button>
+                        </div>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="space-y-3">
                 `;
                 data.food.forEach((f, idx) => {
+                    const isFirst = idx === 0;
+                    const isLast = idx === data.food.length - 1;
                     html += `
-                        <div class="bg-white p-4 rounded shadow-sm border">
-                            <div class="flex gap-2 mb-2">
-                                <div class="flex-grow"><label class="text-xs text-gray-500">名稱</label><input type="text" value="${f.name}" onchange="updateFood(${idx}, 'name', this.value)" class="w-full border rounded p-1"></div>
-                                <div><label class="text-xs text-gray-500">類別</label><input type="text" value="${f.cat}" onchange="updateFood(${idx}, 'cat', this.value)" class="border rounded p-1 w-20"></div>
+                        <div class="bg-white p-4 rounded shadow-sm border flex gap-3 items-start">
+                            <div class="flex flex-col gap-1 pt-1 shrink-0">
+                                <button class="sort-btn" onclick="moveItem('food', ${idx}, -1)" ${isFirst ? 'disabled' : ''} title="上移">▲</button>
+                                <button class="sort-btn" onclick="moveItem('food', ${idx}, 1)" ${isLast ? 'disabled' : ''} title="下移">▼</button>
                             </div>
-                            <div class="mb-2"><label class="text-xs text-gray-500">說明</label><input type="text" value="${f.desc}" onchange="updateFood(${idx}, 'desc', this.value)" class="w-full border rounded p-1"></div>
-                            <div class="flex justify-between items-center">
-                                <label class="flex items-center text-sm"><input type="checkbox" ${f.reserve ? 'checked' : ''} onchange="updateFood(${idx}, 'reserve', this.checked)" class="mr-1"> 需預約</label>
-                                <button onclick="deleteFood(${idx})" class="text-red-500 text-sm">刪除</button>
+                            <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2">
+                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="${escHtml(f.name)}" onchange="updateFood(${idx}, 'name', this.value)" class="w-full border rounded p-1"></div>
+                                <div><label class="text-xs text-gray-500">類別</label><input type="text" value="${escHtml(f.cat)}" onchange="updateFood(${idx}, 'cat', this.value)" class="w-full border rounded p-1"></div>
+                                <div class="md:col-span-2"><label class="text-xs text-gray-500">說明</label><input type="text" value="${escHtml(f.desc)}" onchange="updateFood(${idx}, 'desc', this.value)" class="w-full border rounded p-1"></div>
+                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="${escHtml(f.mapUrl || '')}" onchange="updateFood(${idx}, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..."></div>
+                                <div class="md:col-span-2 flex justify-between items-center">
+                                    <label class="flex items-center text-sm"><input type="checkbox" ${f.reserve ? 'checked' : ''} onchange="updateFood(${idx}, 'reserve', this.checked)" class="mr-1"> 需預約</label>
+                                    <button onclick="deleteFood(${idx})" class="text-red-400 text-sm">✕ 刪除</button>
+                                </div>
                             </div>
                         </div>
                     `;
@@ -529,6 +642,7 @@
                 html += '</div>';
                 content.innerHTML = html;
 
+            // ── 預約/購物管理 ─────────────────────────────────────
             } else if (section === 'reservations') {
                 let resHtml = '<div class="grid grid-cols-1 md:grid-cols-2 gap-8">';
                 resHtml += `
@@ -542,13 +656,13 @@
                 data.reservations.forEach((r, idx) => {
                     resHtml += `
                         <tr class="border-b">
-                            <td class="py-2"><input type="text" value="${r.item}" onchange="updateRes(${idx}, 'item', this.value)" class="w-full border-none"></td>
+                            <td class="py-2"><input type="text" value="${escHtml(r.item)}" onchange="updateRes(${idx}, 'item', this.value)" class="w-full border-none"></td>
                             <td class="py-2"><select onchange="updateRes(${idx}, 'status', this.value)" class="border rounded">
                                 <option value="未預約" ${r.status==='未預約'?'selected':''}>未預約</option>
                                 <option value="已預約" ${r.status==='已預約'?'selected':''}>已預約</option>
                                 <option value="完成" ${r.status==='完成'?'selected':''}>完成</option>
                             </select></td>
-                            <td class="py-2"><input type="text" value="${r.note}" onchange="updateRes(${idx}, 'note', this.value)" class="w-full border-none text-xs"></td>
+                            <td class="py-2"><input type="text" value="${escHtml(r.note)}" onchange="updateRes(${idx}, 'note', this.value)" class="w-full border-none text-xs"></td>
                         </tr>
                     `;
                 });
@@ -563,7 +677,7 @@
                             ${data.shopping.map((s, idx) => `
                                 <div class="flex items-center gap-2 mb-2 pb-2 border-b">
                                     <input type="checkbox" ${s.done ? 'checked' : ''} onchange="updateShop(${idx}, 'done', this.checked)">
-                                    <input type="text" value="${s.item}" onchange="updateShop(${idx}, 'item', this.value)" class="flex-grow border-none">
+                                    <input type="text" value="${escHtml(s.item)}" onchange="updateShop(${idx}, 'item', this.value)" class="flex-grow border-none">
                                     <button onclick="deleteShop(${idx})" class="text-red-400">×</button>
                                 </div>
                             `).join('')}
@@ -575,6 +689,37 @@
             }
         }
 
+        // ── 共用：HTML 特殊字元跳脫（防止引號破壞 input value） ──
+        function escHtml(str) {
+            return String(str || '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        }
+
+        // ── 首頁 info 更新 ──
+        function updateInfo(field, value) {
+            const data = getData();
+            data.info[field] = value;
+            saveData(data);
+        }
+        function updateHighlight(idx, field, value) {
+            const data = getData();
+            if (!data.info.highlights) data.info.highlights = defaultData.info.highlights;
+            data.info.highlights[idx][field] = value;
+            saveData(data);
+        }
+
+        // ── 通用排序（attractions / food） ──
+        function moveItem(listKey, idx, direction) {
+            const data = getData();
+            const list = data[listKey];
+            const target = idx + direction;
+            if (target < 0 || target >= list.length) return;
+            // 交換
+            [list[idx], list[target]] = [list[target], list[idx]];
+            saveData(data);
+            renderAdminSection(listKey);
+        }
+
+        // ── 行程管理 ──
         function updateItinerary(dayIdx, itemIdx, field, value) {
             const data = getData();
             if (field === 'cost') value = parseInt(value) || 0;
@@ -594,6 +739,8 @@
             saveData(data);
             renderAdminSection('itinerary');
         }
+
+        // ── 景點管理 ──
         function updateAttraction(idx, field, value) {
             const data = getData();
             data.attractions[idx][field] = value;
@@ -612,6 +759,8 @@
             saveData(data);
             renderAdminSection('attractions');
         }
+
+        // ── 美食管理 ──
         function updateFood(idx, field, value) {
             const data = getData();
             data.food[idx][field] = value;
@@ -619,7 +768,7 @@
         }
         function addFood() {
             const data = getData();
-            data.food.push({ name: "新餐廳", cat: "類別", desc: "說明", reserve: false });
+            data.food.push({ name: "新餐廳", cat: "類別", desc: "說明", reserve: false, mapUrl: "" });
             saveData(data);
             renderAdminSection('food');
         }
@@ -630,6 +779,8 @@
             saveData(data);
             renderAdminSection('food');
         }
+
+        // ── 預約/購物管理 ──
         function updateRes(idx, field, value) {
             const data = getData();
             data.reservations[idx][field] = value;
@@ -653,6 +804,7 @@
             renderAdminSection('reservations');
         }
 
+        // ── 導覽 ──
         function showPage(pageId) {
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('nav-active'));
             const activeNav = document.getElementById('nav-' + pageId);
@@ -682,6 +834,8 @@
         }
         window.onload = () => { showPage('home'); };
     </script>
+</body>
+</html>
 </body>
 </html>
 </html>
