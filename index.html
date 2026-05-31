@@ -143,13 +143,13 @@
             <a href="#" onclick="showPage('map')" class="text-xs flex flex-col items-center"><span>📍</span><span>地圖</span></a>
         </div>
     </nav>
-
+ 
     <main id="content-area" class="flex-grow container mx-auto px-4 py-8 max-w-6xl"></main>
-
+ 
     <footer class="bg-gray-800 text-white py-8 text-center">
         <p>© 2026 福岡 8 人旅行團 - 一起創造美好回憶</p>
     </footer>
-
+ 
     <!-- 管理登入 Modal -->
     <div id="login-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-[100]">
         <div class="bg-white p-8 rounded-lg shadow-xl w-80">
@@ -168,7 +168,7 @@
             </div>
         </div>
     </div>
-
+ 
     <script>
         const defaultData = {
             info: {
@@ -272,7 +272,14 @@
                 { item: "運動鞋", done: false }
             ]
         };
-
+ 
+        // ── 預設 GitHub Token（第一次自動存入，之後從 localStorage 讀取） ──
+        (function initToken() {
+            if (!localStorage.getItem('gh_token')) {
+                localStorage.setItem('gh_token', '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');
+            }
+        })();
+ 
         // ── 資料初始化：若 localStorage 沒有資料，或舊資料缺少 highlights / food.mapUrl，則補齊 ──
         (function initData() {
             const raw = localStorage.getItem('fukuokaTravelData');
@@ -297,19 +304,19 @@
             });
             localStorage.setItem('fukuokaTravelData', JSON.stringify(saved));
         })();
-
+ 
         function getData() {
             return JSON.parse(localStorage.getItem('fukuokaTravelData'));
         }
         function saveData(data) {
             localStorage.setItem('fukuokaTravelData', JSON.stringify(data));
         }
-
+ 
         function renderPage(pageId) {
             const data = getData();
             const container = document.getElementById('content-area');
             container.innerHTML = '';
-
+ 
             if (pageId === 'home') {
                 let itineraryCards = '';
                 data.itinerary.forEach(day => {
@@ -324,12 +331,12 @@
                         </div>
                     `;
                 });
-
+ 
                 let total = 0;
                 data.itinerary.forEach(day => {
                     day.items.forEach(item => total += (item.cost || 0));
                 });
-
+ 
                 // highlights 卡片（從 data.info.highlights 動態渲染）
                 const highlights = data.info.highlights || defaultData.info.highlights;
                 const highlightCards = highlights.map(h => `
@@ -339,7 +346,7 @@
                         <p class="font-bold text-sm">${h.value}</p>
                     </div>
                 `).join('');
-
+ 
                 container.innerHTML = `
                     <div class="text-center mb-12">
                         <h1 class="text-4xl md:text-5xl font-bold mb-4 magazine-title">${data.info.title}</h1>
@@ -357,7 +364,7 @@
                         ${itineraryCards}
                     </div>
                 `;
-
+ 
             } else if (pageId === 'itinerary') {
                 let timelineHtml = '';
                 data.itinerary.forEach(day => {
@@ -389,7 +396,7 @@
                     <h2 class="text-3xl font-bold mb-8 text-center magazine-title">行程規劃時間表</h2>
                     <div class="max-w-3xl mx-auto">${timelineHtml}</div>
                 `;
-
+ 
             } else if (pageId === 'attractions') {
                 let cardsHtml = '';
                 data.attractions.forEach(attr => {
@@ -408,7 +415,7 @@
                     <h2 class="text-3xl font-bold mb-8 text-center magazine-title">精選景點介紹</h2>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">${cardsHtml}</div>
                 `;
-
+ 
             } else if (pageId === 'food') {
                 let foodHtml = '';
                 const categories = ["拉麵", "燒肉", "小食", "甜點", "麵包"];
@@ -440,7 +447,7 @@
                     <h2 class="text-3xl font-bold mb-8 text-center magazine-title">在地美食紀錄</h2>
                     <div class="max-w-4xl mx-auto">${foodHtml}</div>
                 `;
-
+ 
             } else if (pageId === 'map') {
                 container.innerHTML = `
                     <h2 class="text-3xl font-bold mb-8 text-center magazine-title">地圖導航</h2>
@@ -470,7 +477,7 @@
                         <a href="https://www.google.com/maps/search/薬院+福岡" target="_blank" class="bg-white p-3 rounded shadow-sm hover:shadow-md transition flex items-center gap-2">🎨 藥院文青區</a>
                     </div>
                 `;
-
+ 
             } else if (pageId === 'admin') {
                 if (sessionStorage.getItem('isAdmin') !== 'true') {
                     showPage('home');
@@ -484,6 +491,7 @@
                         <button onclick="renderAdminSection('attractions')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded">景點管理</button>
                         <button onclick="renderAdminSection('food')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded">美食管理</button>
                         <button onclick="renderAdminSection('reservations')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded">預約/購物</button>
+                        <button onclick="exportHTML()" class="px-4 py-2 bg-green-600 text-white rounded font-bold hover:bg-green-700">📥 匯出更新檔</button>
                         <button onclick="logout()" class="px-4 py-2 bg-red-100 text-red-600 rounded ml-auto">登出</button>
                     </div>
                     <div id="admin-section-content"></div>
@@ -491,21 +499,21 @@
                 renderAdminSection('home');
             }
         }
-
+ 
         function logout() {
             sessionStorage.removeItem('isAdmin');
             showPage('home');
         }
-
+ 
         function renderAdminSection(section) {
             const content = document.getElementById('admin-section-content');
             const data = getData();
-
+ 
             // ── 首頁管理 ──────────────────────────────────────────
             if (section === 'home') {
                 const d = data.info;
                 if (!d.highlights) d.highlights = defaultData.info.highlights;
-
+ 
                 content.innerHTML = `
                     <h3 class="text-xl font-bold mb-4">首頁管理</h3>
                     <div class="bg-white p-6 rounded shadow-sm mb-6 space-y-4">
@@ -540,7 +548,7 @@
                     </div>
                     <p class="text-xs text-gray-400 mt-2">※ 修改後即時儲存，點「首頁」即可預覽更新。</p>
                 `;
-
+ 
             // ── 行程管理 ──────────────────────────────────────────
             } else if (section === 'itinerary') {
                 let html = '<h3 class="text-xl font-bold mb-4">行程管理</h3>';
@@ -569,7 +577,7 @@
                     html += '</tbody></table></div>';
                 });
                 content.innerHTML = html;
-
+ 
             // ── 景點管理（含排序） ────────────────────────────────
             } else if (section === 'attractions') {
                 let html = `
@@ -603,7 +611,7 @@
                 });
                 html += '</div>';
                 content.innerHTML = html;
-
+ 
             // ── 美食管理（含排序＋Google Maps） ──────────────────
             } else if (section === 'food') {
                 let html = `
@@ -640,7 +648,7 @@
                 });
                 html += '</div>';
                 content.innerHTML = html;
-
+ 
             // ── 預約/購物管理 ─────────────────────────────────────
             } else if (section === 'reservations') {
                 let resHtml = '<div class="grid grid-cols-1 md:grid-cols-2 gap-8">';
@@ -687,12 +695,12 @@
                 content.innerHTML = resHtml;
             }
         }
-
+ 
         // ── 共用：HTML 特殊字元跳脫（防止引號破壞 input value） ──
         function escHtml(str) {
             return String(str || '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
         }
-
+ 
         // ── 首頁 info 更新 ──
         function updateInfo(field, value) {
             const data = getData();
@@ -705,7 +713,7 @@
             data.info.highlights[idx][field] = value;
             saveData(data);
         }
-
+ 
         // ── 通用排序（attractions / food） ──
         function moveItem(listKey, idx, direction) {
             const data = getData();
@@ -717,7 +725,7 @@
             saveData(data);
             renderAdminSection(listKey);
         }
-
+ 
         // ── 行程管理 ──
         function updateItinerary(dayIdx, itemIdx, field, value) {
             const data = getData();
@@ -738,7 +746,7 @@
             saveData(data);
             renderAdminSection('itinerary');
         }
-
+ 
         // ── 景點管理 ──
         function updateAttraction(idx, field, value) {
             const data = getData();
@@ -758,7 +766,7 @@
             saveData(data);
             renderAdminSection('attractions');
         }
-
+ 
         // ── 美食管理 ──
         function updateFood(idx, field, value) {
             const data = getData();
@@ -778,7 +786,7 @@
             saveData(data);
             renderAdminSection('food');
         }
-
+ 
         // ── 預約/購物管理 ──
         function updateRes(idx, field, value) {
             const data = getData();
@@ -802,7 +810,7 @@
             saveData(data);
             renderAdminSection('reservations');
         }
-
+ 
         // ── 導覽 ──
         function showPage(pageId) {
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('nav-active'));
@@ -831,10 +839,117 @@
                 alert('帳號或密碼錯誤');
             }
         }
+ 
+        // ── GitHub 設定（Token 存在 localStorage，不出現在原始碼） ──
+        const GITHUB_REPO  = 'yutinghuangt-afk/fukuoka';
+        const GITHUB_FILE  = 'index.html';
+        const GITHUB_API   = 'https://api.github.com';
+ 
+        function getToken() {
+            return localStorage.getItem('gh_token') || '';
+        }
+        function setToken(t) {
+            localStorage.setItem('gh_token', t.trim());
+        }
+ 
+        // ── 產生新版 HTML（把 defaultData 換成最新資料） ──
+        function buildNewHTML() {
+            const currentData = getData();
+            const source = document.documentElement.outerHTML;
+            const newDataStr = 'const defaultData = ' + JSON.stringify(currentData, null, 12) + ';';
+            const startMarker = 'const defaultData = {';
+            const startIdx = source.indexOf(startMarker);
+            let depth = 0, endIdx = -1, inString = false, strChar = '', escaped = false;
+            for (let i = startIdx + startMarker.length - 1; i < source.length; i++) {
+                const ch = source[i];
+                if (escaped) { escaped = false; continue; }
+                if (ch === '\\' && inString) { escaped = true; continue; }
+                if (!inString && (ch === '"' || ch === "'" || ch === '`')) { inString = true; strChar = ch; continue; }
+                if (inString && ch === strChar) { inString = false; continue; }
+                if (inString) continue;
+                if (ch === '{') { depth++; continue; }
+                if (ch === '}') {
+                    depth--;
+                    if (depth === 0) { endIdx = source.indexOf(';', i) + 1; break; }
+                }
+            }
+            if (startIdx === -1 || endIdx === -1) return null;
+            let html = source.slice(0, startIdx) + newDataStr + source.slice(endIdx);
+            if (!html.includes('<!DOCTYPE')) html = '<!DOCTYPE html>\n' + html;
+            return html;
+        }
+ 
+        // ── 自動推送到 GitHub ──
+        async function exportHTML() {
+            // 1. 確認 Token
+            let token = getToken();
+            if (!token) {
+                token = prompt('請輸入 GitHub Token（只需輸入一次，之後自動記住）：');
+                if (!token) return;
+                setToken(token);
+            }
+ 
+            // 2. 產生新 HTML
+            const newHTML = buildNewHTML();
+            if (!newHTML) { alert('❌ 產生 HTML 失敗，請重試。'); return; }
+ 
+            // 3. 取得目前檔案的 SHA（GitHub API 更新檔案需要）
+            const btn = document.querySelector('button[onclick="exportHTML()"]');
+            const origText = btn ? btn.textContent : '';
+            if (btn) { btn.textContent = '⏳ 更新中...'; btn.disabled = true; }
+ 
+            try {
+                const getRes = await fetch(`${GITHUB_API}/repos/${GITHUB_REPO}/contents/${GITHUB_FILE}`, {
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                });
+ 
+                if (getRes.status === 401) {
+                    localStorage.removeItem('gh_token');
+                    alert('❌ Token 無效或已過期，請重新輸入。');
+                    if (btn) { btn.textContent = origText; btn.disabled = false; }
+                    return;
+                }
+                if (!getRes.ok) throw new Error(`取得檔案失敗：${getRes.status}`);
+ 
+                const fileInfo = await getRes.json();
+                const sha = fileInfo.sha;
+ 
+                // 4. 把 HTML 轉成 Base64
+                const base64 = btoa(unescape(encodeURIComponent(newHTML)));
+ 
+                // 5. 推送更新
+                const putRes = await fetch(`${GITHUB_API}/repos/${GITHUB_REPO}/contents/${GITHUB_FILE}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: `✏️ 後台更新內容 ${new Date().toLocaleString('zh-TW')}`,
+                        content: base64,
+                        sha: sha
+                    })
+                });
+ 
+                if (!putRes.ok) throw new Error(`推送失敗：${putRes.status}`);
+ 
+                if (btn) { btn.textContent = '✅ 已更新！'; }
+                setTimeout(() => {
+                    alert('✅ 成功！\n\nGitHub Pages 約 1~2 分鐘後生效。\n請稍後重新整理網站確認。');
+                    if (btn) { btn.textContent = origText; btn.disabled = false; }
+                }, 300);
+ 
+            } catch (err) {
+                alert('❌ 更新失敗：' + err.message);
+                if (btn) { btn.textContent = origText; btn.disabled = false; }
+            }
+        }
+ 
         window.onload = () => { showPage('home'); };
     </script>
 </body>
-</html>
-</body>
-</html>
 </html>
