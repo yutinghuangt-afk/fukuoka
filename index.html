@@ -129,7 +129,7 @@
                     <a href="#" onclick="showPage('map')" id="nav-map" class="nav-item py-4 px-2">地圖導航</a>
                 </div>
                 <div class="flex items-center">
-                    <button onclick="checkAdminLogin()" class="text-sm border border-gray-300 px-3 py-1 rounded hover:bg-gray-100">管理</button>
+                    <button onclick="checkAdminLogin()" class="text-sm border border-gray-300 px-3 py-1 rounded hover:bg-gray-100" fdprocessedid="555bh">管理</button>
                 </div>
             </div>
         </div>
@@ -146,20 +146,20 @@
     <main id="content-area" class="flex-grow container mx-auto px-4 py-8 max-w-6xl">
                     <h2 class="text-3xl font-bold mb-8 text-center magazine-title">後台管理系統</h2>
                     <div class="flex flex-wrap gap-2 mb-8 bg-white p-4 rounded shadow-sm">
-                        <button onclick="renderAdminSection('home')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded">首頁管理</button>
-                        <button onclick="renderAdminSection('itinerary')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded">行程管理</button>
-                        <button onclick="renderAdminSection('attractions')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded">景點管理</button>
-                        <button onclick="renderAdminSection('food')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded">美食管理</button>
-                        <button onclick="renderAdminSection('reservations')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded">預約/購物</button>
-                        <button onclick="exportHTML()" class="px-4 py-2 bg-green-600 text-white rounded font-bold hover:bg-green-700">📥 匯出更新檔</button>
-                        <button onclick="logout()" class="px-4 py-2 bg-red-100 text-red-600 rounded ml-auto">登出</button>
+                        <button onclick="renderAdminSection('home')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded" fdprocessedid="7ka06q">首頁管理</button>
+                        <button onclick="renderAdminSection('itinerary')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded" fdprocessedid="lsxgra">行程管理</button>
+                        <button onclick="renderAdminSection('attractions')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded" fdprocessedid="7dr3k">景點管理</button>
+                        <button onclick="renderAdminSection('food')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded" fdprocessedid="qbp08">美食管理</button>
+                        <button onclick="renderAdminSection('reservations')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded" fdprocessedid="13mlc">預約/購物</button>
+                        <button onclick="exportHTML()" class="px-4 py-2 bg-green-600 text-white rounded font-bold hover:bg-green-700" fdprocessedid="0x6nom">📥 匯出更新檔</button>
+                        <button onclick="logout()" class="px-4 py-2 bg-red-100 text-red-600 rounded ml-auto" fdprocessedid="hd4tao">登出</button>
                     </div>
                     <div id="admin-section-content">
                     <div class="flex justify-between items-center mb-4">
                         <h3 class="text-xl font-bold">景點管理</h3>
                         <div class="flex items-center gap-2">
                             <span class="text-xs text-gray-400">↑↓ 可調整顯示順序</span>
-                            <button onclick="addAttraction()" class="bg-blue-600 text-white px-4 py-2 rounded">+ 新增景點</button>
+                            <button onclick="addAttraction()" class="bg-blue-600 text-white px-4 py-2 rounded" fdprocessedid="pzhr0m">+ 新增景點</button>
                         </div>
                     </div>
                     <div class="space-y-3">
@@ -167,197 +167,183 @@
                         <div class="bg-white p-4 rounded shadow-sm border flex gap-3 items-start">
                             <div class="flex flex-col gap-1 pt-1 shrink-0">
                                 <button class="sort-btn" onclick="moveItem('attractions', 0, -1)" disabled="" title="上移">▲</button>
-                                <button class="sort-btn" onclick="moveItem('attractions', 0, 1)" title="下移">▼</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 0, 1)" title="下移" fdprocessedid="zvcf2v">▼</button>
                             </div>
                             <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2">
-                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="住吉神社" onchange="updateAttraction(0, 'name', this.value)" class="w-full border rounded p-1"></div>
-                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="文化" onchange="updateAttraction(0, 'tag', this.value)" class="w-full border rounded p-1"></div>
+                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="住吉神社" onchange="updateAttraction(0, 'name', this.value)" class="w-full border rounded p-1" fdprocessedid="kqj1ci"></div>
+                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="文化" onchange="updateAttraction(0, 'tag', this.value)" class="w-full border rounded p-1" fdprocessedid="yw5wns"></div>
                                 <div class="md:col-span-2"><label class="text-xs text-gray-500">說明</label><textarea onchange="updateAttraction(0, 'desc', this.value)" class="w-full border rounded p-1 h-16">博多最古老神社，氛圍莊嚴。</textarea></div>
-                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://www.google.com/maps/search/住吉神社+福岡市博多区住吉3丁目1-51" onchange="updateAttraction(0, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..."></div>
+                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://maps.app.goo.gl/sudq4ZFoZtojj8eF7" onchange="updateAttraction(0, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..." fdprocessedid="ojk67h"></div>
                             </div>
-                            <button onclick="deleteAttraction(0)" class="text-red-400 text-sm shrink-0 mt-1">✕</button>
+                            <button onclick="deleteAttraction(0)" class="text-red-400 text-sm shrink-0 mt-1" fdprocessedid="4mfbnk">✕</button>
                         </div>
                     
                         <div class="bg-white p-4 rounded shadow-sm border flex gap-3 items-start">
                             <div class="flex flex-col gap-1 pt-1 shrink-0">
-                                <button class="sort-btn" onclick="moveItem('attractions', 1, -1)" title="上移">▲</button>
-                                <button class="sort-btn" onclick="moveItem('attractions', 1, 1)" title="下移">▼</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 1, -1)" title="上移" fdprocessedid="4ff79n">▲</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 1, 1)" title="下移" fdprocessedid="o1x91f">▼</button>
                             </div>
                             <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2">
-                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="博多運河城" onchange="updateAttraction(1, 'name', this.value)" class="w-full border rounded p-1"></div>
-                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="購物" onchange="updateAttraction(1, 'tag', this.value)" class="w-full border rounded p-1"></div>
+                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="博多運河城" onchange="updateAttraction(1, 'name', this.value)" class="w-full border rounded p-1" fdprocessedid="9d8ibd"></div>
+                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="購物" onchange="updateAttraction(1, 'tag', this.value)" class="w-full border rounded p-1" fdprocessedid="6pfrg"></div>
                                 <div class="md:col-span-2"><label class="text-xs text-gray-500">說明</label><textarea onchange="updateAttraction(1, 'desc', this.value)" class="w-full border rounded p-1 h-16">大型購物中心，噴水池表演與多樣店舖。</textarea></div>
-                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://www.google.com/maps/search/Canal+City+Hakata+福岡" onchange="updateAttraction(1, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..."></div>
+                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://maps.app.goo.gl/niXkba2xf8XxgDGq8" onchange="updateAttraction(1, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..." fdprocessedid="62c9ic"></div>
                             </div>
-                            <button onclick="deleteAttraction(1)" class="text-red-400 text-sm shrink-0 mt-1">✕</button>
+                            <button onclick="deleteAttraction(1)" class="text-red-400 text-sm shrink-0 mt-1" fdprocessedid="dzigr">✕</button>
                         </div>
                     
                         <div class="bg-white p-4 rounded shadow-sm border flex gap-3 items-start">
                             <div class="flex flex-col gap-1 pt-1 shrink-0">
-                                <button class="sort-btn" onclick="moveItem('attractions', 2, -1)" title="上移">▲</button>
-                                <button class="sort-btn" onclick="moveItem('attractions', 2, 1)" title="下移">▼</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 2, -1)" title="上移" fdprocessedid="0yvh7x">▲</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 2, 1)" title="下移" fdprocessedid="xzdjsb">▼</button>
                             </div>
                             <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2">
-                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="金鱗湖" onchange="updateAttraction(2, 'name', this.value)" class="w-full border rounded p-1"></div>
-                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="自然" onchange="updateAttraction(2, 'tag', this.value)" class="w-full border rounded p-1"></div>
-                                <div class="md:col-span-2"><label class="text-xs text-gray-500">說明</label><textarea onchange="updateAttraction(2, 'desc', this.value)" class="w-full border rounded p-1 h-16">由布院知名景點，晨霧迷濛非常美麗。</textarea></div>
-                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://www.google.com/maps/search/金鱗湖+由布院" onchange="updateAttraction(2, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..."></div>
+                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="湯之坪街道" onchange="updateAttraction(2, 'name', this.value)" class="w-full border rounded p-1" fdprocessedid="vqeyrb"></div>
+                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="散策" onchange="updateAttraction(2, 'tag', this.value)" class="w-full border rounded p-1" fdprocessedid="irig2"></div>
+                                <div class="md:col-span-2"><label class="text-xs text-gray-500">說明</label><textarea onchange="updateAttraction(2, 'desc', this.value)" class="w-full border rounded p-1 h-16">充滿文青氣息與特色小食的街道。</textarea></div>
+                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://maps.app.goo.gl/vBLUc4PzKhqzhLkQA" onchange="updateAttraction(2, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..." fdprocessedid="lyuxe"></div>
                             </div>
-                            <button onclick="deleteAttraction(2)" class="text-red-400 text-sm shrink-0 mt-1">✕</button>
+                            <button onclick="deleteAttraction(2)" class="text-red-400 text-sm shrink-0 mt-1" fdprocessedid="jpimth">✕</button>
                         </div>
                     
                         <div class="bg-white p-4 rounded shadow-sm border flex gap-3 items-start">
                             <div class="flex flex-col gap-1 pt-1 shrink-0">
-                                <button class="sort-btn" onclick="moveItem('attractions', 3, -1)" title="上移">▲</button>
-                                <button class="sort-btn" onclick="moveItem('attractions', 3, 1)" title="下移">▼</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 3, -1)" title="上移" fdprocessedid="bmys4d">▲</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 3, 1)" title="下移" fdprocessedid="10svvd">▼</button>
                             </div>
                             <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2">
-                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="湯之坪街道" onchange="updateAttraction(3, 'name', this.value)" class="w-full border rounded p-1"></div>
-                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="散策" onchange="updateAttraction(3, 'tag', this.value)" class="w-full border rounded p-1"></div>
-                                <div class="md:col-span-2"><label class="text-xs text-gray-500">說明</label><textarea onchange="updateAttraction(3, 'desc', this.value)" class="w-full border rounded p-1 h-16">充滿文青氣息與特色小食的街道。</textarea></div>
-                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://www.google.com/maps/search/湯の坪街道+由布院" onchange="updateAttraction(3, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..."></div>
+                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="金鱗湖" onchange="updateAttraction(3, 'name', this.value)" class="w-full border rounded p-1" fdprocessedid="b6g1hx"></div>
+                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="自然" onchange="updateAttraction(3, 'tag', this.value)" class="w-full border rounded p-1" fdprocessedid="ev8k3d"></div>
+                                <div class="md:col-span-2"><label class="text-xs text-gray-500">說明</label><textarea onchange="updateAttraction(3, 'desc', this.value)" class="w-full border rounded p-1 h-16">由布院知名景點，晨霧迷濛非常美麗。</textarea></div>
+                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://maps.app.goo.gl/7btjTRzGoPFjNVmq8" onchange="updateAttraction(3, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..." fdprocessedid="3e2qzl"></div>
                             </div>
-                            <button onclick="deleteAttraction(3)" class="text-red-400 text-sm shrink-0 mt-1">✕</button>
+                            <button onclick="deleteAttraction(3)" class="text-red-400 text-sm shrink-0 mt-1" fdprocessedid="99pc9qs">✕</button>
                         </div>
                     
                         <div class="bg-white p-4 rounded shadow-sm border flex gap-3 items-start">
                             <div class="flex flex-col gap-1 pt-1 shrink-0">
-                                <button class="sort-btn" onclick="moveItem('attractions', 4, -1)" title="上移">▲</button>
-                                <button class="sort-btn" onclick="moveItem('attractions', 4, 1)" title="下移">▼</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 4, -1)" title="上移" fdprocessedid="6ac6sg">▲</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 4, 1)" title="下移" fdprocessedid="nqipuo">▼</button>
                             </div>
                             <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2">
-                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="SNOOPY茶屋" onchange="updateAttraction(4, 'name', this.value)" class="w-full border rounded p-1"></div>
-                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="特色" onchange="updateAttraction(4, 'tag', this.value)" class="w-full border rounded p-1"></div>
+                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="SNOOPY茶屋" onchange="updateAttraction(4, 'name', this.value)" class="w-full border rounded p-1" fdprocessedid="vh1fbp"></div>
+                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="特色" onchange="updateAttraction(4, 'tag', this.value)" class="w-full border rounded p-1" fdprocessedid="osy08h"></div>
                                 <div class="md:col-span-2"><label class="text-xs text-gray-500">說明</label><textarea onchange="updateAttraction(4, 'desc', this.value)" class="w-full border rounded p-1 h-16">結合史努比與和風特色的主題茶屋。</textarea></div>
-                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://www.google.com/maps/search/SNOOPY茶屋+由布院" onchange="updateAttraction(4, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..."></div>
+                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://maps.app.goo.gl/y5Qax3oiDXsrLFvz5" onchange="updateAttraction(4, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..." fdprocessedid="rtd0c"></div>
                             </div>
-                            <button onclick="deleteAttraction(4)" class="text-red-400 text-sm shrink-0 mt-1">✕</button>
+                            <button onclick="deleteAttraction(4)" class="text-red-400 text-sm shrink-0 mt-1" fdprocessedid="qi6b9k">✕</button>
                         </div>
                     
                         <div class="bg-white p-4 rounded shadow-sm border flex gap-3 items-start">
                             <div class="flex flex-col gap-1 pt-1 shrink-0">
-                                <button class="sort-btn" onclick="moveItem('attractions', 5, -1)" title="上移">▲</button>
-                                <button class="sort-btn" onclick="moveItem('attractions', 5, 1)" title="下移">▼</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 5, -1)" title="上移" fdprocessedid="mof1bl">▲</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 5, 1)" title="下移" fdprocessedid="hqx0s">▼</button>
                             </div>
                             <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2">
-                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="吉卜力どんぐりの森" onchange="updateAttraction(5, 'name', this.value)" class="w-full border rounded p-1"></div>
-                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="購物" onchange="updateAttraction(5, 'tag', this.value)" class="w-full border rounded p-1"></div>
+                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="吉卜力どんぐりの森" onchange="updateAttraction(5, 'name', this.value)" class="w-full border rounded p-1" fdprocessedid="x43shk"></div>
+                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="購物" onchange="updateAttraction(5, 'tag', this.value)" class="w-full border rounded p-1" fdprocessedid="ycyq2"></div>
                                 <div class="md:col-span-2"><label class="text-xs text-gray-500">說明</label><textarea onchange="updateAttraction(5, 'desc', this.value)" class="w-full border rounded p-1 h-16">宮崎駿迷必訪的周邊商品店。</textarea></div>
-                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://www.google.com/maps/search/どんぐりの森+由布院" onchange="updateAttraction(5, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..."></div>
+                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://maps.app.goo.gl/CJPPHrgRQyFVsRyg9" onchange="updateAttraction(5, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..." fdprocessedid="cspkcm"></div>
                             </div>
-                            <button onclick="deleteAttraction(5)" class="text-red-400 text-sm shrink-0 mt-1">✕</button>
+                            <button onclick="deleteAttraction(5)" class="text-red-400 text-sm shrink-0 mt-1" fdprocessedid="jlcyaf">✕</button>
                         </div>
                     
                         <div class="bg-white p-4 rounded shadow-sm border flex gap-3 items-start">
                             <div class="flex flex-col gap-1 pt-1 shrink-0">
-                                <button class="sort-btn" onclick="moveItem('attractions', 6, -1)" title="上移">▲</button>
-                                <button class="sort-btn" onclick="moveItem('attractions', 6, 1)" title="下移">▼</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 6, -1)" title="上移" fdprocessedid="szkkcp">▲</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 6, 1)" title="下移" fdprocessedid="dmr6q">▼</button>
                             </div>
                             <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2">
-                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="B-speak" onchange="updateAttraction(6, 'name', this.value)" class="w-full border rounded p-1"></div>
-                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="美食" onchange="updateAttraction(6, 'tag', this.value)" class="w-full border rounded p-1"></div>
+                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="B-speak" onchange="updateAttraction(6, 'name', this.value)" class="w-full border rounded p-1" fdprocessedid="1d41j6"></div>
+                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="美食" onchange="updateAttraction(6, 'tag', this.value)" class="w-full border rounded p-1" fdprocessedid="xo5kb"></div>
                                 <div class="md:col-span-2"><label class="text-xs text-gray-500">說明</label><textarea onchange="updateAttraction(6, 'desc', this.value)" class="w-full border rounded p-1 h-16">由布院超人氣生乳捲店。</textarea></div>
-                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://www.google.com/maps/search/B-speak+由布院" onchange="updateAttraction(6, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..."></div>
+                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://maps.app.goo.gl/4h5NES5UzA687eMx5" onchange="updateAttraction(6, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..." fdprocessedid="us1kx"></div>
                             </div>
-                            <button onclick="deleteAttraction(6)" class="text-red-400 text-sm shrink-0 mt-1">✕</button>
+                            <button onclick="deleteAttraction(6)" class="text-red-400 text-sm shrink-0 mt-1" fdprocessedid="kjn5yh">✕</button>
                         </div>
                     
                         <div class="bg-white p-4 rounded shadow-sm border flex gap-3 items-start">
                             <div class="flex flex-col gap-1 pt-1 shrink-0">
-                                <button class="sort-btn" onclick="moveItem('attractions', 7, -1)" title="上移">▲</button>
-                                <button class="sort-btn" onclick="moveItem('attractions', 7, 1)" title="下移">▼</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 7, -1)" title="上移" fdprocessedid="ym4rx">▲</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 7, 1)" title="下移" fdprocessedid="3bw03">▼</button>
                             </div>
                             <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2">
-                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="福島八幡宮" onchange="updateAttraction(7, 'name', this.value)" class="w-full border rounded p-1"></div>
-                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="文化" onchange="updateAttraction(7, 'tag', this.value)" class="w-full border rounded p-1"></div>
+                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="福島八幡宮" onchange="updateAttraction(7, 'name', this.value)" class="w-full border rounded p-1" fdprocessedid="vq4x7w"></div>
+                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="文化" onchange="updateAttraction(7, 'tag', this.value)" class="w-full border rounded p-1" fdprocessedid="8qjqah"></div>
                                 <div class="md:col-span-2"><label class="text-xs text-gray-500">說明</label><textarea onchange="updateAttraction(7, 'desc', this.value)" class="w-full border rounded p-1 h-16">位於八女市，以精美的剪紙御朱印聞名。</textarea></div>
-                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://www.google.com/maps/search/福島八幡宮+八女市" onchange="updateAttraction(7, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..."></div>
+                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://maps.app.goo.gl/ThaFNd4x3Nxt3etR9" onchange="updateAttraction(7, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..." fdprocessedid="frw9q8"></div>
                             </div>
-                            <button onclick="deleteAttraction(7)" class="text-red-400 text-sm shrink-0 mt-1">✕</button>
+                            <button onclick="deleteAttraction(7)" class="text-red-400 text-sm shrink-0 mt-1" fdprocessedid="xn9d2">✕</button>
                         </div>
                     
                         <div class="bg-white p-4 rounded shadow-sm border flex gap-3 items-start">
                             <div class="flex flex-col gap-1 pt-1 shrink-0">
-                                <button class="sort-btn" onclick="moveItem('attractions', 8, -1)" title="上移">▲</button>
-                                <button class="sort-btn" onclick="moveItem('attractions', 8, 1)" title="下移">▼</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 8, -1)" title="上移" fdprocessedid="8k1rlm">▲</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 8, 1)" title="下移" fdprocessedid="vpt3oh">▼</button>
                             </div>
                             <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2">
-                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="BBB POTTERS" onchange="updateAttraction(8, 'name', this.value)" class="w-full border rounded p-1"></div>
-                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="購物" onchange="updateAttraction(8, 'tag', this.value)" class="w-full border rounded p-1"></div>
-                                <div class="md:col-span-2"><label class="text-xs text-gray-500">說明</label><textarea onchange="updateAttraction(8, 'desc', this.value)" class="w-full border rounded p-1 h-16">藥院區知名的生活選物店。</textarea></div>
-                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://www.google.com/maps/search/BBB+POTTERS+薬院+福岡" onchange="updateAttraction(8, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..."></div>
+                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="藥院文青區" onchange="updateAttraction(8, 'name', this.value)" class="w-full border rounded p-1" fdprocessedid="yorfza"></div>
+                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="散策" onchange="updateAttraction(8, 'tag', this.value)" class="w-full border rounded p-1" fdprocessedid="z63mrg"></div>
+                                <div class="md:col-span-2"><label class="text-xs text-gray-500">說明</label><textarea onchange="updateAttraction(8, 'desc', this.value)" class="w-full border rounded p-1 h-16">充滿特色小店、咖啡廳的靜謐街區。</textarea></div>
+                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="" onchange="updateAttraction(8, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..." fdprocessedid="akgkrr"></div>
                             </div>
-                            <button onclick="deleteAttraction(8)" class="text-red-400 text-sm shrink-0 mt-1">✕</button>
+                            <button onclick="deleteAttraction(8)" class="text-red-400 text-sm shrink-0 mt-1" fdprocessedid="dz8dq">✕</button>
                         </div>
                     
                         <div class="bg-white p-4 rounded shadow-sm border flex gap-3 items-start">
                             <div class="flex flex-col gap-1 pt-1 shrink-0">
-                                <button class="sort-btn" onclick="moveItem('attractions', 9, -1)" title="上移">▲</button>
-                                <button class="sort-btn" onclick="moveItem('attractions', 9, 1)" title="下移">▼</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 9, -1)" title="上移" fdprocessedid="1tm6og">▲</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 9, 1)" title="下移" fdprocessedid="6rz8b">▼</button>
                             </div>
                             <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2">
-                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="藥院文青區" onchange="updateAttraction(9, 'name', this.value)" class="w-full border rounded p-1"></div>
-                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="散策" onchange="updateAttraction(9, 'tag', this.value)" class="w-full border rounded p-1"></div>
-                                <div class="md:col-span-2"><label class="text-xs text-gray-500">說明</label><textarea onchange="updateAttraction(9, 'desc', this.value)" class="w-full border rounded p-1 h-16">充滿特色小店、咖啡廳的靜謐街區。</textarea></div>
-                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://www.google.com/maps/search/薬院+福岡" onchange="updateAttraction(9, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..."></div>
+                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="BBB POTTERS" onchange="updateAttraction(9, 'name', this.value)" class="w-full border rounded p-1" fdprocessedid="ve6e2b"></div>
+                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="購物" onchange="updateAttraction(9, 'tag', this.value)" class="w-full border rounded p-1" fdprocessedid="2cszza"></div>
+                                <div class="md:col-span-2"><label class="text-xs text-gray-500">說明</label><textarea onchange="updateAttraction(9, 'desc', this.value)" class="w-full border rounded p-1 h-16">藥院區知名的生活選物店。</textarea></div>
+                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://maps.app.goo.gl/xjeJ7pTKBtDigSZ3A" onchange="updateAttraction(9, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..." fdprocessedid="uuaojg"></div>
                             </div>
-                            <button onclick="deleteAttraction(9)" class="text-red-400 text-sm shrink-0 mt-1">✕</button>
+                            <button onclick="deleteAttraction(9)" class="text-red-400 text-sm shrink-0 mt-1" fdprocessedid="7nnfro">✕</button>
                         </div>
                     
                         <div class="bg-white p-4 rounded shadow-sm border flex gap-3 items-start">
                             <div class="flex flex-col gap-1 pt-1 shrink-0">
-                                <button class="sort-btn" onclick="moveItem('attractions', 10, -1)" title="上移">▲</button>
-                                <button class="sort-btn" onclick="moveItem('attractions', 10, 1)" title="下移">▼</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 10, -1)" title="上移" fdprocessedid="x1jl8y">▲</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 10, 1)" title="下移" fdprocessedid="lnb2cm">▼</button>
                             </div>
                             <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2">
-                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="太宰府天滿宮" onchange="updateAttraction(10, 'name', this.value)" class="w-full border rounded p-1"></div>
-                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="文化" onchange="updateAttraction(10, 'tag', this.value)" class="w-full border rounded p-1"></div>
+                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="太宰府天滿宮" onchange="updateAttraction(10, 'name', this.value)" class="w-full border rounded p-1" fdprocessedid="zf7314"></div>
+                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="文化" onchange="updateAttraction(10, 'tag', this.value)" class="w-full border rounded p-1" fdprocessedid="uw0nst"></div>
                                 <div class="md:col-span-2"><label class="text-xs text-gray-500">說明</label><textarea onchange="updateAttraction(10, 'desc', this.value)" class="w-full border rounded p-1 h-16">祭祀學問之神，隈研吾設計的星巴克必看。</textarea></div>
-                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://www.google.com/maps/search/太宰府天満宮" onchange="updateAttraction(10, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..."></div>
+                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://maps.app.goo.gl/EaEpTKQy9zHGgFJY8" onchange="updateAttraction(10, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..." fdprocessedid="d5lfo"></div>
                             </div>
-                            <button onclick="deleteAttraction(10)" class="text-red-400 text-sm shrink-0 mt-1">✕</button>
+                            <button onclick="deleteAttraction(10)" class="text-red-400 text-sm shrink-0 mt-1" fdprocessedid="xhm7wb">✕</button>
                         </div>
                     
                         <div class="bg-white p-4 rounded shadow-sm border flex gap-3 items-start">
                             <div class="flex flex-col gap-1 pt-1 shrink-0">
-                                <button class="sort-btn" onclick="moveItem('attractions', 11, -1)" title="上移">▲</button>
-                                <button class="sort-btn" onclick="moveItem('attractions', 11, 1)" title="下移">▼</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 11, -1)" title="上移" fdprocessedid="mt8mf">▲</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 11, 1)" title="下移" fdprocessedid="16bl9h">▼</button>
                             </div>
                             <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2">
-                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="竈門神社" onchange="updateAttraction(11, 'name', this.value)" class="w-full border rounded p-1"></div>
-                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="文化" onchange="updateAttraction(11, 'tag', this.value)" class="w-full border rounded p-1"></div>
+                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="竈門神社" onchange="updateAttraction(11, 'name', this.value)" class="w-full border rounded p-1" fdprocessedid="urohk8"></div>
+                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="文化" onchange="updateAttraction(11, 'tag', this.value)" class="w-full border rounded p-1" fdprocessedid="pyigsm"></div>
                                 <div class="md:col-span-2"><label class="text-xs text-gray-500">說明</label><textarea onchange="updateAttraction(11, 'desc', this.value)" class="w-full border rounded p-1 h-16">鬼滅之刃聖地，也是知名的結緣神社。</textarea></div>
-                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://www.google.com/maps/search/竈門神社+太宰府" onchange="updateAttraction(11, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..."></div>
+                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://maps.app.goo.gl/L4qCsu5734uir8cw8" onchange="updateAttraction(11, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..." fdprocessedid="u2kgtr"></div>
                             </div>
-                            <button onclick="deleteAttraction(11)" class="text-red-400 text-sm shrink-0 mt-1">✕</button>
+                            <button onclick="deleteAttraction(11)" class="text-red-400 text-sm shrink-0 mt-1" fdprocessedid="2pw95i">✕</button>
                         </div>
                     
                         <div class="bg-white p-4 rounded shadow-sm border flex gap-3 items-start">
                             <div class="flex flex-col gap-1 pt-1 shrink-0">
-                                <button class="sort-btn" onclick="moveItem('attractions', 12, -1)" title="上移">▲</button>
-                                <button class="sort-btn" onclick="moveItem('attractions', 12, 1)" title="下移">▼</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 12, -1)" title="上移" fdprocessedid="03zru">▲</button>
+                                <button class="sort-btn" onclick="moveItem('attractions', 12, 1)" disabled="" title="下移">▼</button>
                             </div>
                             <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2">
-                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="博多車站" onchange="updateAttraction(12, 'name', this.value)" class="w-full border rounded p-1"></div>
-                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="購物" onchange="updateAttraction(12, 'tag', this.value)" class="w-full border rounded p-1"></div>
+                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="博多車站" onchange="updateAttraction(12, 'name', this.value)" class="w-full border rounded p-1" fdprocessedid="a2np5"></div>
+                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="購物" onchange="updateAttraction(12, 'tag', this.value)" class="w-full border rounded p-1" fdprocessedid="so7lfn"></div>
                                 <div class="md:col-span-2"><label class="text-xs text-gray-500">說明</label><textarea onchange="updateAttraction(12, 'desc', this.value)" class="w-full border rounded p-1 h-16">福岡交通樞紐，也是買伴手禮與購物的好地方。</textarea></div>
-                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://www.google.com/maps/search/博多駅+福岡" onchange="updateAttraction(12, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..."></div>
+                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="https://maps.app.goo.gl/YZwSh6DBgm1nuU3z8" onchange="updateAttraction(12, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..." fdprocessedid="wgyvc8"></div>
                             </div>
-                            <button onclick="deleteAttraction(12)" class="text-red-400 text-sm shrink-0 mt-1">✕</button>
-                        </div>
-                    
-                        <div class="bg-white p-4 rounded shadow-sm border flex gap-3 items-start">
-                            <div class="flex flex-col gap-1 pt-1 shrink-0">
-                                <button class="sort-btn" onclick="moveItem('attractions', 13, -1)" title="上移">▲</button>
-                                <button class="sort-btn" onclick="moveItem('attractions', 13, 1)" disabled="" title="下移">▼</button>
-                            </div>
-                            <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2">
-                                <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="新景點" onchange="updateAttraction(13, 'name', this.value)" class="w-full border rounded p-1"></div>
-                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="標籤" onchange="updateAttraction(13, 'tag', this.value)" class="w-full border rounded p-1"></div>
-                                <div class="md:col-span-2"><label class="text-xs text-gray-500">說明</label><textarea onchange="updateAttraction(13, 'desc', this.value)" class="w-full border rounded p-1 h-16">請輸入說明</textarea></div>
-                                <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="" onchange="updateAttraction(13, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..."></div>
-                            </div>
-                            <button onclick="deleteAttraction(13)" class="text-red-400 text-sm shrink-0 mt-1">✕</button>
+                            <button onclick="deleteAttraction(12)" class="text-red-400 text-sm shrink-0 mt-1" fdprocessedid="zhtpd">✕</button>
                         </div>
                     </div></div>
                 </main>
@@ -389,10 +375,10 @@
         const defaultData = {
           "info": {
                     "title": "福岡旅行攻略",
-                    "subtitle": "2026.09.29 - 10.04｜5夜6天",
+                    "subtitle": "2025.09.29 - 10.04｜5夜6天",
                     "people": 8,
                     "stay": "GRAND BASE Hakata Naraya（福岡市博多區奈良屋町8-12）",
-                    "heroDesc": "跨海8人同行。博多美食、由布院、太宰府祈願，每一刻都是回憶。",
+                    "totalCost": 0,
                     "highlights": [
                               {
                                         "icon": "✈️",
@@ -414,7 +400,8 @@
                                         "label": "旅行天數",
                                         "value": "5夜6天"
                               }
-                    ]
+                    ],
+                    "heroDesc": "跨海8人同行。博多美食、由布院、太宰府祈願，每一刻都是回憶。"
           },
           "itinerary": [
                     {
@@ -429,7 +416,7 @@
                                         },
                                         {
                                                   "time": "18:30",
-                                                  "event": "福岡機場集合入境（西鐵巴士直達博多站 ¥280/人）",
+                                                  "event": "福岡機場集合入境",
                                                   "cost": 280
                                         },
                                         {
@@ -488,7 +475,7 @@
                               "items": [
                                         {
                                                   "time": "08:20",
-                                                  "event": "⚠️ 必須早出門前往博多站",
+                                                  "event": "前出門（⚠️ 必須早出發）",
                                                   "cost": 0
                                         },
                                         {
@@ -508,12 +495,12 @@
                                         },
                                         {
                                                   "time": "13:30",
-                                                  "event": "湯之坪漫步（SNOOPY茶屋、吉卜力、B-speak蛋糕捲）",
+                                                  "event": "湯之坪漫步",
                                                   "cost": 0
                                         },
                                         {
                                                   "time": "17:00",
-                                                  "event": "高速巴士返回博多（¥2,880）",
+                                                  "event": "高速巴士返回博多",
                                                   "cost": 2880
                                         }
                               ]
@@ -525,7 +512,7 @@
                               "items": [
                                         {
                                                   "time": "09:00",
-                                                  "event": "博多出發搭高速巴士往八女（¥1,520）",
+                                                  "event": "博多出發搭高速巴士往八女",
                                                   "cost": 1520
                                         },
                                         {
@@ -545,7 +532,7 @@
                                         },
                                         {
                                                   "time": "17:00",
-                                                  "event": "晚餐：ShinShin拉麵（需預約）",
+                                                  "event": "晚餐：ShinShin拉麵",
                                                   "cost": 0
                                         },
                                         {
@@ -562,7 +549,7 @@
                               "items": [
                                         {
                                                   "time": "09:00",
-                                                  "event": "出發（地鐵¥260+西鐵¥420）",
+                                                  "event": "出發",
                                                   "cost": 680
                                         },
                                         {
@@ -582,7 +569,7 @@
                                         },
                                         {
                                                   "time": "13:30",
-                                                  "event": "竈門神社（まほろば号¥100）",
+                                                  "event": "竈門神社",
                                                   "cost": 100
                                         },
                                         {
@@ -624,7 +611,7 @@
                                         },
                                         {
                                                   "time": "13:30",
-                                                  "event": "前往機場（地鐵¥260）",
+                                                  "event": "前往機場",
                                                   "cost": 260
                                         },
                                         {
@@ -640,85 +627,78 @@
                               "name": "住吉神社",
                               "desc": "博多最古老神社，氛圍莊嚴。",
                               "tag": "文化",
-                              "mapUrl": "https://www.google.com/maps/search/住吉神社+福岡市博多区住吉3丁目1-51"
+                              "mapUrl": "https://maps.app.goo.gl/sudq4ZFoZtojj8eF7"
                     },
                     {
                               "name": "博多運河城",
                               "desc": "大型購物中心，噴水池表演與多樣店舖。",
                               "tag": "購物",
-                              "mapUrl": "https://www.google.com/maps/search/Canal+City+Hakata+福岡"
-                    },
-                    {
-                              "name": "金鱗湖",
-                              "desc": "由布院知名景點，晨霧迷濛非常美麗。",
-                              "tag": "自然",
-                              "mapUrl": "https://www.google.com/maps/search/金鱗湖+由布院"
+                              "mapUrl": "https://maps.app.goo.gl/niXkba2xf8XxgDGq8"
                     },
                     {
                               "name": "湯之坪街道",
                               "desc": "充滿文青氣息與特色小食的街道。",
                               "tag": "散策",
-                              "mapUrl": "https://www.google.com/maps/search/湯の坪街道+由布院"
+                              "mapUrl": "https://maps.app.goo.gl/vBLUc4PzKhqzhLkQA"
+                    },
+                    {
+                              "name": "金鱗湖",
+                              "desc": "由布院知名景點，晨霧迷濛非常美麗。",
+                              "tag": "自然",
+                              "mapUrl": "https://maps.app.goo.gl/7btjTRzGoPFjNVmq8"
                     },
                     {
                               "name": "SNOOPY茶屋",
                               "desc": "結合史努比與和風特色的主題茶屋。",
                               "tag": "特色",
-                              "mapUrl": "https://www.google.com/maps/search/SNOOPY茶屋+由布院"
+                              "mapUrl": "https://maps.app.goo.gl/y5Qax3oiDXsrLFvz5"
                     },
                     {
                               "name": "吉卜力どんぐりの森",
                               "desc": "宮崎駿迷必訪的周邊商品店。",
                               "tag": "購物",
-                              "mapUrl": "https://www.google.com/maps/search/どんぐりの森+由布院"
+                              "mapUrl": "https://maps.app.goo.gl/CJPPHrgRQyFVsRyg9"
                     },
                     {
                               "name": "B-speak",
                               "desc": "由布院超人氣生乳捲店。",
                               "tag": "美食",
-                              "mapUrl": "https://www.google.com/maps/search/B-speak+由布院"
+                              "mapUrl": "https://maps.app.goo.gl/4h5NES5UzA687eMx5"
                     },
                     {
                               "name": "福島八幡宮",
                               "desc": "位於八女市，以精美的剪紙御朱印聞名。",
                               "tag": "文化",
-                              "mapUrl": "https://www.google.com/maps/search/福島八幡宮+八女市"
+                              "mapUrl": "https://maps.app.goo.gl/ThaFNd4x3Nxt3etR9"
+                    },
+                    {
+                              "name": "藥院文青區",
+                              "desc": "充滿特色小店、咖啡廳的靜謐街區。",
+                              "tag": "散策"
                     },
                     {
                               "name": "BBB POTTERS",
                               "desc": "藥院區知名的生活選物店。",
                               "tag": "購物",
-                              "mapUrl": "https://www.google.com/maps/search/BBB+POTTERS+薬院+福岡"
-                    },
-                    {
-                              "name": "藥院文青區",
-                              "desc": "充滿特色小店、咖啡廳的靜謐街區。",
-                              "tag": "散策",
-                              "mapUrl": "https://www.google.com/maps/search/薬院+福岡"
+                              "mapUrl": "https://maps.app.goo.gl/xjeJ7pTKBtDigSZ3A"
                     },
                     {
                               "name": "太宰府天滿宮",
                               "desc": "祭祀學問之神，隈研吾設計的星巴克必看。",
                               "tag": "文化",
-                              "mapUrl": "https://www.google.com/maps/search/太宰府天満宮"
+                              "mapUrl": "https://maps.app.goo.gl/EaEpTKQy9zHGgFJY8"
                     },
                     {
                               "name": "竈門神社",
                               "desc": "鬼滅之刃聖地，也是知名的結緣神社。",
                               "tag": "文化",
-                              "mapUrl": "https://www.google.com/maps/search/竈門神社+太宰府"
+                              "mapUrl": "https://maps.app.goo.gl/L4qCsu5734uir8cw8"
                     },
                     {
                               "name": "博多車站",
                               "desc": "福岡交通樞紐，也是買伴手禮與購物的好地方。",
                               "tag": "購物",
-                              "mapUrl": "https://www.google.com/maps/search/博多駅+福岡"
-                    },
-                    {
-                              "name": "福岡城跡",
-                              "desc": "江戶時代城郭遺跡，天守台可360度俯瞰市景，春季賞櫻勝地",
-                              "tag": "歷史古蹟",
-                              "mapUrl": "https://maps.app.goo.gl/7i1SuBLdaY62Xvdj9"
+                              "mapUrl": "https://maps.app.goo.gl/YZwSh6DBgm1nuU3z8"
                     }
           ],
           "food": [
@@ -1507,4 +1487,4 @@
     </script>
 
 
-</body></html>
+<span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span></body></html>
