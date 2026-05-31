@@ -70,7 +70,6 @@
         .section-hidden {
             display: none;
         }
-        /* 日本雜誌風格標題 */
         .magazine-title {
             position: relative;
             display: inline-block;
@@ -78,6 +77,20 @@
             border-top: 2px solid var(--color-deep-blue);
             border-bottom: 2px solid var(--color-deep-blue);
             letter-spacing: 0.1em;
+        }
+        .map-btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 6px 16px;
+            background: var(--color-deep-blue);
+            color: white;
+            border-radius: 20px;
+            font-size: 13px;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .map-btn:hover {
+            opacity: 0.85;
         }
     </style>
 </head>
@@ -87,7 +100,7 @@
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0 flex items-center">
-                    <span class="text-xl font-bold tracking-tighter" style="color: var(--color-deep-blue);">FUKUOKA 2025</span>
+                    <span class="text-xl font-bold tracking-tighter" style="color: var(--color-deep-blue);">FUKUOKA 2026</span>
                 </div>
                 <div class="hidden md:flex space-x-8">
                     <a href="#" onclick="showPage('home')" id="nav-home" class="nav-item py-4 px-2 nav-active">首頁</a>
@@ -111,12 +124,10 @@
         </div>
     </nav>
 
-    <main id="content-area" class="flex-grow container mx-auto px-4 py-8 max-w-6xl">
-        <!-- 頁面內容將由 JavaScript 動態插入或切換顯示 -->
-    </main>
+    <main id="content-area" class="flex-grow container mx-auto px-4 py-8 max-w-6xl"></main>
 
     <footer class="bg-gray-800 text-white py-8 text-center">
-        <p>© 2025 福岡 8 人旅行團 - 一起創造美好回憶</p>
+        <p>© 2026 福岡 8 人旅行團 - 一起創造美好回憶</p>
     </footer>
 
     <!-- 管理登入 Modal -->
@@ -139,11 +150,10 @@
     </div>
 
     <script>
-        // 預設資料
         const defaultData = {
             info: {
                 title: "福岡 × 由布院 × 太宰府｜8人旅行攻略",
-                subtitle: "2025.09.29 - 10.04｜5夜6天",
+                subtitle: "2026.09.29 - 10.04｜5夜6天",
                 people: 8,
                 stay: "GRAND BASE Hakata Naraya（福岡市博多區奈良屋町8-12）",
                 totalCost: 0
@@ -164,7 +174,7 @@
                     { time: "18:30", event: "博多車站繼續逛（KITTE博多、博多デイトス）", cost: 0 }
                 ]},
                 { day: 3, date: "10/1 (四)", title: "由布院", items: [
-                    { time: "08:20", event: "前出門（⚠️ 必須早出發）", cost: 0 },
+                    { time: "08:20", event: "⚠️ 必須早出門前往博多站", cost: 0 },
                     { time: "09:17", event: "由布院之森列車出發（¥6,130+指定席¥1,500）", cost: 7630 },
                     { time: "11:31", event: "抵達由布院，金鱗湖散策", cost: 0 },
                     { time: "12:00", event: "午餐：湯之坪街道小食", cost: 0 },
@@ -198,19 +208,19 @@
                 ]}
             ],
             attractions: [
-                { name: "住吉神社", desc: "博多最古老神社，氛圍莊嚴。", tag: "文化" },
-                { name: "博多運河城", desc: "大型購物中心，噴水池表演與多樣店舖。", tag: "購物" },
-                { name: "金鱗湖", desc: "由布院知名景點，晨霧迷濛非常美麗。", tag: "自然" },
-                { name: "湯之坪街道", desc: "充滿文青氣息與特色小食的街道。", tag: "散策" },
-                { name: "SNOOPY茶屋", desc: "結合史努比與和風特色的主題茶屋。", tag: "特色" },
-                { name: "吉卜力どんぐりの森", desc: "宮崎駿迷必訪的周邊商品店。", tag: "購物" },
-                { name: "B-speak", desc: "由布院超人氣生乳捲店。", tag: "美食" },
-                { name: "福島八幡宮", desc: "位於八女市，以精美的剪紙御朱印聞名。", tag: "文化" },
-                { name: "BBB POTTERS", desc: "藥院區知名的生活選物店。", tag: "購物" },
-                { name: "藥院文青區", desc: "充滿特色小店、咖啡廳的靜謐街區。", tag: "散策" },
-                { name: "太宰府天滿宮", desc: "祭祀學問之神，隈研吾設計的星巴克必看。", tag: "文化" },
-                { name: "竈門神社", desc: "鬼滅之刃聖地，也是知名的結緣神社。", tag: "文化" },
-                { name: "博多車站", desc: "福岡交通樞紐，也是買伴手禮與購物的好地方。", tag: "購物" }
+                { name: "住吉神社", desc: "博多最古老神社，氛圍莊嚴。", tag: "文化", mapUrl: "https://www.google.com/maps/search/住吉神社+福岡市博多区住吉3丁目1-51" },
+                { name: "博多運河城", desc: "大型購物中心，噴水池表演與多樣店舖。", tag: "購物", mapUrl: "https://www.google.com/maps/search/Canal+City+Hakata+福岡" },
+                { name: "金鱗湖", desc: "由布院知名景點，晨霧迷濛非常美麗。", tag: "自然", mapUrl: "https://www.google.com/maps/search/金鱗湖+由布院" },
+                { name: "湯之坪街道", desc: "充滿文青氣息與特色小食的街道。", tag: "散策", mapUrl: "https://www.google.com/maps/search/湯の坪街道+由布院" },
+                { name: "SNOOPY茶屋", desc: "結合史努比與和風特色的主題茶屋。", tag: "特色", mapUrl: "https://www.google.com/maps/search/SNOOPY茶屋+由布院" },
+                { name: "吉卜力どんぐりの森", desc: "宮崎駿迷必訪的周邊商品店。", tag: "購物", mapUrl: "https://www.google.com/maps/search/どんぐりの森+由布院" },
+                { name: "B-speak", desc: "由布院超人氣生乳捲店。", tag: "美食", mapUrl: "https://www.google.com/maps/search/B-speak+由布院" },
+                { name: "福島八幡宮", desc: "位於八女市，以精美的剪紙御朱印聞名。", tag: "文化", mapUrl: "https://www.google.com/maps/search/福島八幡宮+八女市" },
+                { name: "BBB POTTERS", desc: "藥院區知名的生活選物店。", tag: "購物", mapUrl: "https://www.google.com/maps/search/BBB+POTTERS+薬院+福岡" },
+                { name: "藥院文青區", desc: "充滿特色小店、咖啡廳的靜謐街區。", tag: "散策", mapUrl: "https://www.google.com/maps/search/薬院+福岡" },
+                { name: "太宰府天滿宮", desc: "祭祀學問之神，隈研吾設計的星巴克必看。", tag: "文化", mapUrl: "https://www.google.com/maps/search/太宰府天満宮" },
+                { name: "竈門神社", desc: "鬼滅之刃聖地，也是知名的結緣神社。", tag: "文化", mapUrl: "https://www.google.com/maps/search/竈門神社+太宰府" },
+                { name: "博多車站", desc: "福岡交通樞紐，也是買伴手禮與購物的好地方。", tag: "購物", mapUrl: "https://www.google.com/maps/search/博多駅+福岡" }
             ],
             food: [
                 { name: "一蘭拉麵 總本店", cat: "拉麵", desc: "福岡起家的拉麵名店，總本店氣勢非凡。", reserve: false },
@@ -237,7 +247,6 @@
             ]
         };
 
-        // 初始化資料
         if (!localStorage.getItem('fukuokaTravelData')) {
             localStorage.setItem('fukuokaTravelData', JSON.stringify(defaultData));
         }
@@ -245,12 +254,10 @@
         function getData() {
             return JSON.parse(localStorage.getItem('fukuokaTravelData'));
         }
-
         function saveData(data) {
             localStorage.setItem('fukuokaTravelData', JSON.stringify(data));
         }
 
-        // 頁面渲染邏輯
         function renderPage(pageId) {
             const data = getData();
             const container = document.getElementById('content-area');
@@ -271,7 +278,6 @@
                     `;
                 });
 
-                // 計算總花費
                 let total = 0;
                 data.itinerary.forEach(day => {
                     day.items.forEach(item => total += (item.cost || 0));
@@ -282,7 +288,6 @@
                         <h1 class="text-4xl md:text-5xl font-bold mb-4 magazine-title">${data.info.title}</h1>
                         <p class="text-xl text-gray-600">${data.info.subtitle}</p>
                     </div>
-
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                         <div class="card p-6 border-t-4 border-blue-900">
                             <h3 class="font-bold text-lg mb-2">👥 旅行人數</h3>
@@ -298,7 +303,6 @@
                             <p class="text-sm text-gray-400">總計：¥${(total * data.info.people).toLocaleString()} (8人)</p>
                         </div>
                     </div>
-
                     <h2 class="text-2xl font-bold mb-6 flex items-center">
                         <span class="w-8 h-8 bg-blue-900 text-white rounded-full flex items-center justify-center mr-2 text-sm">01</span>
                         行程摘要
@@ -307,6 +311,7 @@
                         ${itineraryCards}
                     </div>
                 `;
+
             } else if (pageId === 'itinerary') {
                 let timelineHtml = '';
                 data.itinerary.forEach(day => {
@@ -322,7 +327,6 @@
                             </div>
                         `;
                     });
-
                     timelineHtml += `
                         <div class="mb-12">
                             <div class="bg-blue-900 text-white px-4 py-2 rounded-t-lg flex justify-between items-center">
@@ -335,37 +339,35 @@
                         </div>
                     `;
                 });
-
                 container.innerHTML = `
                     <h2 class="text-3xl font-bold mb-8 text-center magazine-title">行程規劃時間表</h2>
-                    <div class="max-w-3xl mx-auto">
-                        ${timelineHtml}
-                    </div>
+                    <div class="max-w-3xl mx-auto">${timelineHtml}</div>
                 `;
+
             } else if (pageId === 'attractions') {
                 let cardsHtml = '';
                 data.attractions.forEach(attr => {
                     cardsHtml += `
-                        <div class="card p-6 border-b-4 border-blue-900">
-                            <span class="inline-block bg-orange-100 text-orange-700 text-xs px-2 py-1 rounded mb-2">${attr.tag}</span>
-                            <h3 class="font-bold text-xl mb-2">${attr.name}</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed">${attr.desc}</p>
+                        <div class="card p-6 border-b-4 border-blue-900 flex flex-col justify-between">
+                            <div>
+                                <span class="inline-block bg-orange-100 text-orange-700 text-xs px-2 py-1 rounded mb-2">${attr.tag}</span>
+                                <h3 class="font-bold text-xl mb-2">${attr.name}</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">${attr.desc}</p>
+                            </div>
+                            ${attr.mapUrl ? `<a href="${attr.mapUrl}" target="_blank" class="map-btn">🗺️ 查看地圖</a>` : ''}
                         </div>
                     `;
                 });
-
                 container.innerHTML = `
                     <h2 class="text-3xl font-bold mb-8 text-center magazine-title">精選景點介紹</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        ${cardsHtml}
-                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">${cardsHtml}</div>
                 `;
+
             } else if (pageId === 'food') {
                 let foodHtml = '';
                 const categories = ["拉麵", "燒肉", "小食", "甜點", "麵包"];
-                
                 categories.forEach(cat => {
-                    const items = data.food.filter(f => f.cat === cat || (cat === "甜點" && f.cat === "麵包甜點"));
+                    const items = data.food.filter(f => f.cat === cat);
                     if (items.length > 0) {
                         let itemsList = '';
                         items.forEach(item => {
@@ -382,52 +384,53 @@
                         foodHtml += `
                             <div class="mb-8">
                                 <h3 class="text-xl font-bold mb-4 border-b-2 border-blue-900 inline-block pb-1">${cat}</h3>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    ${itemsList}
-                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">${itemsList}</div>
                             </div>
                         `;
                     }
                 });
-
                 container.innerHTML = `
                     <h2 class="text-3xl font-bold mb-8 text-center magazine-title">在地美食紀錄</h2>
-                    <div class="max-w-4xl mx-auto">
-                        ${foodHtml}
-                    </div>
+                    <div class="max-w-4xl mx-auto">${foodHtml}</div>
                 `;
+
             } else if (pageId === 'map') {
                 container.innerHTML = `
                     <h2 class="text-3xl font-bold mb-8 text-center magazine-title">地圖導航</h2>
                     <div class="card overflow-hidden h-[600px]">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d106363.37687258322!2d130.34215757913386!3d33.58309852331575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z56aP5bKhIEdSQU5EIEJBU0UgSGFrYXRhIE5hcmF5YSDkvY_lrr8g5L2P5ZCJ56We56S-IOWNmuWkmumBi-ays-WfjiDnlLHluIPpmaLnq5kg6YeR6b6X5rmWIOemj-WztuWFq-W5oeWuruS5i-iUteW6lyDlpKrmr7Dot6_liY3pmoog6IK26ZaA56We56S-!5e0!3m2!1szh-TW!2stw!4v1710000000000!5m2!1szh-TW!2stw" 
-                            width="100%" 
-                            height="100%" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d106363.37687258322!2d130.34215757913386!3d33.58309852331575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z56aP5bKhIEdSQU5EIEJBU0UgSGFrYXRhIE5hcmF5YSDkvY_lrr8g5L2P5ZCJ56We56S-IOWNmuWkmumBi-ays-WfjiDnlLHluIPpmaLnq5kg6YeR6b6X5rmWIOemj-WztuWFq-W5oeWuruS5i-iUteW6lyDlpKrmr7Dot6_liY3pmoog6IK26ZaA56We56S-!5e0!3m2!1szh-TW!2stw!4v1710000000000!5m2!1szh-TW!2stw"
+                            width="100%"
+                            height="100%"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
-                    <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
-                        <div class="bg-white p-2 rounded shadow-sm">🏠 GRAND BASE Hakata Naraya</div>
-                        <div class="bg-white p-2 rounded shadow-sm">🏯 太宰府天滿宮</div>
-                        <div class="bg-white p-2 rounded shadow-sm">♨️ 由布院 / 金鱗湖</div>
-                        <div class="bg-white p-2 rounded shadow-sm">⛩️ 福島八幡宮</div>
-                        <div class="bg-white p-2 rounded shadow-sm">🛍️ 博多運河城</div>
-                        <div class="bg-white p-2 rounded shadow-sm">☕ 藥院文青區</div>
-                        <div class="bg-white p-2 rounded shadow-sm">🚉 博多車站</div>
-                        <div class="bg-white p-2 rounded shadow-sm">✈️ 福岡機場</div>
+                    <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                        <a href="https://www.google.com/maps/search/GRAND+BASE+Hakata+Naraya+博多区奈良屋町8-12" target="_blank" class="bg-white p-3 rounded shadow-sm hover:shadow-md transition flex items-center gap-2">🏠 GRAND BASE Hakata Naraya</a>
+                        <a href="https://www.google.com/maps/search/住吉神社+福岡市博多区住吉3丁目1-51" target="_blank" class="bg-white p-3 rounded shadow-sm hover:shadow-md transition flex items-center gap-2">⛩️ 住吉神社</a>
+                        <a href="https://www.google.com/maps/search/Canal+City+Hakata+福岡" target="_blank" class="bg-white p-3 rounded shadow-sm hover:shadow-md transition flex items-center gap-2">🛍️ 博多運河城</a>
+                        <a href="https://www.google.com/maps/search/博多駅+福岡" target="_blank" class="bg-white p-3 rounded shadow-sm hover:shadow-md transition flex items-center gap-2">🚉 博多車站</a>
+                        <a href="https://www.google.com/maps/search/金鱗湖+由布院" target="_blank" class="bg-white p-3 rounded shadow-sm hover:shadow-md transition flex items-center gap-2">♨️ 由布院 / 金鱗湖</a>
+                        <a href="https://www.google.com/maps/search/湯の坪街道+由布院" target="_blank" class="bg-white p-3 rounded shadow-sm hover:shadow-md transition flex items-center gap-2">🌿 湯之坪街道</a>
+                        <a href="https://www.google.com/maps/search/福島八幡宮+八女市" target="_blank" class="bg-white p-3 rounded shadow-sm hover:shadow-md transition flex items-center gap-2">⛩️ 福島八幡宮</a>
+                        <a href="https://www.google.com/maps/search/BBB+POTTERS+薬院+福岡" target="_blank" class="bg-white p-3 rounded shadow-sm hover:shadow-md transition flex items-center gap-2">☕ 藥院文青區 / BBB POTTERS</a>
+                        <a href="https://www.google.com/maps/search/太宰府天満宮" target="_blank" class="bg-white p-3 rounded shadow-sm hover:shadow-md transition flex items-center gap-2">🏯 太宰府天滿宮</a>
+                        <a href="https://www.google.com/maps/search/竈門神社+太宰府" target="_blank" class="bg-white p-3 rounded shadow-sm hover:shadow-md transition flex items-center gap-2">🗡️ 竈門神社</a>
+                        <a href="https://www.google.com/maps/search/福岡空港" target="_blank" class="bg-white p-3 rounded shadow-sm hover:shadow-md transition flex items-center gap-2">✈️ 福岡機場</a>
+                        <a href="https://www.google.com/maps/search/薬院+福岡" target="_blank" class="bg-white p-3 rounded shadow-sm hover:shadow-md transition flex items-center gap-2">🎨 藥院文青區</a>
                     </div>
                 `;
+
             } else if (pageId === 'admin') {
                 if (sessionStorage.getItem('isAdmin') !== 'true') {
                     showPage('home');
                     return;
                 }
-                
-                let adminNav = `
+                container.innerHTML = `
+                    <h2 class="text-3xl font-bold mb-8 text-center magazine-title">後台管理系統</h2>
                     <div class="flex flex-wrap gap-2 mb-8 bg-white p-4 rounded shadow-sm">
                         <button onclick="renderAdminSection('itinerary')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded">行程管理</button>
                         <button onclick="renderAdminSection('attractions')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded">景點管理</button>
@@ -436,10 +439,6 @@
                         <button onclick="logout()" class="px-4 py-2 bg-red-100 text-red-600 rounded ml-auto">登出</button>
                     </div>
                     <div id="admin-section-content"></div>
-                `;
-                container.innerHTML = `
-                    <h2 class="text-3xl font-bold mb-8 text-center magazine-title">後台管理系統</h2>
-                    ${adminNav}
                 `;
                 renderAdminSection('itinerary');
             }
@@ -453,7 +452,7 @@
         function renderAdminSection(section) {
             const content = document.getElementById('admin-section-content');
             const data = getData();
-            
+
             if (section === 'itinerary') {
                 let html = '<h3 class="text-xl font-bold mb-4">行程管理</h3>';
                 data.itinerary.forEach((day, dayIdx) => {
@@ -466,8 +465,7 @@
                             <table class="w-full text-sm">
                                 <thead><tr class="text-left border-b">
                                     <th class="py-2">時間</th><th class="py-2">內容</th><th class="py-2">費用(¥)</th><th class="py-2">操作</th>
-                                </tr></thead>
-                                <tbody>
+                                </tr></thead><tbody>
                     `;
                     day.items.forEach((item, itemIdx) => {
                         html += `
@@ -482,6 +480,7 @@
                     html += '</tbody></table></div>';
                 });
                 content.innerHTML = html;
+
             } else if (section === 'attractions') {
                 let html = `
                     <div class="flex justify-between items-center mb-4">
@@ -496,12 +495,14 @@
                             <div class="mb-2"><label class="text-xs text-gray-500">名稱</label><input type="text" value="${attr.name}" onchange="updateAttraction(${idx}, 'name', this.value)" class="w-full border rounded p-1"></div>
                             <div class="mb-2"><label class="text-xs text-gray-500">標籤</label><input type="text" value="${attr.tag}" onchange="updateAttraction(${idx}, 'tag', this.value)" class="w-full border rounded p-1"></div>
                             <div class="mb-2"><label class="text-xs text-gray-500">說明</label><textarea onchange="updateAttraction(${idx}, 'desc', this.value)" class="w-full border rounded p-1 h-20">${attr.desc}</textarea></div>
+                            <div class="mb-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="${attr.mapUrl || ''}" onchange="updateAttraction(${idx}, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs"></div>
                             <button onclick="deleteAttraction(${idx})" class="text-red-500 text-sm">刪除此景點</button>
                         </div>
                     `;
                 });
                 html += '</div>';
                 content.innerHTML = html;
+
             } else if (section === 'food') {
                 let html = `
                     <div class="flex justify-between items-center mb-4">
@@ -515,7 +516,7 @@
                         <div class="bg-white p-4 rounded shadow-sm border">
                             <div class="flex gap-2 mb-2">
                                 <div class="flex-grow"><label class="text-xs text-gray-500">名稱</label><input type="text" value="${f.name}" onchange="updateFood(${idx}, 'name', this.value)" class="w-full border rounded p-1"></div>
-                                <div><label class="text-xs text-gray-500">類別</label><input type="text" value="${f.cat}" onchange="updateFood(${idx}, 'cat', this.value)" class="w-full border rounded p-1 w-20"></div>
+                                <div><label class="text-xs text-gray-500">類別</label><input type="text" value="${f.cat}" onchange="updateFood(${idx}, 'cat', this.value)" class="border rounded p-1 w-20"></div>
                             </div>
                             <div class="mb-2"><label class="text-xs text-gray-500">說明</label><input type="text" value="${f.desc}" onchange="updateFood(${idx}, 'desc', this.value)" class="w-full border rounded p-1"></div>
                             <div class="flex justify-between items-center">
@@ -527,10 +528,9 @@
                 });
                 html += '</div>';
                 content.innerHTML = html;
+
             } else if (section === 'reservations') {
                 let resHtml = '<div class="grid grid-cols-1 md:grid-cols-2 gap-8">';
-                
-                // 預約管理
                 resHtml += `
                     <div>
                         <h3 class="text-xl font-bold mb-4">預約清單管理</h3>
@@ -552,9 +552,7 @@
                         </tr>
                     `;
                 });
-                resHtml += '</tbody></table></div></div>';
-
-                // 購物清單
+                resHtml += `</tbody></table></div></div>`;
                 resHtml += `
                     <div>
                         <div class="flex justify-between items-center mb-4">
@@ -577,7 +575,6 @@
             }
         }
 
-        // 資料更新函數
         function updateItinerary(dayIdx, itemIdx, field, value) {
             const data = getData();
             if (field === 'cost') value = parseInt(value) || 0;
@@ -597,7 +594,6 @@
             saveData(data);
             renderAdminSection('itinerary');
         }
-
         function updateAttraction(idx, field, value) {
             const data = getData();
             data.attractions[idx][field] = value;
@@ -605,7 +601,7 @@
         }
         function addAttraction() {
             const data = getData();
-            data.attractions.push({ name: "新景點", desc: "請輸入說明", tag: "標籤" });
+            data.attractions.push({ name: "新景點", desc: "請輸入說明", tag: "標籤", mapUrl: "" });
             saveData(data);
             renderAdminSection('attractions');
         }
@@ -616,7 +612,6 @@
             saveData(data);
             renderAdminSection('attractions');
         }
-
         function updateFood(idx, field, value) {
             const data = getData();
             data.food[idx][field] = value;
@@ -635,7 +630,6 @@
             saveData(data);
             renderAdminSection('food');
         }
-
         function updateRes(idx, field, value) {
             const data = getData();
             data.reservations[idx][field] = value;
@@ -659,18 +653,12 @@
             renderAdminSection('reservations');
         }
 
-
-        // 基礎切換邏輯
         function showPage(pageId) {
-            // 切換導覽列樣式
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('nav-active'));
             const activeNav = document.getElementById('nav-' + pageId);
             if (activeNav) activeNav.classList.add('nav-active');
-
-            // 渲染頁面 (後續實作)
             renderPage(pageId);
         }
-
         function checkAdminLogin() {
             if (sessionStorage.getItem('isAdmin') === 'true') {
                 showPage('admin');
@@ -678,11 +666,9 @@
                 document.getElementById('login-modal').classList.remove('hidden');
             }
         }
-
         function closeLoginModal() {
             document.getElementById('login-modal').classList.add('hidden');
         }
-
         function login() {
             const user = document.getElementById('admin-user').value;
             const pass = document.getElementById('admin-pass').value;
@@ -694,11 +680,8 @@
                 alert('帳號或密碼錯誤');
             }
         }
-
-        // 初始載入
-        window.onload = () => {
-            showPage('home');
-        };
+        window.onload = () => { showPage('home'); };
     </script>
 </body>
+</html>
 </html>
