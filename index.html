@@ -152,6 +152,11 @@
 
     <footer class="bg-gray-800 text-white py-8 text-center">
         <p>© 2026 福岡 8 人旅行團 - 一起創造美好回憶</p>
+        <p class="mt-3">
+            <button onclick="forceRefreshData()" class="text-xs text-gray-300 underline hover:text-white">
+                🔄 內容看起來是舊的？點我強制更新
+            </button>
+        </p>
     </footer>
 
     <!-- 管理登入 Modal -->
@@ -175,6 +180,7 @@
 
     <script>
         const defaultData = {
+            dataVersion: 1,
             info: {
                 title: "福岡旅行攻略",
                 subtitle: "2026.09.29 - 10.04｜5夜6天",
@@ -297,37 +303,54 @@
             ]
         };
 
-        // ── 預設 GitHub Token（第一次自動存入，之後從 localStorage 讀取） ──
-        (function initToken() {
-            if (!localStorage.getItem('gh_token')) {
-                localStorage.setItem('gh_token', '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');
-            }
-        })();
-
-        // ── 資料初始化：若 localStorage 沒有資料，或舊資料缺少 highlights / food.mapUrl，則補齊 ──
+        // ── 資料初始化 ────────────────────────────────────────
+        // 重點：畫面內容一律從 localStorage 讀，所以「檔案更新了但瀏覽器仍顯示舊內容」
+        // 的原因不是快取，而是 localStorage 裡還留著上次造訪時存下的舊資料。
+        // 解法：用 dataVersion 比對，只要檔案版本比本機新，就用檔案內容覆蓋。
         (function initData() {
             const raw = localStorage.getItem('fukuokaTravelData');
-            if (!raw) {
+
+            // 網址帶 ?reset=1 → 強制重置成檔案最新內容
+            const forceReset = new URLSearchParams(location.search).get('reset') === '1';
+
+            if (!raw || forceReset) {
                 localStorage.setItem('fukuokaTravelData', JSON.stringify(defaultData));
                 return;
             }
-            const saved = JSON.parse(raw);
-            // 補 highlights
-            if (!saved.info.highlights) {
-                saved.info.highlights = defaultData.info.highlights;
+
+            let saved;
+            try {
+                saved = JSON.parse(raw);
+            } catch (e) {
+                // 資料損毀 → 直接重置
+                localStorage.setItem('fukuokaTravelData', JSON.stringify(defaultData));
+                return;
             }
-            // 補 heroDesc
-            if (!saved.info.heroDesc) {
-                saved.info.heroDesc = defaultData.info.heroDesc;
+
+            // 版本較舊（或舊資料根本沒有版本欄位）→ 用檔案內容整份覆蓋
+            const savedVer = saved.dataVersion || 0;
+            if (savedVer < (defaultData.dataVersion || 0)) {
+                localStorage.setItem('fukuokaTravelData', JSON.stringify(defaultData));
+                return;
             }
-            // 補 food.mapUrl（舊資料可能沒有）
-            saved.food.forEach((f, i) => {
+
+            // 版本相同 → 沿用本機資料，僅補上缺少的欄位
+            if (!saved.info.highlights) saved.info.highlights = defaultData.info.highlights;
+            if (!saved.info.heroDesc)   saved.info.heroDesc   = defaultData.info.heroDesc;
+            (saved.food || []).forEach((f, i) => {
                 if (f.mapUrl === undefined) {
                     f.mapUrl = (defaultData.food[i] && defaultData.food[i].mapUrl) || "";
                 }
             });
             localStorage.setItem('fukuokaTravelData', JSON.stringify(saved));
         })();
+
+        // ── 手動強制更新（頁尾按鈕用） ──
+        function forceRefreshData() {
+            if (!confirm('將以網站最新內容覆蓋這台裝置的資料，確定嗎？')) return;
+            localStorage.removeItem('fukuokaTravelData');
+            location.replace(location.pathname + '?v=' + Date.now());
+        }
 
         function getData() {
             return JSON.parse(localStorage.getItem('fukuokaTravelData'));
@@ -861,7 +884,7 @@
         function login() {
             const user = document.getElementById('admin-user').value;
             const pass = document.getElementById('admin-pass').value;
-            if (user === 'fukuoka2025' && pass === 'travel8people') {
+            if (user === 'fukuoka2026' && pass === 'travel8people') {
                 sessionStorage.setItem('isAdmin', 'true');
                 closeLoginModal();
                 showPage('admin');
@@ -885,6 +908,9 @@
         // ── 產生新版 HTML（把 defaultData 換成最新資料） ──
         function buildNewHTML() {
             const currentData = getData();
+            // 每次匯出都蓋上新版本號，訪客下次開啟時才會自動吃到最新內容
+            currentData.dataVersion = Date.now();
+            saveData(currentData);
             const source = document.documentElement.outerHTML;
             const newDataStr = 'const defaultData = ' + JSON.stringify(currentData, null, 12) + ';';
             const startMarker = 'const defaultData = {';
