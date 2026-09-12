@@ -116,6 +116,26 @@
             opacity: 0.3;
             cursor: default;
         }
+        /* 可收合的補充說明（預設收起，手機上才不會被灌爆） */
+        details.notes > summary {
+            list-style: none;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+        details.notes > summary::-webkit-details-marker { display: none; }
+        details.notes .toggle-label::after { content: '點開 ▾'; }
+        details.notes[open] .toggle-label::after { content: '收合 ▴'; }
+        /* 手機：時間軸收窄、字距收緊 */
+        @media (max-width: 767px) {
+            .timeline-item {
+                padding-left: 1.1rem;
+                margin-bottom: 0.9rem;
+            }
+            .timeline-item::before {
+                width: 12px; height: 12px; left: -7px;
+            }
+            .note-list li { font-size: 13px; line-height: 1.65; }
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
@@ -184,7 +204,7 @@
 
     <script>
         const defaultData = {
-            dataVersion: 10,
+            dataVersion: 11,
             info: {
                 title: "福岡旅行攻略",
                 subtitle: "2026.09.29 - 10.04｜5夜6天",
@@ -613,10 +633,10 @@
                     day.items.forEach(item => {
                         itemsHtml += `
                             <div class="timeline-item">
-                                <div class="flex flex-col md:flex-row md:items-center">
-                                    <span class="font-bold text-orange-700 w-16">${item.time}</span>
-                                    <span class="flex-grow">${item.event}</span>
-                                    ${item.cost > 0 ? `<span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-500 mt-1 md:mt-0">¥${item.cost}</span>` : ''}
+                                <div class="flex items-baseline gap-2 md:gap-3">
+                                    <span class="font-bold text-orange-700 text-sm w-11 shrink-0 tabular-nums">${item.time}</span>
+                                    <span class="flex-grow text-sm md:text-base leading-snug">${item.event}</span>
+                                    ${item.cost > 0 ? `<span class="text-xs bg-gray-100 px-2 py-0.5 rounded text-gray-500 shrink-0">¥${item.cost}</span>` : ''}
                                 </div>
                             </div>
                         `;
@@ -627,16 +647,19 @@
                                 <h3 class="font-bold">Day ${day.day} ｜ ${day.date}</h3>
                                 <span class="text-sm opacity-80">${day.title}</span>
                             </div>
-                            <div class="bg-white p-6 rounded-b-lg shadow-sm">
+                            <div class="bg-white p-4 md:p-6 rounded-b-lg shadow-sm">
                                 ${itemsHtml}
                                 ${(day.notes && day.notes.length) ? `
-                                    <div class="mt-2 pt-4 border-t">
-                                        <p class="font-bold text-sm mb-3" style="color: var(--color-deep-blue);">📌 補充說明</p>
-                                        <ul class="space-y-2">
+                                    <details class="notes mt-3 pt-3 border-t">
+                                        <summary class="flex items-center justify-between py-1">
+                                            <span class="font-bold text-sm" style="color: var(--color-deep-blue);">📌 補充說明 · ${day.notes.length} 條</span>
+                                            <span class="toggle-label text-xs text-gray-400 shrink-0 ml-2"></span>
+                                        </summary>
+                                        <ul class="note-list space-y-2 mt-3">
                                             ${day.notes.map(n => `<li class="text-sm text-gray-600 leading-relaxed flex gap-2"><span class="text-gray-300 shrink-0">・</span><span>${n}</span></li>`).join('')}
                                         </ul>
-                                    </div>` : ''}
-                                ${day.outfit ? `<div class="mt-4 text-sm bg-orange-50 -mx-6 -mb-6 px-6 py-4 rounded-b-lg"><span class="font-bold text-orange-700">👗 穿搭　</span><span class="text-gray-600">${day.outfit}</span></div>` : ''}
+                                    </details>` : ''}
+                                ${day.outfit ? `<div class="mt-4 text-sm bg-orange-50 -mx-4 md:-mx-6 -mb-4 md:-mb-6 px-4 md:px-6 py-3 md:py-4 rounded-b-lg"><span class="font-bold text-orange-700">👗 穿搭　</span><span class="text-gray-600">${day.outfit}</span></div>` : ''}
                             </div>
                         </div>
                     `;
