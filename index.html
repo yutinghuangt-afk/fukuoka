@@ -204,7 +204,7 @@
 
     <script>
         const defaultData = {
-            dataVersion: 11,
+            dataVersion: 12,
             info: {
                 title: "福岡旅行攻略",
                 subtitle: "2026.09.29 - 10.04｜5夜6天",
@@ -220,6 +220,12 @@
             },
             itinerary: [
                 { day: 1, date: "9/29 (二)", title: "抵達 × 中洲",
+                  transfers: [
+                    { leg: "福岡機場 國際線 → 國內線", way: "免費接駁巴士", time: "約10分", cost: 0 },
+                    { leg: "福岡機場（國內線） → 博多", way: "地鐵空港線", time: "約5分", cost: 260 },
+                    { leg: "博多站 → 民宿", way: "步行", time: "約10分", cost: 0 },
+                    { leg: "民宿 → 中洲", way: "步行", time: "約12分", cost: 0 }
+                  ],
                   notes: [
                     "🔴 10:30 在虎航報到櫃檯集合，其他班次自行前往",
                     "⚠️ 地鐵站在國內線，國際線沒有，要先搭免費接駁",
@@ -233,7 +239,7 @@
                     { time: "10:30", event: "桃園機場第一航廈 集合", cost: 0 },
                     { time: "13:25", event: "桃園起飛", cost: 0 },
                     { time: "16:55", event: "抵達福岡機場", cost: 0 },
-                    { time: "17:00", event: "入境、領行李、搭地鐵", cost: 260 },
+                    { time: "17:00", event: "入境、領行李、前往博多", cost: 0 },
                     { time: "18:00", event: "民宿 Check-in", cost: 0 },
                     { time: "18:35", event: "出發前往中洲", cost: 0 },
                     { time: "18:50", event: "晚餐：一蘭 本社總本店", cost: 0 },
@@ -242,6 +248,10 @@
                     { time: "21:00", event: "回民宿", cost: 0 }
                   ]},
                 { day: 2, date: "9/30 (三)", title: "自由活動 × 天神百貨",
+                  transfers: [
+                    { leg: "博多周邊 → 天神", way: "步行（或搭地鐵 ¥260）", time: "約10分", cost: 0 },
+                    { leg: "天神 → 西中洲（華味鳥）", way: "步行", time: "約10分", cost: 0 }
+                  ],
                   notes: [
                     "📌 今天不排團體時間軸，19:00 華味鳥是唯一硬底線",
                     "🥖 The Full Full：10點到已在排，11點到要排50分",
@@ -267,6 +277,12 @@
                     { time: "21:00", event: "回飯店", cost: 0 }
                   ]},
                 { day: 3, date: "10/1 (四)", title: "由布院",
+                  transfers: [
+                    { leg: "民宿 → 博多站", way: "步行／地鐵", time: "約15分", cost: 0 },
+                    { leg: "博多 10:11 → 由布院 12:27", way: "由布院之森 3號 ⚠️別府行", time: "2小時16分", cost: 0 },
+                    { leg: "由布院駅 → 湯之坪街道", way: "步行", time: "約10分", cost: 0 },
+                    { leg: "由布院 17:17 → 博多 19:27", way: "由布院之森 6號", time: "2小時10分", cost: 0 }
+                  ],
                   outfit: "森林系，上淺下深 — 米白／奶油色上衣 ＋ 卡其或深橄欖下身。十月初還沒紅葉、背景全綠，全身橄欖綠會糊掉。",
                   notes: [
                     "⚠️ 3號是別府行，不是終點站 — 設12:20鬧鐘",
@@ -290,6 +306,14 @@
                     { time: "20:00", event: "晚餐（博多站內）", cost: 0 }
                   ]},
                 { day: 4, date: "10/2 (五)", title: "太宰府 × 和服",
+                  transfers: [
+                    { leg: "民宿 → 天神", way: "地鐵", time: "約10分", cost: 210 },
+                    { leg: "西鐵福岡（天神）北口 人工窗口", way: "買太宰府散策きっぷ ×8", time: "—", cost: 1060 },
+                    { leg: "西鐵福岡（天神） → 西鐵二日市", way: "西鐵天神大牟田線", time: "約25分", cost: 0 },
+                    { leg: "西鐵二日市 → 太宰府 ⚠️ 要轉車", way: "西鐵太宰府線", time: "約5分", cost: 0 },
+                    { leg: "太宰府駅 → 和服店", way: "步行（参道上）", time: "約8分", cost: 0 },
+                    { leg: "回程：太宰府 → 二日市 → 天神", way: "西鐵（同樣在二日市轉車）", time: "約40分", cost: 0 }
+                  ],
                   notes: [
                     "🎫 散策きっぷ約¥1,060：往復 ＋ 梅ヶ枝餅2個 ＋ 九州國立博物館團體價",
                     "🎫 只在西鐵福岡（天神）駅北口人工窗口賣，自動售票機沒有；要走人工閘口",
@@ -309,9 +333,7 @@
                     "✅ ひらお 不吃海鮮可選雞／蔬菜"
                   ],
                   items: [
-                    { time: "09:00", event: "民宿出發，地鐵至天神", cost: 210 },
-                    { time: "09:20", event: "西鐵窗口買散策きっぷ ×8", cost: 1060 },
-                    { time: "09:40", event: "西鐵天神 → 二日市 → 太宰府", cost: 0 },
+                    { time: "09:00", event: "出發前往太宰府（先買散策きっぷ）", cost: 0 },
                     { time: "10:20", event: "抵達太宰府，步行至和服店", cost: 0 },
                     { time: "10:30", event: "和服 第一梯（4人）", cost: 0 },
                     { time: "11:00", event: "和服 第二梯（4人）", cost: 0 },
@@ -319,12 +341,24 @@
                     { time: "12:30", event: "太宰府天満宮", cost: 0 },
                     { time: "14:00", event: "参道、星巴克、買御守", cost: 0 },
                     { time: "16:30", event: "歸還和服", cost: 0 },
-                    { time: "17:00", event: "西鐵太宰府 → 天神", cost: 0 },
+                    { time: "17:00", event: "返回天神", cost: 0 },
                     { time: "18:00", event: "晚餐：ひらお 天神アクロス店", cost: 0 },
                     { time: "19:30", event: "天神地下街", cost: 0 },
                     { time: "20:30", event: "回民宿", cost: 0 }
                   ]},
                 { day: 5, date: "10/3 (六)", title: "八女 × 藥院",
+                  transfers: [
+                    { leg: "民宿 → 中洲川端站", way: "步行", time: "約5分", cost: 0 },
+                    { leg: "中洲川端 08:35 → 天神", way: "地鐵", time: "2分", cost: 210 },
+                    { leg: "天神 → 西鐵福岡（天神）站", way: "地下街步行相連", time: "約5分", cost: 0 },
+                    { leg: "西鐵福岡 08:50 → 西鐵久留米", way: "天神大牟田線 特急", time: "約35分", cost: 640 },
+                    { leg: "西鐵久留米 → 巴士中心", way: "出站即是 ⚠️看電子看板找「八女営業所行」", time: "—", cost: 0 },
+                    { leg: "久留米 09:38 → 西唐人町", way: "31號巴士 ⚠️上車抽整理券、下車付錢", time: "約40分", cost: 750 },
+                    { leg: "西唐人町 → 福島八幡宮", way: "步行", time: "3–5分", cost: 0 },
+                    { leg: "回程：西唐人町 14:00 → 西鐵久留米", way: "31號巴士", time: "約40分", cost: 750 },
+                    { leg: "西鐵久留米 14:55 → 西鐵藥院", way: "西鐵特急（往天神）⚠️不用轉車", time: "約33分", cost: 640 },
+                    { leg: "藥院 → 天神站（晚餐後）", way: "步行", time: "約10分", cost: 0 }
+                  ],
                   outfit: "藍色系。白壁老街是白色土藏建築，深藍／靛藍在白牆前對比最強，避免全身淺藍。晚上吃燒肉有油煙，淺色上衣易吸味。",
                   notes: [
                     "🚌 巴士：上車抽整理券、下車付錢，可刷nimoca／Suica／ICOCA",
@@ -340,26 +374,24 @@
                     "🔎 出發前必查：西鐵巴士2026年10月改點、週六班次、實際車資 → jik.nishitetsu.jp/menu"
                   ],
                   items: [
-                    { time: "08:30", event: "民宿出發，步行至中洲川端站", cost: 0 },
-                    { time: "08:35", event: "中洲川端 → 天神", cost: 210 },
-                    { time: "08:40", event: "步行至西鐵福岡（天神）站", cost: 0 },
-                    { time: "08:50", event: "西鐵特急", cost: 640 },
-                    { time: "09:25", event: "西鐵久留米 → 巴士中心", cost: 0 },
-                    { time: "09:38", event: "31號巴士", cost: 750 },
-                    { time: "10:18", event: "西唐人町下車", cost: 0 },
+                    { time: "08:30", event: "民宿出發，前往八女", cost: 0 },
+                    { time: "10:18", event: "抵達西唐人町", cost: 0 },
                     { time: "10:20", event: "福島八幡宮", cost: 0 },
                     { time: "11:30", event: "白壁老街散策", cost: 0 },
                     { time: "12:30", event: "午餐", cost: 0 },
                     { time: "13:30", event: "矢部屋許斐本家（八女茶）", cost: 0 },
-                    { time: "14:00", event: "西唐人町搭 31號巴士", cost: 750 },
-                    { time: "14:55", event: "西鐵特急（往天神）", cost: 640 },
-                    { time: "15:30", event: "西鐵藥院站下車", cost: 0 },
+                    { time: "14:00", event: "出發返回藥院", cost: 0 },
+                    { time: "15:30", event: "抵達西鐵藥院站", cost: 0 },
                     { time: "15:40", event: "BBB POTTERS", cost: 0 },
                     { time: "17:00", event: "白金小圈圈、藥院古著小店", cost: 0 },
                     { time: "19:00", event: "晚餐：焼肉ベンジャミン", cost: 0 },
                     { time: "21:30", event: "回民宿", cost: 0 }
                   ]},
                 { day: 6, date: "10/4 (日)", title: "返程",
+                  transfers: [
+                    { leg: "博多 → 福岡機場（國內線）", way: "地鐵空港線", time: "約15分", cost: 260 },
+                    { leg: "國內線 → 國際線", way: "免費接駁巴士 ⚠️整段抓30分", time: "約10分", cost: 0 }
+                  ],
                   notes: [
                     "🛍️ マイング横丁：努努雞、福砂屋長崎蛋糕、明太子醬",
                     "⚖️ 行李秤重放在退房前，鞋盒全拆、鞋內塞衣服",
@@ -370,7 +402,7 @@
                   items: [
                     { time: "09:30", event: "博多站最後採買", cost: 0 },
                     { time: "11:00", event: "退房、整理行李", cost: 0 },
-                    { time: "13:30", event: "前往福岡機場", cost: 260 },
+                    { time: "13:30", event: "前往福岡機場", cost: 0 },
                     { time: "16:20", event: "福岡機場起飛", cost: 0 }
                   ]}
             ],
@@ -649,6 +681,23 @@
                             </div>
                             <div class="bg-white p-4 md:p-6 rounded-b-lg shadow-sm">
                                 ${itemsHtml}
+                                ${(day.transfers && day.transfers.length) ? `
+                                    <details class="notes mt-3 pt-3 border-t">
+                                        <summary class="flex items-center justify-between py-1">
+                                            <span class="font-bold text-sm" style="color: var(--color-deep-blue);">🚃 交通走法 · ${day.transfers.length} 段${day.transfers.reduce((a,t)=>a+(t.cost||0),0) > 0 ? `　<span class="text-orange-700">每人 ¥${day.transfers.reduce((a,t)=>a+(t.cost||0),0)}</span>` : ''}</span>
+                                            <span class="toggle-label text-xs text-gray-400 shrink-0 ml-2"></span>
+                                        </summary>
+                                        <ol class="note-list mt-3 space-y-2">
+                                            ${day.transfers.map((t, i) => `
+                                                <li class="flex gap-2 text-sm">
+                                                    <span class="shrink-0 w-5 h-5 rounded-full bg-blue-900 text-white text-xs flex items-center justify-center mt-0.5">${i + 1}</span>
+                                                    <span class="flex-grow">
+                                                        <span class="font-medium">${t.leg}</span><br>
+                                                        <span class="text-xs text-gray-500">${t.way}${t.time && t.time !== '—' ? '｜' + t.time : ''}${t.cost > 0 ? '｜¥' + t.cost : ''}</span>
+                                                    </span>
+                                                </li>`).join('')}
+                                        </ol>
+                                    </details>` : ''}
                                 ${(day.notes && day.notes.length) ? `
                                     <details class="notes mt-3 pt-3 border-t">
                                         <summary class="flex items-center justify-between py-1">
@@ -958,6 +1007,10 @@
                     });
                     html += `</tbody></table>
                         <div class="mt-4">
+                            <label class="block text-xs font-bold mb-1">🚃 交通走法（一行一段，格式：路段｜方式｜時間｜費用）</label>
+                            <textarea class="w-full border p-2 rounded text-sm h-28" onchange="updateDayTransfers(${dayIdx}, this.value)">${escHtml((day.transfers || []).map(t => [t.leg, t.way, t.time || '', t.cost || 0].join('｜')).join('\n'))}</textarea>
+                        </div>
+                        <div class="mt-4">
                             <label class="block text-xs font-bold mb-1">📌 補充說明（一行一條）</label>
                             <textarea class="w-full border p-2 rounded text-sm h-32" onchange="updateDayNotes(${dayIdx}, this.value)">${escHtml((day.notes || []).join('\n'))}</textarea>
                         </div>
@@ -1174,6 +1227,14 @@
             const data = getData();
             if (field === 'cost') value = parseInt(value) || 0;
             data.itinerary[dayIdx].items[itemIdx][field] = value;
+            saveData(data);
+        }
+        function updateDayTransfers(dayIdx, value) {
+            const data = getData();
+            data.itinerary[dayIdx].transfers = value.split('\n').map(x => x.trim()).filter(x => x).map(line => {
+                const [leg = '', way = '', time = '', cost = '0'] = line.split('｜').map(x => x.trim());
+                return { leg, way, time, cost: parseInt(cost) || 0 };
+            });
             saveData(data);
         }
         function updateDayNotes(dayIdx, value) {
