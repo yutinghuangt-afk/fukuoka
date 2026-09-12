@@ -126,12 +126,13 @@
                 <div class="flex-shrink-0 flex items-center">
                     <span class="text-xl font-bold tracking-tighter" style="color: var(--color-deep-blue);">FUKUOKA 2026</span>
                 </div>
-                <div class="hidden md:flex space-x-8">
+                <div class="hidden md:flex space-x-5">
                     <a href="#" onclick="showPage('home')" id="nav-home" class="nav-item py-4 px-2 nav-active">首頁</a>
                     <a href="#" onclick="showPage('itinerary')" id="nav-itinerary" class="nav-item py-4 px-2">行程規劃</a>
                     <a href="#" onclick="showPage('attractions')" id="nav-attractions" class="nav-item py-4 px-2">景點介紹</a>
                     <a href="#" onclick="showPage('food')" id="nav-food" class="nav-item py-4 px-2">美食紀錄</a>
                     <a href="#" onclick="showPage('phrases')" id="nav-phrases" class="nav-item py-4 px-2">點餐卡</a>
+                    <a href="#" onclick="showPage('prep')" id="nav-prep" class="nav-item py-4 px-2">行前準備</a>
                     <a href="#" onclick="showPage('map')" id="nav-map" class="nav-item py-4 px-2">地圖導航</a>
                 </div>
                 <div class="flex items-center">
@@ -140,12 +141,13 @@
             </div>
         </div>
         <!-- Mobile menu -->
-        <div class="md:hidden flex justify-around border-t py-2 bg-white">
+        <div class="md:hidden flex justify-around border-t py-2 bg-white overflow-x-auto">
             <a href="#" onclick="showPage('home')" class="text-xs flex flex-col items-center"><span>🏠</span><span>首頁</span></a>
             <a href="#" onclick="showPage('itinerary')" class="text-xs flex flex-col items-center"><span>📅</span><span>行程</span></a>
             <a href="#" onclick="showPage('attractions')" class="text-xs flex flex-col items-center"><span>🏯</span><span>景點</span></a>
             <a href="#" onclick="showPage('food')" class="text-xs flex flex-col items-center"><span>🍜</span><span>美食</span></a>
-            <a href="#" onclick="showPage('phrases')" class="text-xs flex flex-col items-center"><span>🗣️</span><span>點餐卡</span></a>
+            <a href="#" onclick="showPage('phrases')" class="text-xs flex flex-col items-center shrink-0 px-1"><span>🗣️</span><span>點餐卡</span></a>
+            <a href="#" onclick="showPage('prep')" class="text-xs flex flex-col items-center shrink-0 px-1"><span>🧳</span><span>行前</span></a>
             <a href="#" onclick="showPage('map')" class="text-xs flex flex-col items-center"><span>📍</span><span>地圖</span></a>
         </div>
     </nav>
@@ -182,7 +184,7 @@
 
     <script>
         const defaultData = {
-            dataVersion: 4,
+            dataVersion: 5,
             info: {
                 title: "福岡旅行攻略",
                 subtitle: "2026.09.29 - 10.04｜5夜6天",
@@ -209,7 +211,7 @@
                     { time: "20:30", event: "超市／唐吉訶德採買（宵夜＋隔日早餐）", cost: 0 },
                     { time: "21:00", event: "回民宿", cost: 0 }
                 ]},
-                { day: 2, date: "9/30 (三)", title: "自由活動 × 天神百貨", items: [
+                { day: 2, date: "9/30 (三)", title: "自由活動 × 天神百貨", outfit: "走最多路、又進出百貨冷氣：好走的鞋＋一件薄外套。百貨拍照背景乾淨，適合穿顏色明確的單品。", items: [
                     { time: "09:20", event: "（自由）住吉神社參拜 — 博多最古老神社，安靜不用排隊，約30分", cost: 0 },
                     { time: "10:00", event: "（自由）The Full Full Hakata 開門 — 明太子法國麵包 ⚠️ 10點到已在排，11點到要排50分", cost: 0 },
                     { time: "11:30", event: "（自由）いとおかし（魚ト肴）⚠️ 海鮮店，不吃海鮮者這段自理", cost: 0 },
@@ -222,7 +224,7 @@
                     { time: "19:00", event: "🔴 晚餐：博多華味鳥 西中洲本店 ✅已預約｜花コース¥5,000｜有個室 ⚠️ 出發前3天電話請店家把內臟與鶏刺し換熟食", cost: 0 },
                     { time: "21:00", event: "回飯店", cost: 0 }
                 ]},
-                { day: 3, date: "10/1 (四)", title: "由布院", items: [
+                { day: 3, date: "10/1 (四)", title: "由布院", outfit: "森林系，上淺下深 — 米白／奶油色上衣 ＋ 卡其或深橄欖下身。十月初還沒紅葉、背景全綠，全身橄欖綠會糊掉。", items: [
                     { time: "09:15", event: "🔴 博多站在來線剪票口集合", cost: 0 },
                     { time: "10:11", event: "由布院之森 3號 ✅已購 ⚠️ 別府行，不是終點站 — 設12:20鬧鐘", cost: 0 },
                     { time: "12:27", event: "抵達由布院 → 先去 B-speak 預約生乳捲", cost: 0 },
@@ -250,7 +252,7 @@
                     { time: "19:30", event: "天神地下街", cost: 0 },
                     { time: "20:30", event: "回民宿", cost: 0 }
                 ]},
-                { day: 5, date: "10/3 (六)", title: "八女 × 藥院", items: [
+                { day: 5, date: "10/3 (六)", title: "八女 × 藥院", outfit: "藍色系。白壁老街是白色土藏建築，深藍／靛藍在白牆前對比最強，避免全身淺藍。晚上吃燒肉有油煙，淺色上衣易吸味。", items: [
                     { time: "08:30", event: "民宿出發，步行至中洲川端站（約5分）", cost: 0 },
                     { time: "08:35", event: "中洲川端 → 天神（地鐵2分）", cost: 210 },
                     { time: "08:40", event: "步行至西鐵福岡（天神）站（地下街相連約5分）", cost: 0 },
@@ -331,6 +333,35 @@
                 { item: "運動鞋（博多運河城）", done: false },
                 { item: "吉卜力周邊", done: false }
             ],
+            todos: [
+                { cat: "🟡 9月上旬（最急）", item: "Visit Japan Web 申報（可多人一起申請）" },
+                { cat: "🟡 9月上旬（最急）", item: "旅平險、eSIM" },
+                { cat: "🟡 9月上旬（最急）", item: "八女午餐訂位（豚かつ吉岡 or Ao cafe）" },
+                { cat: "🟡 9月上旬（最急）", item: "10/1 由布院午餐、博多晚餐定案" },
+                { cat: "🟡 9月上旬（最急）", item: "查西鐵巴士10月改點，確認31系統與週六班次 → jik.nishitetsu.jp/menu" },
+                { cat: "🟡 9月上旬（最急）", item: "確認民宿自助入住方式並分享給全員" },
+                { cat: "🟢 9月中下旬", item: "換日幣現金" },
+                { cat: "🟢 9月中下旬", item: "護照效期確認（需6個月以上）" },
+                { cat: "🟢 9月中下旬", item: "Apple Pay 內 ICOCA 儲值" },
+                { cat: "🟢 9月中下旬", item: "出發前3天打電話跟華味鳥確認「內臟與生雞肉換熟食」" },
+                { cat: "🟢 9月中下旬", item: "確認一蘭和樂團 9/29 是否照常演出" },
+                { cat: "🟢 9月中下旬", item: "確認福島八幡宮社殿改修是否完工（IG：@fukushimahachimangu.official）" },
+                { cat: "🟢 9月中下旬", item: "下載離線地圖" }
+            ],
+            prep: {
+                transport: [
+                    { route: "機場 ↔ 博多", way: "免費接駁＋地鐵空港線", cost: "¥260" },
+                    { route: "博多 ⇄ 由布院", way: "由布院之森 3／6 號", cost: "已購" },
+                    { route: "博多 → 太宰府 → 天神", way: "地鐵＋西鐵（散策きっぷ）", cost: "約 ¥1,270" },
+                    { route: "博多 → 八女 → 藥院", way: "地鐵＋西鐵＋31號巴士", cost: "約 ¥2,990" }
+                ],
+                payment: [
+                    { icon: "✅", text: "IC卡可用：地鐵、JR在來線、西鐵電車、西鐵巴士" },
+                    { icon: "❌", text: "PayPay／全支付完全不能用在交通" },
+                    { icon: "💵", text: "帶現金：由布院小店、八女老鋪、藥院古著、賽錢與御朱印" },
+                    { icon: "⚠️", text: "JR Pass 不划算，不要買" }
+                ]
+            },
             phrases: {
                 limits: "全體不吃內臟（8人）｜不吃牛（2–3人）｜不吃海鮮（1人）｜不敢太生（1人）",
                 groups: [
@@ -397,6 +428,19 @@
             });
             localStorage.setItem('fukuokaTravelData', JSON.stringify(saved));
         })();
+
+        // ── 勾選狀態：獨立存放，升版覆蓋資料時不會被洗掉 ──
+        function getChecks() {
+            try { return JSON.parse(localStorage.getItem('fukuokaChecks') || '{}'); }
+            catch (e) { return {}; }
+        }
+        function toggleCheck(key, el) {
+            const c = getChecks();
+            c[key] = el.checked;
+            localStorage.setItem('fukuokaChecks', JSON.stringify(c));
+            el.parentElement.classList.toggle('opacity-40', el.checked);
+            el.parentElement.classList.toggle('line-through', el.checked);
+        }
 
         // ── 手動強制更新（頁尾按鈕用） ──
         function forceRefreshData() {
@@ -488,6 +532,7 @@
                             </div>
                             <div class="bg-white p-6 rounded-b-lg shadow-sm">
                                 ${itemsHtml}
+                                ${day.outfit ? `<div class="mt-4 pt-4 border-t text-sm bg-orange-50 -mx-6 -mb-6 px-6 py-4 rounded-b-lg"><span class="font-bold text-orange-700">👗 穿搭　</span><span class="text-gray-600">${day.outfit}</span></div>` : ''}
                             </div>
                         </div>
                     `;
@@ -552,6 +597,71 @@
                 container.innerHTML = `
                     <h2 class="text-3xl font-bold mb-8 text-center magazine-title">在地美食紀錄</h2>
                     <div class="max-w-4xl mx-auto">${foodHtml}</div>
+                `;
+
+            } else if (pageId === 'prep') {
+                const checks = getChecks();
+                const todos = data.todos || defaultData.todos;
+                const prep = data.prep || defaultData.prep;
+                const row = (key, text, preDone) => {
+                    const done = checks[key] !== undefined ? checks[key] : !!preDone;
+                    return `<label class="flex items-start gap-3 py-2 border-b last:border-0 cursor-pointer ${done ? 'opacity-40 line-through' : ''}">
+                        <input type="checkbox" ${done ? 'checked' : ''} onchange="toggleCheck(decodeURIComponent('${encodeURIComponent(key)}'), this)" class="mt-1 shrink-0">
+                        <span class="text-sm">${text}</span></label>`;
+                };
+                const todoCats = [...new Set(todos.map(t => t.cat))];
+                const todoHtml = todoCats.map(cat => `
+                    <div class="mb-6">
+                        <h4 class="font-bold mb-2">${cat}</h4>
+                        <div class="bg-white rounded shadow-sm px-4 py-2">
+                            ${todos.filter(t => t.cat === cat).map((t, i) => row('todo|' + t.cat + '|' + t.item, t.item)).join('')}
+                        </div>
+                    </div>`).join('');
+
+                const resHtml = data.reservations.map(r => {
+                    const ok = r.status === '已預約' || r.status === '完成';
+                    return `<div class="bg-white p-3 rounded shadow-sm mb-2 flex items-start gap-3">
+                        <span class="text-xs px-2 py-1 rounded shrink-0 ${ok ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-600'}">${r.status}</span>
+                        <div><p class="font-medium text-sm">${r.item}</p><p class="text-xs text-gray-500 mt-1">${r.note}</p></div>
+                    </div>`;
+                }).join('');
+
+                const shopHtml = data.shopping.map(sp =>
+                    row('shop|' + sp.item, sp.item, sp.done)).join('');
+
+                container.innerHTML = `
+                    <h2 class="text-3xl font-bold mb-8 text-center magazine-title">行前準備</h2>
+                    <div class="max-w-4xl mx-auto">
+                        <h3 class="text-xl font-bold mb-4 border-b-2 border-blue-900 inline-block pb-1">📋 預約狀態</h3>
+                        <div class="mb-10">${resHtml}</div>
+
+                        <h3 class="text-xl font-bold mb-4 border-b-2 border-blue-900 inline-block pb-1">✅ 出發前待辦</h3>
+                        <p class="text-xs text-gray-400 mb-4">打勾只存在你自己的手機／電腦，不會同步給其他人</p>
+                        <div class="mb-10">${todoHtml}</div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                            <div>
+                                <h3 class="text-xl font-bold mb-4 border-b-2 border-blue-900 inline-block pb-1">🛍️ 購物清單</h3>
+                                <div class="bg-white rounded shadow-sm px-4 py-2">${shopHtml}</div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-4 border-b-2 border-blue-900 inline-block pb-1">💳 支付提醒</h3>
+                                <div class="bg-white rounded shadow-sm p-4 space-y-3">
+                                    ${prep.payment.map(x => `<p class="text-sm flex gap-2"><span class="shrink-0">${x.icon}</span><span>${x.text}</span></p>`).join('')}
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 class="text-xl font-bold mb-4 border-b-2 border-blue-900 inline-block pb-1">🚃 交通速查</h3>
+                        <div class="bg-white rounded shadow-sm overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead><tr class="border-b bg-gray-50"><th class="text-left p-3">路段</th><th class="text-left p-3">方式</th><th class="text-right p-3">每人</th></tr></thead>
+                                <tbody>
+                                    ${prep.transport.map(t => `<tr class="border-b last:border-0"><td class="p-3 font-medium">${t.route}</td><td class="p-3 text-gray-600">${t.way}</td><td class="p-3 text-right whitespace-nowrap">${t.cost}</td></tr>`).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 `;
 
             } else if (pageId === 'phrases') {
@@ -630,6 +740,8 @@
                         <button onclick="renderAdminSection('attractions')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded">景點管理</button>
                         <button onclick="renderAdminSection('food')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded">美食管理</button>
                         <button onclick="renderAdminSection('reservations')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded">預約/購物</button>
+                        <button onclick="renderAdminSection('todos')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded">待辦</button>
+                        <button onclick="renderAdminSection('phrases')" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded">點餐卡</button>
                         <button onclick="exportHTML()" class="px-4 py-2 bg-green-600 text-white rounded font-bold hover:bg-green-700">📥 匯出更新檔</button>
                         <button onclick="logout()" class="px-4 py-2 bg-red-100 text-red-600 rounded ml-auto">登出</button>
                     </div>
@@ -788,6 +900,57 @@
                 html += '</div>';
                 content.innerHTML = html;
 
+            // ── 待辦管理 ─────────────────────────────────────────
+            } else if (section === 'todos') {
+                if (!data.todos) data.todos = defaultData.todos;
+                content.innerHTML = `
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-bold">出發前待辦管理</h3>
+                        <button onclick="addTodo()" class="bg-blue-600 text-white px-4 py-2 rounded">+ 新增待辦</button>
+                    </div>
+                    <div class="bg-white p-4 rounded shadow-sm space-y-2">
+                        ${data.todos.map((t, i) => `
+                            <div class="flex gap-2 items-center border-b pb-2">
+                                <input class="border p-1 rounded w-48 text-sm" value="${escHtml(t.cat)}" onchange="updateTodo(${i}, 'cat', this.value)" placeholder="分組">
+                                <input class="border p-1 rounded flex-1 text-sm" value="${escHtml(t.item)}" onchange="updateTodo(${i}, 'item', this.value)" placeholder="待辦內容">
+                                <button onclick="deleteTodo(${i})" class="text-red-400 shrink-0">✕</button>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <p class="text-xs text-gray-400 mt-2">※ 相同「分組」的項目會顯示在同一區塊。</p>
+                `;
+
+            // ── 點餐卡管理 ───────────────────────────────────────
+            } else if (section === 'phrases') {
+                if (!data.phrases) data.phrases = defaultData.phrases;
+                const ph = data.phrases;
+                content.innerHTML = `
+                    <h3 class="text-xl font-bold mb-4">點餐卡管理</h3>
+                    <div class="bg-white p-4 rounded shadow-sm mb-6">
+                        <label class="block text-sm font-bold mb-1">全團飲食限制（紅框內容）</label>
+                        <input class="w-full border p-2 rounded" value="${escHtml(ph.limits)}" onchange="updatePhraseLimits(this.value)">
+                    </div>
+                    ${ph.groups.map((g, gi) => `
+                        <div class="bg-white p-4 rounded shadow-sm mb-4">
+                            <div class="flex justify-between items-center mb-3 border-b pb-2">
+                                <input class="border p-1 rounded font-bold flex-1 mr-2" value="${escHtml(g.title)}" onchange="updatePhraseGroup(${gi}, this.value)">
+                                <button onclick="addPhrase(${gi})" class="text-sm bg-blue-600 text-white px-2 py-1 rounded shrink-0">+ 新增句子</button>
+                            </div>
+                            <div class="space-y-2">
+                                ${g.items.map((it, ii) => `
+                                    <div class="flex gap-2 items-center">
+                                        <div class="flex-1 space-y-1">
+                                            <input class="w-full border p-1 rounded" value="${escHtml(it.jp)}" onchange="updatePhrase(${gi}, ${ii}, 'jp', this.value)" placeholder="日文">
+                                            <input class="w-full border p-1 rounded text-sm text-gray-600" value="${escHtml(it.zh)}" onchange="updatePhrase(${gi}, ${ii}, 'zh', this.value)" placeholder="中文">
+                                        </div>
+                                        <button onclick="deletePhrase(${gi}, ${ii})" class="text-red-400 shrink-0">✕</button>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `).join('')}
+                `;
+
             // ── 預約/購物管理 ─────────────────────────────────────
             } else if (section === 'reservations') {
                 let resHtml = '<div class="grid grid-cols-1 md:grid-cols-2 gap-8">';
@@ -924,6 +1087,58 @@
             data.food.splice(idx, 1);
             saveData(data);
             renderAdminSection('food');
+        }
+
+        // ── 待辦管理 ──
+        function updateTodo(idx, field, value) {
+            const data = getData();
+            data.todos[idx][field] = value;
+            saveData(data);
+        }
+        function addTodo() {
+            const data = getData();
+            if (!data.todos) data.todos = [];
+            const lastCat = data.todos.length ? data.todos[data.todos.length - 1].cat : "🟢 9月中下旬";
+            data.todos.push({ cat: lastCat, item: "新待辦" });
+            saveData(data);
+            renderAdminSection('todos');
+        }
+        function deleteTodo(idx) {
+            if (!confirm('確定刪除？')) return;
+            const data = getData();
+            data.todos.splice(idx, 1);
+            saveData(data);
+            renderAdminSection('todos');
+        }
+
+        // ── 點餐卡管理 ──
+        function updatePhraseLimits(value) {
+            const data = getData();
+            data.phrases.limits = value;
+            saveData(data);
+        }
+        function updatePhraseGroup(gi, value) {
+            const data = getData();
+            data.phrases.groups[gi].title = value;
+            saveData(data);
+        }
+        function updatePhrase(gi, ii, field, value) {
+            const data = getData();
+            data.phrases.groups[gi].items[ii][field] = value;
+            saveData(data);
+        }
+        function addPhrase(gi) {
+            const data = getData();
+            data.phrases.groups[gi].items.push({ jp: "日文句子", zh: "中文說明" });
+            saveData(data);
+            renderAdminSection('phrases');
+        }
+        function deletePhrase(gi, ii) {
+            if (!confirm('確定刪除？')) return;
+            const data = getData();
+            data.phrases.groups[gi].items.splice(ii, 1);
+            saveData(data);
+            renderAdminSection('phrases');
         }
 
         // ── 預約/購物管理 ──
