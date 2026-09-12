@@ -209,7 +209,7 @@
 
     <script>
         const defaultData = {
-            dataVersion: 14,
+            dataVersion: 15,
             info: {
                 title: "福岡旅行攻略",
                 subtitle: "2026.09.29 - 10.04｜5夜6天",
@@ -359,6 +359,9 @@
                     "🍵 矢部屋許斐本家：1704年創立，八女最古老茶行",
                     "🚕 14:00巴士沒搭上：叫計程車到西鐵久留米，約30分¥5,500／台，2台分攤每人約¥1,375",
                     "⚠️ 15:30下車是西鐵藥院，不是地鐵七隈線藥院",
+                    "🛍️ 選物店分三區，走路串得起來：白金1丁目（Kitchen Paradise／HIGHTIDE STORE）→ 薬院1丁目（Dua／BBB POTTERS＋BBB&）→ 薬院2–3丁目（NEST／NONE TOO SOON／FEELS GOOD STORE／Pearl）",
+                    "⏰ Kitchen Paradise 只開到17:00，是這區關最早的，要去就排第一站；NEST・Dua・Pearl 開到20:00，適合墊底",
+                    "👥 這區店都很小，8人建議分頭逛，18:45 約一個點集合再一起去吃燒肉",
                     "⚠️ 焼肉ベンジャミン在警固不在藥院站旁；菜單有ホルモン，點餐避開",
                     "🔎 出發前必查：西鐵巴士2026年10月改點、週六班次、實際車資 → jik.nishitetsu.jp/menu"
                   ],
@@ -391,25 +394,33 @@
                   ]}
             ],
             attractions: [
-                { name: "住吉神社", desc: "博多最古老神社，氛圍莊嚴靜謐。步行約15分可達。", tag: "文化", mapUrl: "https://www.google.com/maps/search/住吉神社+福岡市博多区住吉3丁目1-51" },
-                { name: "博多運河城", desc: "大型購物中心，ABC-MART買鞋首選，噴水池表演與多樣店舖。", tag: "購物", mapUrl: "https://www.google.com/maps/search/Canal+City+Hakata+福岡" },
-                { name: "大濠公園", desc: "福岡市中心的都市綠洲，湖畔散步、慢跑勝地。附近有美術館。", tag: "自然", mapUrl: "https://www.google.com/maps/search/大濠公園+福岡" },
-                { name: "金鱗湖", desc: "由布院知名景點，湖底湧出溫泉與清水，晨霧迷濛如夢似幻。", tag: "自然", mapUrl: "https://www.google.com/maps/search/金鱗湖+由布院" },
-                { name: "湯之坪街道", desc: "由布院文青必逛街道，充滿特色小食、手工藝品店與日式雜貨。", tag: "散策", mapUrl: "https://www.google.com/maps/search/湯の坪街道+由布院" },
-                { name: "SNOOPY茶屋", desc: "全球首家和風SNOOPY主題茶屋，結合史努比與和式建築風格。", tag: "特色", mapUrl: "https://www.google.com/maps/search/SNOOPY茶屋+由布院" },
-                { name: "吉卜力どんぐりの森", desc: "宮崎駿迷必訪！龍貓、魔女宅急便等官方周邊商品專賣店。", tag: "購物", mapUrl: "https://www.google.com/maps/search/どんぐりの森+由布院" },
-                { name: "太宰府天滿宮", desc: "祭祀學問之神菅原道真。2026/9本殿124年大改修完工重開，隈研吾設計的星巴克必看。", tag: "文化", mapUrl: "https://www.google.com/maps/search/太宰府天満宮" },
-                { name: "竈門神社", desc: "知名結緣神社，《鬼滅之刃》聖地。搭まほろば号¥100可達。", tag: "文化", mapUrl: "https://www.google.com/maps/search/竈門神社+太宰府" },
-                { name: "福島八幡宮", desc: "八女市360年歷史古社，以精美剪紙御朱印聞名，招牌豆柴「小白」超可愛。", tag: "文化", mapUrl: "https://www.google.com/maps/search/福島八幡宮+八女市" },
-                { name: "矢部屋許斐本家", desc: "1704年創立的八女最古老茶行，頂級玉露¥2,000起，可參觀日式庭園。", tag: "文化", mapUrl: "https://www.google.com/maps/search/矢部屋許斐本家+八女" },
-                { name: "BBB POTTERS", desc: "藥院地標，三層樓的生活食器與雜貨選物店。", tag: "購物", mapUrl: "https://www.google.com/maps/search/BBB+POTTERS+薬院+福岡" },
-                { name: "藥院文青區", desc: "福岡最有質感的生活選物聚落，白金小圈圈、古著店、咖啡廳林立。", tag: "散策", mapUrl: "https://www.google.com/maps/search/薬院+福岡" },
-                { name: "博多車站", desc: "福岡最重要的交通樞紐，KITTE博多、博多デイトス、阪急百貨一次逛齊。", tag: "購物", mapUrl: "https://www.google.com/maps/search/博多駅+福岡" },
-                { name: "ONE FUKUOKA BLDG.（ワンビル）", desc: "2025/4開幕的天神最新地標，福ビル・天神コア・天神ビブレ舊址整合而成，約130店。館內散佈20+位藝術家、120+件藝術品，6F Sky Lobby可俯瞰天神十字路口。", tag: "購物", mapUrl: "https://www.google.com/maps/search/ONE+FUKUOKA+BLDG+天神+福岡" },
-                { name: "天神地下街", desc: "全長590m、153間店。石板路＋磚牆＋彩繪玻璃的歐風設計，本身就是景點。北連ミーナ、南連三越大丸、東連ワンビル、西連岩田屋，下雨不用出地面。", tag: "散策", mapUrl: "https://www.google.com/maps/search/天神地下街+福岡" },
-                { name: "大丸福岡天神店", desc: "鞋類賣場最強，空間寬敞好挑好試，本次買鞋首選。設有免稅櫃台。", tag: "購物", mapUrl: "https://www.google.com/maps/search/大丸福岡天神店" },
-                { name: "岩田屋本店", desc: "福岡最老牌百貨，伊勢丹系統，時尚最強，有伊勢丹岩田屋限定商品。免稅櫃台在新館7F。", tag: "購物", mapUrl: "https://www.google.com/maps/search/岩田屋本店+福岡" },
-                { name: "福岡大名ガーデンシティ", desc: "2023全面開業，麗思卡爾頓進駐。草地公園＋質感選物，天神最好拍的一區。", tag: "散策", mapUrl: "https://www.google.com/maps/search/福岡大名ガーデンシティ" }
+                { name: "住吉神社", area: "博多・天神", desc: "博多最古老神社，氛圍莊嚴靜謐。步行約15分可達。", tag: "文化", mapUrl: "https://www.google.com/maps/search/住吉神社+福岡市博多区住吉3丁目1-51" },
+                { name: "博多運河城", area: "博多・天神", desc: "大型購物中心，ABC-MART買鞋首選，噴水池表演與多樣店舖。", tag: "購物", mapUrl: "https://www.google.com/maps/search/Canal+City+Hakata+福岡" },
+                { name: "大濠公園", area: "博多・天神", desc: "福岡市中心的都市綠洲，湖畔散步、慢跑勝地。附近有美術館。", tag: "自然", mapUrl: "https://www.google.com/maps/search/大濠公園+福岡" },
+                { name: "金鱗湖", area: "由布院", desc: "由布院知名景點，湖底湧出溫泉與清水，晨霧迷濛如夢似幻。", tag: "自然", mapUrl: "https://www.google.com/maps/search/金鱗湖+由布院" },
+                { name: "湯之坪街道", area: "由布院", desc: "由布院文青必逛街道，充滿特色小食、手工藝品店與日式雜貨。", tag: "散策", mapUrl: "https://www.google.com/maps/search/湯の坪街道+由布院" },
+                { name: "SNOOPY茶屋", area: "由布院", desc: "全球首家和風SNOOPY主題茶屋，結合史努比與和式建築風格。", tag: "特色", mapUrl: "https://www.google.com/maps/search/SNOOPY茶屋+由布院" },
+                { name: "吉卜力どんぐりの森", area: "由布院", desc: "宮崎駿迷必訪！龍貓、魔女宅急便等官方周邊商品專賣店。", tag: "購物", mapUrl: "https://www.google.com/maps/search/どんぐりの森+由布院" },
+                { name: "太宰府天滿宮", area: "太宰府", desc: "祭祀學問之神菅原道真。2026/9本殿124年大改修完工重開，隈研吾設計的星巴克必看。", tag: "文化", mapUrl: "https://www.google.com/maps/search/太宰府天満宮" },
+                { name: "竈門神社", area: "太宰府", desc: "知名結緣神社，《鬼滅之刃》聖地。搭まほろば号¥100可達。", tag: "文化", mapUrl: "https://www.google.com/maps/search/竈門神社+太宰府" },
+                { name: "福島八幡宮", area: "藥院・八女", desc: "八女市360年歷史古社，以精美剪紙御朱印聞名，招牌豆柴「小白」超可愛。", tag: "文化", mapUrl: "https://www.google.com/maps/search/福島八幡宮+八女市" },
+                { name: "矢部屋許斐本家", area: "藥院・八女", desc: "1704年創立的八女最古老茶行，頂級玉露¥2,000起，可參觀日式庭園。", tag: "文化", mapUrl: "https://www.google.com/maps/search/矢部屋許斐本家+八女" },
+                { name: "BBB POTTERS", area: "藥院・八女", desc: "藥院地標，三層樓的生活食器與雜貨選物店。", tag: "購物", mapUrl: "https://www.google.com/maps/search/BBB+POTTERS+薬院+福岡" },
+                { name: "藥院文青區（白金・高砂）", area: "藥院・八女", desc: "福岡最有質感的生活選物聚落，被稱為「咖啡激戰區」。棋盤格狀街道，店都藏在住宅區巷弄裡。選物店集中在三區：白金1丁目、薬院1丁目、薬院2–3丁目，走路就能串起來。", tag: "散策", mapUrl: "https://www.google.com/maps/search/薬院+福岡" },
+                { name: "博多車站", area: "博多・天神", desc: "福岡最重要的交通樞紐，KITTE博多、博多デイトス、阪急百貨一次逛齊。", tag: "購物", mapUrl: "https://www.google.com/maps/search/博多駅+福岡" },
+                { name: "ONE FUKUOKA BLDG.（ワンビル）", area: "博多・天神", desc: "2025/4開幕的天神最新地標，福ビル・天神コア・天神ビブレ舊址整合而成，約130店。館內散佈20+位藝術家、120+件藝術品，6F Sky Lobby可俯瞰天神十字路口。", tag: "購物", mapUrl: "https://www.google.com/maps/search/ONE+FUKUOKA+BLDG+天神+福岡" },
+                { name: "天神地下街", area: "博多・天神", desc: "全長590m、153間店。石板路＋磚牆＋彩繪玻璃的歐風設計，本身就是景點。北連ミーナ、南連三越大丸、東連ワンビル、西連岩田屋，下雨不用出地面。", tag: "散策", mapUrl: "https://www.google.com/maps/search/天神地下街+福岡" },
+                { name: "大丸福岡天神店", area: "博多・天神", desc: "鞋類賣場最強，空間寬敞好挑好試，本次買鞋首選。設有免稅櫃台。", tag: "購物", mapUrl: "https://www.google.com/maps/search/大丸福岡天神店" },
+                { name: "岩田屋本店", area: "博多・天神", desc: "福岡最老牌百貨，伊勢丹系統，時尚最強，有伊勢丹岩田屋限定商品。免稅櫃台在新館7F。", tag: "購物", mapUrl: "https://www.google.com/maps/search/岩田屋本店+福岡" },
+                { name: "福岡大名ガーデンシティ", area: "博多・天神", desc: "2023全面開業，麗思卡爾頓進駐。草地公園＋質感選物，天神最好拍的一區。", tag: "散策", mapUrl: "https://www.google.com/maps/search/福岡大名ガーデンシティ" },
+                { name: "Kitchen Paradise（キッチンパラダイス）", area: "藥院・八女", desc: "2001年開業的廚具專門店。只挑選店員反覆測試過、真心覺得好用的道具，主打耐用又順手。麻雀雖小五臟俱全。白金1-4-14 原ビル1F ☎092-534-6311｜火～土 10:30–17:00，週日一與國定假日公休 ⚠️ 17:00就關門，是這區關最早的一家，要去請排第一站", tag: "購物", mapUrl: "https://www.google.com/maps/search/キッチンパラダイス+福岡+白金" },
+                { name: "HIGHTIDE STORE", area: "藥院・八女", desc: "以手帳起家的福岡在地文具品牌直營店。店名HIGHTIDE意為漲潮，源自創辦人熱愛衝浪，將對海的情感投射在文具雜貨中。旗下有Penco等品牌，美式復古風但道地日本製。白金1-8-28 ☎092-533-0338｜11:00–19:00（另有資料寫10:00–20:00）", tag: "購物", mapUrl: "https://www.google.com/maps/search/HIGHTIDE+STORE+福岡+白金" },
+                { name: "Dua（ドゥア）手芸屋", area: "藥院・八女", desc: "手工藝配件專門店，世界各地的鈕扣、珠子、緞帶、古董零件與成品飾品，懷舊氛圍。薬院1-7-16 ☎092-781-4220｜11:00–20:00，無休 ✅ 這區關最晚又不公休，適合墊底", tag: "購物", mapUrl: "https://www.google.com/maps/search/Dua+手芸+薬院+福岡" },
+                { name: "BBB&（スリービーアンド）", area: "藥院・八女", desc: "BBB POTTERS 隔壁的姊妹店，專賣業務用食器、調理器具、食品與書，偏專業取向。薬院1-8-8｜11:00–19:00，週二公休", tag: "購物", mapUrl: "https://www.google.com/maps/search/BBB+and+薬院+福岡" },
+                { name: "NEST", area: "藥院・八女", desc: "1960–70年代丹麥復古家具為主的家具選物店，挑高開放的空間，主題是「北歐家具如何融入日本住宅」。也有食器與擺飾等小物，附設工房可做保養維修。薬院2-13-27 NEST Bldg 1F ☎092-725-5550｜11:00–20:00，週三公休", tag: "購物", mapUrl: "https://www.google.com/maps/search/NEST+薬院+福岡" },
+                { name: "NONE TOO SOON LIFE & OBJECT", area: "藥院・八女", desc: "傳統工藝與高質感設計商品的選物店，飾品、食器、文具、時鐘、擺飾都有，也賣Awabi ware陶器與Apotheke Fragrance香氛。就在西鐵巴士站「薬院二丁目」前，白牆很好認。薬院2-14-21 フィット薬院1F ☎092-406-6322｜11:00–19:30，不定休", tag: "購物", mapUrl: "https://www.google.com/maps/search/NONE+TOO+SOON+薬院+福岡" },
+                { name: "FEELS GOOD STORE", area: "藥院・八女", desc: "2025年8月開幕的話題店，概念是「讓人想把朋友找來的房間」。雜貨選物＋併設咖啡，one drink order制，可以邊喝飲料邊逛。薬院3-12-22，薬院大通駅徒步4分｜12:00–19:00，週三公休", tag: "購物", mapUrl: "https://www.google.com/maps/search/FEELS+GOOD+STORE+薬院+福岡" },
+                { name: "Pearl（歐洲古著）", area: "藥院・八女", desc: "專營歐洲古著衣物與珠寶的小店。薬院3-10-12 東峰マンション第2薬院105｜12:30–20:00｜這區另有 Nethnic（美國古著＋銀飾）、USED & VINTAGE ANY（美式休閒）、スモールチェンジ 等古著店", tag: "購物", mapUrl: "https://www.google.com/maps/search/Pearl+古着+薬院+福岡" }
             ],
             food: [
                 { name: "一蘭拉麵 本社總本店", area: "博多・天神", cat: "拉麵", desc: "中洲地標，24h營業，純豚骨湯底，單人隔間座位有隱私感。不需預約。", reserve: false, mapUrl: "https://www.google.com/maps/search/一蘭拉麵+本社総本店+福岡" },
@@ -444,8 +455,9 @@
                 { name: "由布まぶし 心 金鱗湖本店", area: "由布院", cat: "釜飯", desc: "招牌「由布まぶし」有豐後牛／地雞／鰻三種可選，約¥3,200 → ✅ 不吃牛的點地雞版，全團同款料理。土鍋現炊，10:30–18:30（LO 17:30）。☎0977-85-7880 ⚠️ 強烈建議預約；12:30尖峰排45分起。位置在金鱗湖端＝動線終點，選這家散策順序要調整", reserve: true, mapUrl: "https://www.google.com/maps/search/由布まぶし+心+金鱗湖本店" },
                 { name: "茶房 天井棧敷", area: "由布院", cat: "咖啡", desc: "亀の井別荘內、金鱗湖旁，江戶末期造酒屋的閣樓改建，大茅草屋頂藏在樹林中，氣氛極好。9:00–17:00。⚠️ 不定休（每月約1次），8人專程去有撲空風險；且以咖啡為主不是正餐 → 當金鱗湖旁的收尾可以，別當午餐", reserve: false, mapUrl: "https://www.google.com/maps/search/茶房+天井棧敷+由布院" },
                 { name: "豚かつ 吉岡", area: "藥院・八女", cat: "豬排", desc: "10/3 八女午餐推薦之一（未定案）。✅ 豬排，全團無忌口問題。11:00–14:00／17:00–21:00 ⚠️ 建議先訂位（8人）", reserve: true, mapUrl: "https://www.google.com/maps/search/豚かつ+吉岡+八女市" },
+                { name: "FEELS GOOD STORE", area: "藥院・八女", cat: "咖啡", desc: "2025年8月開幕。雜貨選物店併設咖啡，one drink order制，點杯飲料就能邊喝邊逛。薬院3-12-22，薬院大通駅徒步4分｜12:00–19:00，週三公休", reserve: false, mapUrl: "https://www.google.com/maps/search/FEELS+GOOD+STORE+薬院+福岡" },
                 { name: "Ao cafe", area: "藥院・八女", cat: "咖啡", desc: "10/3 八女午餐推薦之一（未定案）。蔬食為主，✅ 全團最安全的一家。11:00–17:00 ⚠️ 建議先訂位（8人）", reserve: true, mapUrl: "https://www.google.com/maps/search/Ao+cafe+八女市" },
-                { name: "BBB POTTERS 併設咖啡", area: "藥院・八女", cat: "咖啡", desc: "藥院地標選物店三層樓內附設咖啡，逛完 15:40 那段可以在這裡歇腳。⚠️ 晚餐19:00焼肉ベンジャミン，別吃太飽", reserve: false, mapUrl: "https://www.google.com/maps/search/BBB+POTTERS+薬院+福岡" }
+                { name: "BBB POTTERS 2F 咖啡", area: "藥院・八女", cat: "咖啡", desc: "2樓咖啡由法國布列塔尼修業的甜點師主理，招牌是法式薄餅（galette）、可麗餅與聖代。薬院1-8-8，薬院大通駅2出口徒步3分｜11:00–19:00（咖啡OS 18:30），週二公休 ⚠️ 19:00要吃燒肉，別吃太飽", reserve: false, mapUrl: "https://www.google.com/maps/search/BBB+POTTERS+薬院+福岡" }
             ],
             reservations: [
                 { item: "和服租借 花水木", status: "已預約", note: "✅ 10/2 兩梯次 10:30／11:00，各4人" },
@@ -703,22 +715,39 @@
                 `;
 
             } else if (pageId === 'attractions') {
+                // 與美食頁一致：依地區收合
+                const aOrder = ["博多・天神", "由布院", "太宰府", "藥院・八女"];
+                const aIcons = { "博多・天神": "🏙️", "由布院": "♨️", "太宰府": "⛩️", "藥院・八女": "🍵" };
+                const aPresent = [...new Set(data.attractions.map(x => x.area || "其他"))];
+                const aList = [
+                    ...aOrder.filter(a => aPresent.includes(a)),
+                    ...aPresent.filter(a => !aOrder.includes(a))
+                ];
                 let cardsHtml = '';
-                data.attractions.forEach(attr => {
-                    cardsHtml += `
-                        <div class="card p-6 border-b-4 border-blue-900 flex flex-col justify-between">
+                aList.forEach(area => {
+                    const group = data.attractions.filter(x => (x.area || "其他") === area);
+                    if (!group.length) return;
+                    const inner = group.map(attr => `
+                        <div class="bg-gray-50 p-4 rounded border-b-4 border-blue-900 flex flex-col justify-between">
                             <div>
                                 <span class="inline-block bg-orange-100 text-orange-700 text-xs px-2 py-1 rounded mb-2">${attr.tag}</span>
-                                <h3 class="font-bold text-xl mb-2">${attr.name}</h3>
+                                <h3 class="font-bold text-base md:text-lg mb-2">${attr.name}</h3>
                                 <p class="text-gray-600 text-sm leading-relaxed">${attr.desc}</p>
                             </div>
                             ${attr.mapUrl ? `<a href="${attr.mapUrl}" target="_blank" class="map-btn">🗺️ 查看地圖</a>` : ''}
-                        </div>
-                    `;
+                        </div>`).join('');
+                    cardsHtml += `
+                        <details class="notes mb-4 bg-white rounded-lg shadow-sm">
+                            <summary class="flex items-center justify-between p-4">
+                                <span class="font-bold text-lg">${aIcons[area] || "📍"} ${area}　<span class="text-sm font-normal text-gray-400">${group.length} 個</span></span>
+                                <span class="toggle-label text-xs text-gray-400 shrink-0 ml-2"></span>
+                            </summary>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-4 pb-4 border-t pt-4">${inner}</div>
+                        </details>`;
                 });
                 container.innerHTML = `
                     <h2 class="text-3xl font-bold mb-8 text-center magazine-title">精選景點介紹</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">${cardsHtml}</div>
+                    <div class="max-w-4xl mx-auto">${cardsHtml}</div>
                 `;
 
             } else if (pageId === 'food') {
@@ -1039,7 +1068,8 @@
                             </div>
                             <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2">
                                 <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="${escHtml(attr.name)}" onchange="updateAttraction(${idx}, 'name', this.value)" class="w-full border rounded p-1"></div>
-                                <div><label class="text-xs text-gray-500">標籤</label><input type="text" value="${escHtml(attr.tag)}" onchange="updateAttraction(${idx}, 'tag', this.value)" class="w-full border rounded p-1"></div>
+                                <div><label class="text-xs text-gray-500">地區（分區依據）</label><input type="text" value="${escHtml(attr.area || '')}" onchange="updateAttraction(${idx}, 'area', this.value)" class="w-full border rounded p-1" placeholder="博多・天神／由布院／太宰府／藥院・八女"></div>
+                                <div class="md:col-span-2"><label class="text-xs text-gray-500">標籤</label><input type="text" value="${escHtml(attr.tag)}" onchange="updateAttraction(${idx}, 'tag', this.value)" class="w-full border rounded p-1"></div>
                                 <div class="md:col-span-2"><label class="text-xs text-gray-500">說明</label><textarea onchange="updateAttraction(${idx}, 'desc', this.value)" class="w-full border rounded p-1 h-16">${escHtml(attr.desc)}</textarea></div>
                                 <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="${escHtml(attr.mapUrl || '')}" onchange="updateAttraction(${idx}, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..."></div>
                             </div>
@@ -1264,7 +1294,7 @@
         }
         function addAttraction() {
             const data = getData();
-            data.attractions.push({ name: "新景點", desc: "請輸入說明", tag: "標籤", mapUrl: "" });
+            data.attractions.push({ name: "新景點", area: "博多・天神", desc: "請輸入說明", tag: "標籤", mapUrl: "" });
             saveData(data);
             renderAdminSection('attractions');
         }
