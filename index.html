@@ -184,7 +184,7 @@
 
     <script>
         const defaultData = {
-            dataVersion: 7,
+            dataVersion: 8,
             info: {
                 title: "福岡旅行攻略",
                 subtitle: "2026.09.29 - 10.04｜5夜6天",
@@ -377,34 +377,40 @@
                 { name: "福岡大名ガーデンシティ", desc: "2023全面開業，麗思卡爾頓進駐。草地公園＋質感選物，天神最好拍的一區。", tag: "散策", mapUrl: "https://www.google.com/maps/search/福岡大名ガーデンシティ" }
             ],
             food: [
-                { name: "一蘭拉麵 本社總本店", cat: "拉麵", desc: "中洲地標，24h營業，純豚骨湯底，單人隔間座位有隱私感。不需預約。", reserve: false, mapUrl: "https://www.google.com/maps/search/一蘭拉麵+本社総本店+福岡" },
-                { name: "博多華味鳥", cat: "鍋物", desc: "福岡傳統水炊鍋，雞肉湯頭濃郁。不吃牛/海鮮者皆可。8人需提前預約。約¥4,000–6,000/人。", reserve: true, mapUrl: "https://www.google.com/maps/search/博多華味鳥+福岡" },
-                { name: "B-speak生乳捲", cat: "甜點", desc: "由布院超人氣蛋糕捲，口感綿密不甜膩。抵達由布院先預約，以免售完。", reserve: true, mapUrl: "https://www.google.com/maps/search/B-speak+由布院" },
-                { name: "金賞可樂餅", cat: "小食", desc: "由布院日本第一名可樂餅，外酥內軟。不吃牛可選馬鈴薯／起司口味。", reserve: false, mapUrl: "https://www.google.com/maps/search/金賞コロッケ+由布院" },
-                { name: "telato抹茶冰淇淋", cat: "甜點", desc: "抹茶濃度1–5級義式冰淇淋，全體OK。湯之坪街道必吃甜點。", reserve: false, mapUrl: "https://www.google.com/maps/search/telato+由布院" },
-                { name: "Milch半熟起司蛋糕", cat: "甜點", desc: "由布院名物半熟起司蛋糕，冷熱皆可，適合邊走邊吃。", reserve: false, mapUrl: "https://www.google.com/maps/search/Milch+由布院" },
-                { name: "暖暮拉麵", cat: "拉麵", desc: "曾獲九州拉麵總選舉第一名的豚骨拉麵。※五角形「合格拉麵」是一蘭太宰府参道店的限定（全世界唯一一家），不是暖暮。", reserve: false, mapUrl: "https://www.google.com/maps/search/暖暮拉麵+太宰府" },
-                { name: "焼肉ベンジャミン", cat: "燒肉", desc: "10/3晚餐 ✅已預約（19:00）。有豚バラ可供不吃牛的人。⚠️ 菜單有ホルモン（內臟），點餐時避開。營業16:00–24:00。", reserve: true, mapUrl: "https://www.google.com/maps/search/焼肉ベンジャミン+福岡" },
-                { name: "The Full Full Hakata", cat: "麵包", desc: "最後一天必買！招牌明太子法國麵包，排隊名店，近博多站。", reserve: false, mapUrl: "https://www.google.com/maps/search/The+Full+Full+Hakata" },
-                { name: "努努雞", cat: "小食", desc: "福岡傳奇！冰著吃的炸雞，鹹甜口味，博多特色伴手禮。百貨公司購買。", reserve: false, mapUrl: "https://www.google.com/maps/search/奴奴鶏+福岡" },
-                { name: "福砂屋長崎蛋糕", cat: "甜點", desc: "底部砂糖顆粒是精華，道地長崎蛋糕，伴手禮首選。", reserve: false, mapUrl: "https://www.google.com/maps/search/福砂屋+博多" },
-                { name: "iiTo TENJIN（ワンビル B1）", cat: "美食廳", desc: "天神最大美食廳，450席、8間餐廳可自由混點同桌共食。每個人各點各的，忌口分歧直接歸零 — 8人團的保底方案。", reserve: false, mapUrl: "https://www.google.com/maps/search/iiTo+TENJIN+ONE+FUKUOKA+BLDG" },
-                { name: "梅ヶ枝餅（参道30+家）", cat: "太宰府小吃", desc: "太宰府第一名物。糯米＋粳米外皮包紅豆餡現烤，¥150 全參道同價。各家風味略有不同，邊逛邊比較就是玩法。散策きっぷ可換2個。✅ 無牛無海鮮無內臟", reserve: false, mapUrl: "https://www.google.com/maps/search/梅ヶ枝餅+太宰府参道" },
-                { name: "筑紫庵 本店", cat: "太宰府小吃", desc: "太宰府バーガー ¥500，糸島產地雞唐揚＋梅干。另有ゆず塩からあげ、合格祈願バーガー。在參道旁的支路走進去。✅ 雞肉，不吃牛也OK — 参道唯一的鹹食主力", reserve: false, mapUrl: "https://www.google.com/maps/search/筑紫庵+太宰府" },
-                { name: "&Myuu.chocolaterie", cat: "太宰府小吃", desc: "招牌可可銅鑼燒，可單手享用、乾爽不沾手 — 穿和服最安全的一款。另售一口尺寸 Bonbon Chocolat 與紅寶石巧克力，適合當伴手禮", reserve: false, mapUrl: "https://www.google.com/maps/search/Myuu+chocolaterie+太宰府" },
-                { name: "太宰府参道 天山", cat: "太宰府小吃", desc: "招牌鬼瓦最中（最中皮包紅豆餡，乾爽好拿）與蕨餅，常排長龍。⚠️ 甘王草莓大福最中是冬季限定，10月沒有", reserve: false, mapUrl: "https://www.google.com/maps/search/太宰府参道+天山" },
-                { name: "太宰府SUGIRU", cat: "太宰府小吃", desc: "韓國料理與香蕉牛奶。香蕉牛奶完全不加調味料、每杯現做，強調「20分內最好喝完」。韓式辣醬炸雞也很受歡迎 ✅ 雞肉", reserve: false, mapUrl: "https://www.google.com/maps/search/太宰府+SUGIRU+バナナジュース" },
-                { name: "AMARILLO", cat: "太宰府小吃", desc: "九州首間以卡達拉娜（Crema Catalana）為主題的甜點店，甜點品項多樣，做成杯裝很適合邊走邊吃，也可內用", reserve: false, mapUrl: "https://www.google.com/maps/search/AMARILLO+太宰府" },
-                { name: "チーズケーキ研究所", cat: "太宰府小吃", desc: "隱藏版人氣甜點店。濃郁綿密的起司蛋糕，店內常備7–8種，可內用也可外帶切片。季節聖代也很受歡迎", reserve: false, mapUrl: "https://www.google.com/maps/search/チーズケーキ研究所+太宰府" },
-                { name: "Kingberry", cat: "太宰府小吃", desc: "甘王草莓甜點專門店，從濃縮果汁、果粒果凍、蛋糕到招牌冰淇淋全採 100% 新鮮あまおう。⚠️ 10月初非草莓產季，品項可能受限，現場確認", reserve: false, mapUrl: "https://www.google.com/maps/search/Kingberry+太宰府" },
-                { name: "小鳥居茶房", cat: "太宰府小吃", desc: "超過百年歷史的古民家改造而成。招牌生布丁冰淇淋：香濃卡士達冰淇淋配焦糖醬，口感Q彈。⚠️ 會滴，穿和服請站著吃完再走", reserve: false, mapUrl: "https://www.google.com/maps/search/小鳥居茶房+太宰府" },
-                { name: "toffee", cat: "太宰府小吃", desc: "冰淇淋櫃品項豐富，從香草、抹茶到各式水果口味，招牌是加了脆梅的梅子冰淇淋，另有季節限定聖代。⚠️ 會滴，穿和服請站著吃完", reserve: false, mapUrl: "https://www.google.com/maps/search/toffee+太宰府" },
-                { name: "ひろしょう", cat: "太宰府小吃", desc: "明太燒賣、明太肉包，以及與ろじ屋合作的明太高湯煎蛋捲串 — 外層印有太宰府烙印，串著吃非常方便。⚠️ 明太子＝魚卵，不吃海鮮的那位避開", reserve: false, mapUrl: "https://www.google.com/maps/search/ひろしょう+太宰府" },
-                { name: "ふくや 太宰府店", cat: "太宰府小吃", desc: "明太子茶泡飯，一個銅板價，熱冷兩種可選。微辣明太子配帶勁的山葵，份量剛好。⚠️ 明太子＝魚卵；且有湯汁，穿和服時不建議", reserve: false, mapUrl: "https://www.google.com/maps/search/ふくや+太宰府" },
-                { name: "YAMAYA BASE DAZAIFU", cat: "太宰府小吃", desc: "明太法棍，內餡用大量無色素明太子，點餐後再進烤箱加熱一次，很適合邊走邊吃。⚠️ 明太子＝魚卵。合格印限定款是11月–2月底，10月沒有", reserve: false, mapUrl: "https://www.google.com/maps/search/YAMAYA+BASE+DAZAIFU" },
-                { name: "福太郎 太宰府店", cat: "太宰府小吃", desc: "明太子仙貝名店的太宰府店舖，招牌散步美食是經常售罄的明太烤飯糰，店內也展示多款明太子加工商品。⚠️ 明太子＝魚卵", reserve: false, mapUrl: "https://www.google.com/maps/search/福太郎+太宰府" },
-                { name: "揚子江 太宰府店", cat: "太宰府小吃", desc: "太宰府站附近，福岡代表性肉包名店，天天大排長龍。吃到一半加點醋醬油更好吃。⚠️「咬下去肉汁四溢」— 穿和服請避開，還完和服再買", reserve: false, mapUrl: "https://www.google.com/maps/search/揚子江+太宰府" },
-                { name: "かさの家", cat: "太宰府小吃", desc: "大正11年（1922）創業的老舖。抹茶セット（附梅ヶ枝餅1個）¥650，想坐下休息時來。⚠️ 梅ヶ枝餅排隊最誇張，店家派專人舉「かさの家最後尾」的牌子", reserve: false, mapUrl: "https://www.google.com/maps/search/かさの家+太宰府" }
+                { name: "一蘭拉麵 本社總本店", area: "博多・天神", cat: "拉麵", desc: "中洲地標，24h營業，純豚骨湯底，單人隔間座位有隱私感。不需預約。", reserve: false, mapUrl: "https://www.google.com/maps/search/一蘭拉麵+本社総本店+福岡" },
+                { name: "博多華味鳥", area: "博多・天神", cat: "鍋物", desc: "福岡傳統水炊鍋，雞肉湯頭濃郁。不吃牛/海鮮者皆可。8人需提前預約。約¥4,000–6,000/人。", reserve: true, mapUrl: "https://www.google.com/maps/search/博多華味鳥+福岡" },
+                { name: "B-speak生乳捲", area: "由布院", cat: "甜點", desc: "由布院超人氣蛋糕捲，口感綿密不甜膩。抵達由布院先預約，以免售完。", reserve: true, mapUrl: "https://www.google.com/maps/search/B-speak+由布院" },
+                { name: "金賞可樂餅", area: "由布院", cat: "小食", desc: "由布院日本第一名可樂餅，外酥內軟。不吃牛可選馬鈴薯／起司口味。", reserve: false, mapUrl: "https://www.google.com/maps/search/金賞コロッケ+由布院" },
+                { name: "telato抹茶冰淇淋", area: "由布院", cat: "甜點", desc: "抹茶濃度1–5級義式冰淇淋，全體OK。湯之坪街道必吃甜點。", reserve: false, mapUrl: "https://www.google.com/maps/search/telato+由布院" },
+                { name: "Milch半熟起司蛋糕", area: "由布院", cat: "甜點", desc: "由布院名物半熟起司蛋糕，冷熱皆可，適合邊走邊吃。", reserve: false, mapUrl: "https://www.google.com/maps/search/Milch+由布院" },
+                { name: "暖暮拉麵", area: "太宰府", cat: "拉麵", desc: "曾獲九州拉麵總選舉第一名的豚骨拉麵。※五角形「合格拉麵」是一蘭太宰府参道店的限定（全世界唯一一家），不是暖暮。", reserve: false, mapUrl: "https://www.google.com/maps/search/暖暮拉麵+太宰府" },
+                { name: "焼肉ベンジャミン", area: "藥院・八女", cat: "燒肉", desc: "10/3晚餐 ✅已預約（19:00）。有豚バラ可供不吃牛的人。⚠️ 菜單有ホルモン（內臟），點餐時避開。營業16:00–24:00。", reserve: true, mapUrl: "https://www.google.com/maps/search/焼肉ベンジャミン+福岡" },
+                { name: "The Full Full Hakata", area: "博多・天神", cat: "麵包", desc: "最後一天必買！招牌明太子法國麵包，排隊名店，近博多站。", reserve: false, mapUrl: "https://www.google.com/maps/search/The+Full+Full+Hakata" },
+                { name: "努努雞", area: "博多・天神", cat: "小食", desc: "福岡傳奇！冰著吃的炸雞，鹹甜口味，博多特色伴手禮。百貨公司購買。", reserve: false, mapUrl: "https://www.google.com/maps/search/奴奴鶏+福岡" },
+                { name: "福砂屋長崎蛋糕", area: "博多・天神", cat: "甜點", desc: "底部砂糖顆粒是精華，道地長崎蛋糕，伴手禮首選。", reserve: false, mapUrl: "https://www.google.com/maps/search/福砂屋+博多" },
+                { name: "iiTo TENJIN（ワンビル B1）", area: "博多・天神", cat: "美食廳", desc: "天神最大美食廳，450席、8間餐廳可自由混點同桌共食。每個人各點各的，忌口分歧直接歸零 — 8人團的保底方案。", reserve: false, mapUrl: "https://www.google.com/maps/search/iiTo+TENJIN+ONE+FUKUOKA+BLDG" },
+                { name: "梅ヶ枝餅（参道30+家）", area: "太宰府", cat: "小食", desc: "太宰府第一名物。糯米＋粳米外皮包紅豆餡現烤，¥150 全參道同價。各家風味略有不同，邊逛邊比較就是玩法。散策きっぷ可換2個。✅ 無牛無海鮮無內臟", reserve: false, mapUrl: "https://www.google.com/maps/search/梅ヶ枝餅+太宰府参道" },
+                { name: "筑紫庵 本店", area: "太宰府", cat: "小食", desc: "太宰府バーガー ¥500，糸島產地雞唐揚＋梅干。另有ゆず塩からあげ、合格祈願バーガー。在參道旁的支路走進去。✅ 雞肉，不吃牛也OK — 参道唯一的鹹食主力", reserve: false, mapUrl: "https://www.google.com/maps/search/筑紫庵+太宰府" },
+                { name: "&Myuu.chocolaterie", area: "太宰府", cat: "甜點", desc: "招牌可可銅鑼燒，可單手享用、乾爽不沾手 — 穿和服最安全的一款。另售一口尺寸 Bonbon Chocolat 與紅寶石巧克力，適合當伴手禮", reserve: false, mapUrl: "https://www.google.com/maps/search/Myuu+chocolaterie+太宰府" },
+                { name: "太宰府参道 天山", area: "太宰府", cat: "甜點", desc: "招牌鬼瓦最中（最中皮包紅豆餡，乾爽好拿）與蕨餅，常排長龍。⚠️ 甘王草莓大福最中是冬季限定，10月沒有", reserve: false, mapUrl: "https://www.google.com/maps/search/太宰府参道+天山" },
+                { name: "太宰府SUGIRU", area: "太宰府", cat: "飲料", desc: "韓國料理與香蕉牛奶。香蕉牛奶完全不加調味料、每杯現做，強調「20分內最好喝完」。韓式辣醬炸雞也很受歡迎 ✅ 雞肉", reserve: false, mapUrl: "https://www.google.com/maps/search/太宰府+SUGIRU+バナナジュース" },
+                { name: "AMARILLO", area: "太宰府", cat: "甜點", desc: "九州首間以卡達拉娜（Crema Catalana）為主題的甜點店，甜點品項多樣，做成杯裝很適合邊走邊吃，也可內用", reserve: false, mapUrl: "https://www.google.com/maps/search/AMARILLO+太宰府" },
+                { name: "チーズケーキ研究所", area: "太宰府", cat: "甜點", desc: "隱藏版人氣甜點店。濃郁綿密的起司蛋糕，店內常備7–8種，可內用也可外帶切片。季節聖代也很受歡迎", reserve: false, mapUrl: "https://www.google.com/maps/search/チーズケーキ研究所+太宰府" },
+                { name: "Kingberry", area: "太宰府", cat: "甜點", desc: "甘王草莓甜點專門店，從濃縮果汁、果粒果凍、蛋糕到招牌冰淇淋全採 100% 新鮮あまおう。⚠️ 10月初非草莓產季，品項可能受限，現場確認", reserve: false, mapUrl: "https://www.google.com/maps/search/Kingberry+太宰府" },
+                { name: "小鳥居茶房", area: "太宰府", cat: "甜點", desc: "超過百年歷史的古民家改造而成。招牌生布丁冰淇淋：香濃卡士達冰淇淋配焦糖醬，口感Q彈。⚠️ 會滴，穿和服請站著吃完再走", reserve: false, mapUrl: "https://www.google.com/maps/search/小鳥居茶房+太宰府" },
+                { name: "toffee", area: "太宰府", cat: "甜點", desc: "冰淇淋櫃品項豐富，從香草、抹茶到各式水果口味，招牌是加了脆梅的梅子冰淇淋，另有季節限定聖代。⚠️ 會滴，穿和服請站著吃完", reserve: false, mapUrl: "https://www.google.com/maps/search/toffee+太宰府" },
+                { name: "ひろしょう", area: "太宰府", cat: "小食", desc: "明太燒賣、明太肉包，以及與ろじ屋合作的明太高湯煎蛋捲串 — 外層印有太宰府烙印，串著吃非常方便。⚠️ 明太子＝魚卵，不吃海鮮的那位避開", reserve: false, mapUrl: "https://www.google.com/maps/search/ひろしょう+太宰府" },
+                { name: "ふくや 太宰府店", area: "太宰府", cat: "小食", desc: "明太子茶泡飯，一個銅板價，熱冷兩種可選。微辣明太子配帶勁的山葵，份量剛好。⚠️ 明太子＝魚卵；且有湯汁，穿和服時不建議", reserve: false, mapUrl: "https://www.google.com/maps/search/ふくや+太宰府" },
+                { name: "YAMAYA BASE DAZAIFU", area: "太宰府", cat: "麵包", desc: "明太法棍，內餡用大量無色素明太子，點餐後再進烤箱加熱一次，很適合邊走邊吃。⚠️ 明太子＝魚卵。合格印限定款是11月–2月底，10月沒有", reserve: false, mapUrl: "https://www.google.com/maps/search/YAMAYA+BASE+DAZAIFU" },
+                { name: "福太郎 太宰府店", area: "太宰府", cat: "小食", desc: "明太子仙貝名店的太宰府店舖，招牌散步美食是經常售罄的明太烤飯糰，店內也展示多款明太子加工商品。⚠️ 明太子＝魚卵", reserve: false, mapUrl: "https://www.google.com/maps/search/福太郎+太宰府" },
+                { name: "揚子江 太宰府店", area: "太宰府", cat: "小食", desc: "太宰府站附近，福岡代表性肉包名店，天天大排長龍。吃到一半加點醋醬油更好吃。⚠️「咬下去肉汁四溢」— 穿和服請避開，還完和服再買", reserve: false, mapUrl: "https://www.google.com/maps/search/揚子江+太宰府" },
+                { name: "かさの家", area: "太宰府", cat: "甜點", desc: "大正11年（1922）創業的老舖。抹茶セット（附梅ヶ枝餅1個）¥650，想坐下休息時來。⚠️ 梅ヶ枝餅排隊最誇張，店家派專人舉「かさの家最後尾」的牌子", reserve: false, mapUrl: "https://www.google.com/maps/search/かさの家+太宰府" },
+                { name: "陽だまり食堂", area: "由布院", cat: "定食", desc: "JA大分ゆふいん直營農產直賣所內，就在由布院車站旁 — 12:27下車立刻能吃，位在散策動線起點。在地媽媽做的鄉土料理，不用化學調味料。陽だまり定食¥1,080（だんご汁＋とり天）／とり天定食¥864／だんご汁定食¥756／ハヤシライス定食¥864／豐後牛丼¥864。11:00–15:00，只休年末年始 → 10/1確定營業。✅ とり天是雞肉，不吃牛的人完美 ⚠️ だんご汁高湯多為いりこ（小魚乾）出汁，不吃海鮮者先問「だしは魚介ですか」", reserve: false, mapUrl: "https://www.google.com/maps/search/陽だまり食堂+由布院" },
+                { name: "由布まぶし 心 金鱗湖本店", area: "由布院", cat: "釜飯", desc: "招牌「由布まぶし」有豐後牛／地雞／鰻三種可選，約¥3,200 → ✅ 不吃牛的點地雞版，全團同款料理。土鍋現炊，10:30–18:30（LO 17:30）。☎0977-85-7880 ⚠️ 強烈建議預約；12:30尖峰排45分起。位置在金鱗湖端＝動線終點，選這家散策順序要調整", reserve: true, mapUrl: "https://www.google.com/maps/search/由布まぶし+心+金鱗湖本店" },
+                { name: "茶房 天井棧敷", area: "由布院", cat: "咖啡", desc: "亀の井別荘內、金鱗湖旁，江戶末期造酒屋的閣樓改建，大茅草屋頂藏在樹林中，氣氛極好。9:00–17:00。⚠️ 不定休（每月約1次），8人專程去有撲空風險；且以咖啡為主不是正餐 → 當金鱗湖旁的收尾可以，別當午餐", reserve: false, mapUrl: "https://www.google.com/maps/search/茶房+天井棧敷+由布院" },
+                { name: "豚かつ 吉岡", area: "藥院・八女", cat: "豬排", desc: "10/3 八女午餐首選。✅ 豬排，全團無忌口問題。11:00–14:00／17:00–21:00 ⚠️ 建議先訂位（8人）", reserve: true, mapUrl: "https://www.google.com/maps/search/豚かつ+吉岡+八女市" },
+                { name: "Ao cafe", area: "藥院・八女", cat: "咖啡", desc: "10/3 八女午餐備案。蔬食為主，✅ 全團最安全的一家。11:00–17:00 ⚠️ 建議先訂位（8人）", reserve: true, mapUrl: "https://www.google.com/maps/search/Ao+cafe+八女市" },
+                { name: "BBB POTTERS 併設咖啡", area: "藥院・八女", cat: "咖啡", desc: "藥院地標選物店三層樓內附設咖啡，逛完 15:40 那段可以在這裡歇腳。⚠️ 晚餐19:00焼肉ベンジャミン，別吃太飽", reserve: false, mapUrl: "https://www.google.com/maps/search/BBB+POTTERS+薬院+福岡" }
             ],
             reservations: [
                 { item: "和服租借 花水木", status: "已預約", note: "✅ 10/2 兩梯次 10:30／11:00，各4人" },
@@ -662,23 +668,27 @@
 
             } else if (pageId === 'food') {
                 let foodHtml = '';
-                // 類別改為從資料推導，之後後台新增的類別才不會顯示不出來
-                const preferred = ["拉麵", "燒肉", "小食", "甜點", "麵包"];
-                const present = [...new Set(data.food.map(f => f.cat))];
+                // 依地區分組；地區順序照行程天數，後台新增的地區會排在最後
+                const areaOrder = ["博多・天神", "由布院", "太宰府", "藥院・八女"];
+                const areaIcons = { "博多・天神": "🏙️", "由布院": "♨️", "太宰府": "⛩️", "藥院・八女": "🍵" };
+                const presentAreas = [...new Set(data.food.map(f => f.area || "其他"))];
                 const categories = [
-                    ...preferred.filter(c => present.includes(c)),
-                    ...present.filter(c => !preferred.includes(c))
+                    ...areaOrder.filter(a => presentAreas.includes(a)),
+                    ...presentAreas.filter(a => !areaOrder.includes(a))
                 ];
                 categories.forEach(cat => {
-                    const items = data.food.filter(f => f.cat === cat);
+                    const items = data.food.filter(f => (f.area || "其他") === cat);
                     if (items.length > 0) {
                         let itemsList = '';
                         items.forEach(item => {
                             itemsList += `
                                 <div class="bg-white p-4 rounded border-l-4 border-orange-500 shadow-sm mb-4">
-                                    <div class="flex justify-between items-start">
+                                    <div class="flex justify-between items-start gap-2">
                                         <h4 class="font-bold text-lg">${item.name}</h4>
-                                        ${item.reserve ? '<span class="text-xs bg-red-100 text-red-600 px-2 py-1 rounded">需預約</span>' : ''}
+                                        <div class="flex gap-1 shrink-0">
+                                            <span class="text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded">${item.cat}</span>
+                                            ${item.reserve ? '<span class="text-xs bg-red-100 text-red-600 px-2 py-1 rounded">需預約</span>' : ''}
+                                        </div>
                                     </div>
                                     <p class="text-gray-600 text-sm mt-1">${item.desc}</p>
                                     ${item.mapUrl ? `<a href="${item.mapUrl}" target="_blank" class="map-btn mt-2">🗺️ 查看地圖</a>` : ''}
@@ -687,7 +697,7 @@
                         });
                         foodHtml += `
                             <div class="mb-8">
-                                <h3 class="text-xl font-bold mb-4 border-b-2 border-blue-900 inline-block pb-1">${cat}</h3>
+                                <h3 class="text-xl font-bold mb-4 border-b-2 border-blue-900 inline-block pb-1">${areaIcons[cat] || "📍"} ${cat}　<span class="text-sm font-normal text-gray-400">${items.length} 家</span></h3>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">${itemsList}</div>
                             </div>
                         `;
@@ -994,7 +1004,8 @@
                             </div>
                             <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-2">
                                 <div><label class="text-xs text-gray-500">名稱</label><input type="text" value="${escHtml(f.name)}" onchange="updateFood(${idx}, 'name', this.value)" class="w-full border rounded p-1"></div>
-                                <div><label class="text-xs text-gray-500">類別</label><input type="text" value="${escHtml(f.cat)}" onchange="updateFood(${idx}, 'cat', this.value)" class="w-full border rounded p-1"></div>
+                                <div><label class="text-xs text-gray-500">地區（分區依據）</label><input type="text" value="${escHtml(f.area || '')}" onchange="updateFood(${idx}, 'area', this.value)" class="w-full border rounded p-1" placeholder="博多・天神／由布院／太宰府／藥院・八女"></div>
+                                <div class="md:col-span-2"><label class="text-xs text-gray-500">類別（卡片上的小標籤）</label><input type="text" value="${escHtml(f.cat)}" onchange="updateFood(${idx}, 'cat', this.value)" class="w-full border rounded p-1"></div>
                                 <div class="md:col-span-2"><label class="text-xs text-gray-500">說明</label><input type="text" value="${escHtml(f.desc)}" onchange="updateFood(${idx}, 'desc', this.value)" class="w-full border rounded p-1"></div>
                                 <div class="md:col-span-2"><label class="text-xs text-gray-500">Google Maps 連結</label><input type="text" value="${escHtml(f.mapUrl || '')}" onchange="updateFood(${idx}, 'mapUrl', this.value)" class="w-full border rounded p-1 text-xs" placeholder="https://www.google.com/maps/search/..."></div>
                                 <div class="md:col-span-2 flex justify-between items-center">
@@ -1196,7 +1207,7 @@
         }
         function addFood() {
             const data = getData();
-            data.food.push({ name: "新餐廳", cat: "類別", desc: "說明", reserve: false, mapUrl: "" });
+            data.food.push({ name: "新餐廳", area: "博多・天神", cat: "類別", desc: "說明", reserve: false, mapUrl: "" });
             saveData(data);
             renderAdminSection('food');
         }
