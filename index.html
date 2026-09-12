@@ -131,6 +131,7 @@
                     <a href="#" onclick="showPage('itinerary')" id="nav-itinerary" class="nav-item py-4 px-2">行程規劃</a>
                     <a href="#" onclick="showPage('attractions')" id="nav-attractions" class="nav-item py-4 px-2">景點介紹</a>
                     <a href="#" onclick="showPage('food')" id="nav-food" class="nav-item py-4 px-2">美食紀錄</a>
+                    <a href="#" onclick="showPage('phrases')" id="nav-phrases" class="nav-item py-4 px-2">點餐卡</a>
                     <a href="#" onclick="showPage('map')" id="nav-map" class="nav-item py-4 px-2">地圖導航</a>
                 </div>
                 <div class="flex items-center">
@@ -144,6 +145,7 @@
             <a href="#" onclick="showPage('itinerary')" class="text-xs flex flex-col items-center"><span>📅</span><span>行程</span></a>
             <a href="#" onclick="showPage('attractions')" class="text-xs flex flex-col items-center"><span>🏯</span><span>景點</span></a>
             <a href="#" onclick="showPage('food')" class="text-xs flex flex-col items-center"><span>🍜</span><span>美食</span></a>
+            <a href="#" onclick="showPage('phrases')" class="text-xs flex flex-col items-center"><span>🗣️</span><span>點餐卡</span></a>
             <a href="#" onclick="showPage('map')" class="text-xs flex flex-col items-center"><span>📍</span><span>地圖</span></a>
         </div>
     </nav>
@@ -180,7 +182,7 @@
 
     <script>
         const defaultData = {
-            dataVersion: 3,
+            dataVersion: 4,
             info: {
                 title: "福岡旅行攻略",
                 subtitle: "2026.09.29 - 10.04｜5夜6天",
@@ -196,14 +198,16 @@
             },
             itinerary: [
                 { day: 1, date: "9/29 (二)", title: "抵達 × 中洲", items: [
-                    { time: "17:30", event: "福岡機場出關集合（國際線大廳）", cost: 0 },
-                    { time: "17:45", event: "前往飯店", cost: 0 },
-                    { time: "18:15", event: "抵達飯店 GRAND BASE Hakata Naraya、寄放行李、Check-in", cost: 0 },
+                    { time: "10:30", event: "🔴 桃園機場第一航廈 虎航報到櫃檯集合（其他班次自行前往）", cost: 0 },
+                    { time: "13:25", event: "桃園起飛", cost: 0 },
+                    { time: "16:55", event: "抵達福岡機場", cost: 0 },
+                    { time: "17:00", event: "各自入境、領行李、搭地鐵 ⚠️ 地鐵站在國內線，國際線沒有，要先搭免費接駁", cost: 260 },
+                    { time: "18:00", event: "🔴 民宿集合、Check-in（〒812-0025 福岡県福岡市博多区奈良屋町8-12）⚠️ 自助入住，密碼取得方式先確認並分享全員", cost: 0 },
                     { time: "18:35", event: "出發前往中洲（步行約12分）", cost: 0 },
-                    { time: "18:50", event: "晚餐：一蘭拉麵 本社總本店（24h營業、單人隔間座，不需預約）", cost: 0 },
-                    { time: "20:00", event: "⚠️ 一蘭和樂團演出（3樓陽台，15分鐘，免費）— 出發前確認是否照常演出", cost: 0 },
-                    { time: "20:30", event: "超市／唐吉訶德採買（宵夜＋明天早餐）", cost: 0 },
-                    { time: "21:00", event: "回飯店", cost: 0 }
+                    { time: "18:50", event: "晚餐：一蘭 本社總本店（24h營業、單人隔間座）✅ 無牛無海鮮無內臟", cost: 0 },
+                    { time: "20:00", event: "一蘭和樂團演出（3F陽台，15分鐘，免費）⚠️ 不是每天有，出發前查官網", cost: 0 },
+                    { time: "20:30", event: "超市／唐吉訶德採買（宵夜＋隔日早餐）", cost: 0 },
+                    { time: "21:00", event: "回民宿", cost: 0 }
                 ]},
                 { day: 2, date: "9/30 (三)", title: "自由活動 × 天神百貨", items: [
                     { time: "09:20", event: "（自由）住吉神社參拜 — 博多最古老神社，安靜不用排隊，約30分", cost: 0 },
@@ -219,43 +223,58 @@
                     { time: "21:00", event: "回飯店", cost: 0 }
                 ]},
                 { day: 3, date: "10/1 (四)", title: "由布院", items: [
-                    { time: "08:20", event: "⚠️ 提早出發前往博多站", cost: 0 },
-                    { time: "09:17", event: "由布院之森觀光列車出發（車程約2小時14分）", cost: 7630 },
-                    { time: "11:31", event: "抵達由布院", cost: 0 },
-                    { time: "11:30", event: "湯之坪街道、金鱗湖散策（午餐：邊走邊吃或排隊正餐）", cost: 0 },
-                    { time: "13:00", event: "SNOOPY茶屋、吉卜力どんぐりの森", cost: 0 },
-                    { time: "14:30", event: "必買：B-speak生乳捲（抵達先預約）、金賞可樂餅、telato抹茶冰淇淋、Milch半熟起司蛋糕", cost: 0 },
-                    { time: "16:00", event: "高速巴士返回博多（車程約2–2.5小時，¥2,880）", cost: 2880 },
-                    { time: "19:00", event: "抵達博多", cost: 0 },
-                    { time: "19:30", event: "晚餐（待定）", cost: 0 }
+                    { time: "09:15", event: "🔴 博多站在來線剪票口集合", cost: 0 },
+                    { time: "10:11", event: "由布院之森 3號 ✅已購 ⚠️ 別府行，不是終點站 — 設12:20鬧鐘", cost: 0 },
+                    { time: "12:27", event: "抵達由布院 → 先去 B-speak 預約生乳捲", cost: 0 },
+                    { time: "12:30", event: "逛街拍照：湯之坪街道 → 金鱗湖（一條線走到底再折返，SNOOPY茶屋與吉卜力都在回程順路）", cost: 0 },
+                    { time: "12:30", event: "午餐：邊走邊吃（金賞可樂餅／telato／Milch）／陽だまり食堂（全體友善）／由布まぶし心 ⚠️ 12:30尖峰排45分起", cost: 0 },
+                    { time: "16:30", event: "取 B-speak 生乳捲、最後採買 ⚠️ 小店現金優先，帶可折疊購物袋", cost: 0 },
+                    { time: "17:00", event: "🔴 由布院車站集合（硬底線，拍照購物16:45收工；錯過要等到19:27，晚兩小時）", cost: 0 },
+                    { time: "17:17", event: "由布院之森 6號 ✅已購", cost: 0 },
+                    { time: "19:27", event: "抵達博多", cost: 0 },
+                    { time: "20:00", event: "晚餐（博多站內）：浜勝 博多デイトス 豬排定食（✅無牛無海鮮無內臟）／ShinShin 豚骨拉麵（關最晚最保險）", cost: 0 }
                 ]},
                 { day: 4, date: "10/2 (五)", title: "太宰府 × 和服", items: [
-                    { time: "09:00", event: "飯店出發（地鐵→西鐵福岡天神→西鐵二日市→太宰府，約50–60分）", cost: 680 },
-                    { time: "10:30", event: "抵達太宰府", cost: 0 },
-                    { time: "11:00", event: "午餐（参道）：一蘭太宰府参道店「合格拉麵」或其他", cost: 0 },
-                    { time: "12:30", event: "🔴 和服租借 花水木（需1.5個月前預約，前一天可免費取消）Bloom ¥7,700／Hanamizuki ¥6,600", cost: 7150 },
-                    { time: "13:00", event: "太宰府天滿宮（✅ 本殿124年大改修已完工，2026/9起開放參拜）", cost: 0 },
-                    { time: "14:30", event: "竈門神社（求良緣、鬼滅之刃聖地，搭まほろば号¥100）", cost: 100 },
-                    { time: "16:00", event: "⚠️ 歸還和服（時間要抓緊）", cost: 0 },
-                    { time: "17:00", event: "返回博多", cost: 420 },
-                    { time: "18:30", event: "晚餐（待定）", cost: 0 }
+                    { time: "09:00", event: "民宿出發，地鐵至天神。🎫 西鐵福岡（天神）駅北口人工窗口買「太宰府散策きっぷ」×8（自動售票機沒有）", cost: 210 },
+                    { time: "09:20", event: "🎫 散策きっぷ約¥1,060：往復＋梅ヶ枝餅2個＋九州國立博物館團體價。⚠️ 走人工閘口，途中下車只限都府樓前／二日市／五条", cost: 1060 },
+                    { time: "09:40", event: "西鐵天神 → 二日市 → 太宰府（約40分）", cost: 0 },
+                    { time: "10:20", event: "抵達太宰府駅，步行至和服店（約8分，参道上）", cost: 0 },
+                    { time: "10:30", event: "🔴 和服 第一梯（4人）✅已預約", cost: 0 },
+                    { time: "11:00", event: "🔴 和服 第二梯（4人）✅已預約（第一梯的人先去買梅枝餅、拍店門口）", cost: 0 },
+                    { time: "11:30", event: "全員集合 → 午餐（参道）：一蘭太宰府参道店 五角形「合格拉麵」（全世界唯一）／梅枝餅 ⚠️ 穿和服避開湯汁四濺的食物", cost: 0 },
+                    { time: "12:30", event: "太宰府天満宮（✅ 本殿124年大改修已完工）", cost: 0 },
+                    { time: "14:00", event: "参道、隈研吾星巴克、買御守（現金）。時間多可加九州國立博物館", cost: 0 },
+                    { time: "16:30", event: "⚠️ 歸還和服（17:00打烊，時間要抓緊）", cost: 0 },
+                    { time: "17:00", event: "西鐵太宰府 → 天神（約40分）", cost: 0 },
+                    { time: "18:00", event: "晚餐：天麩羅処ひらお 天神アクロス店（✅ 不吃海鮮可選雞／蔬菜）⚠️ 20:00打烊，18:00進不去直接改鳥貴族 博多筑紫口", cost: 0 },
+                    { time: "19:30", event: "天神地下街", cost: 0 },
+                    { time: "20:30", event: "回民宿", cost: 0 }
                 ]},
                 { day: 5, date: "10/3 (六)", title: "八女 × 藥院", items: [
-                    { time: "09:00", event: "飯店出發往八女（高速巴士，約1.5–2小時，¥1,520）", cost: 1520 },
-                    { time: "11:00", event: "福島八幡宮（360年歷史、剪紙御朱印、招牌豆柴「小白」）", cost: 0 },
-                    { time: "12:00", event: "午餐（八女市區）：定食／烏龍麵", cost: 0 },
-                    { time: "13:00", event: "矢部屋許斐本家買八女茶（1704年創立老茶行，頂級玉露¥2,000起）", cost: 0 },
-                    { time: "15:00", event: "返回藥院（高速巴士¥1,520）", cost: 1520 },
-                    { time: "16:00", event: "BBB POTTERS、白金小圈圈、藥院文青小店（生活雜貨、選物店）", cost: 0 },
-                    { time: "18:30", event: "晚餐：藥院燒肉（建議預約）", cost: 0 },
-                    { time: "21:00", event: "回飯店", cost: 0 }
+                    { time: "08:30", event: "民宿出發，步行至中洲川端站（約5分）", cost: 0 },
+                    { time: "08:35", event: "中洲川端 → 天神（地鐵2分）", cost: 210 },
+                    { time: "08:40", event: "步行至西鐵福岡（天神）站（地下街相連約5分）", cost: 0 },
+                    { time: "08:50", event: "西鐵天神大牟田線 特急（約35分）", cost: 640 },
+                    { time: "09:25", event: "西鐵久留米，出站即巴士中心 ⚠️ 看電子看板找「八女営業所行」", cost: 0 },
+                    { time: "09:38", event: "31號巴士（約40分）⚠️ 上車抽整理券、下車付錢，可刷nimoca／Suica／ICOCA", cost: 750 },
+                    { time: "10:18", event: "西唐人町下車，步行3–5分", cost: 0 },
+                    { time: "10:20", event: "福島八幡宮（授與所9:00–16:30｜切繪御朱印約¥800、柴犬版¥2,000限量｜招牌豆柴「小白」）⚠️ 燈籠人形是每年9月，10/3沒有", cost: 0 },
+                    { time: "11:30", event: "白壁老街散策", cost: 0 },
+                    { time: "12:30", event: "午餐：豚かつ吉岡（✅全無忌口問題）／Ao cafe（蔬食最安全）⚠️ うどん茶寮花むらさき週六公休", cost: 0 },
+                    { time: "13:30", event: "矢部屋許斐本家（八女茶，1704年創立）", cost: 0 },
+                    { time: "14:00", event: "西唐人町搭31號巴士（約40分）※ 沒搭上可叫計程車到西鐵久留米，約30分¥5,500／台，2台分攤每人約¥1,375", cost: 750 },
+                    { time: "14:55", event: "西鐵久留米 → 西鐵特急（往天神方向，約33分）", cost: 640 },
+                    { time: "15:30", event: "西鐵藥院站直接下車（不用轉車）⚠️ 是西鐵藥院，不是地鐵七隈線藥院", cost: 0 },
+                    { time: "15:40", event: "BBB POTTERS（三層樓生活食器雜貨）", cost: 0 },
+                    { time: "17:00", event: "白金小圈圈、藥院古著小店", cost: 0 },
+                    { time: "19:00", event: "🔴 晚餐：焼肉ベンジャミン ✅已預約（步行約8分）⚠️ 餐廳在警固不在藥院站旁；菜單有ホルモン，點餐避開", cost: 0 },
+                    { time: "21:30", event: "回民宿（步行至天神站 → 地鐵）", cost: 0 }
                 ]},
                 { day: 6, date: "10/4 (日)", title: "返程", items: [
-                    { time: "09:00", event: "The Full Full Hakata 明太子麵包（排隊名店）", cost: 0 },
-                    { time: "09:30", event: "博多站最後採買（努努雞、福砂屋長崎蛋糕、明太子醬）", cost: 0 },
-                    { time: "11:00", event: "退房、整理行李", cost: 0 },
-                    { time: "13:30", event: "前往福岡機場（地鐵，約15分，¥260）", cost: 260 },
-                    { time: "16:20", event: "福岡機場起飛，陸續返程", cost: 0 }
+                    { time: "09:30", event: "博多站最後採買（マイング横丁：努努雞、福砂屋長崎蛋糕、明太子醬）", cost: 0 },
+                    { time: "11:00", event: "退房、整理行李 ⚠️ 先秤重！鞋盒全拆、鞋內塞衣服", cost: 0 },
+                    { time: "13:30", event: "前往福岡機場（地鐵約15分）⚠️ 整段抓30分，地鐵只到國內線，國際線要再搭免費接駁", cost: 260 },
+                    { time: "16:20", event: "福岡機場起飛 ⚠️ 免稅封袋不可拆｜海關限量：錠狀膠囊食品每種≤12瓶、合計≤36瓶", cost: 0 }
                 ]}
             ],
             attractions: [
@@ -311,7 +330,30 @@
                 { item: "藥妝", done: false },
                 { item: "運動鞋（博多運河城）", done: false },
                 { item: "吉卜力周邊", done: false }
-            ]
+            ],
+            phrases: {
+                limits: "全體不吃內臟（8人）｜不吃牛（2–3人）｜不吃海鮮（1人）｜不敢太生（1人）",
+                groups: [
+                    { title: "訂位時（電話／現場）", items: [
+                        { jp: "8名です。予約をお願いします。", zh: "8位，我要訂位。" },
+                        { jp: "ホルモン・レバーなどの内臓は全員食べられません。抜いていただけますか。", zh: "全部人都不吃內臟（腸、肝等），可以拿掉嗎？" },
+                        { jp: "鶏刺し（生の鶏肉）も食べられません。火の通った料理に変更していただけますか。", zh: "生雞肉也不吃，可以換成熟食嗎？【華味鳥專用】" },
+                        { jp: "牛肉が食べられない人が2〜3名います。", zh: "有 2–3 位不吃牛肉。" },
+                        { jp: "魚介類が食べられない人が1名います。", zh: "有 1 位不吃海鮮。" },
+                        { jp: "生ものが苦手な人が1名います。しっかり火を通していただけますか。", zh: "有 1 位不敢吃生食，可以確實煮熟嗎？" }
+                    ]},
+                    { title: "現場點餐", items: [
+                        { jp: "これに牛肉／魚介／内臓は入っていますか。", zh: "這道有牛肉／海鮮／內臟嗎？" },
+                        { jp: "だしは魚介ですか。", zh: "湯頭是海鮮熬的嗎？" },
+                        { jp: "取り分けたいので、小皿を8枚お願いします。", zh: "我們要分食，請給 8 個小盤。" },
+                        { jp: "お会計は一緒でお願いします。", zh: "麻煩一起結帳。" }
+                    ]},
+                    { title: "燒肉專用（10/3 焼肉ベンジャミン）", items: [
+                        { jp: "ホルモン・レバー・ミノ・ハツ・センマイ", zh: "❌ 要避開：內臟總稱／肝／胃／心／百葉" },
+                        { jp: "カルビ・ロース・ハラミ・豚バラ・鶏もも・野菜盛り", zh: "✅ 可安心點：牛五花／里肌／橫膈膜／豬五花／雞腿／綜合蔬菜（不吃牛的人點豚バラ・鶏もも）" }
+                    ]}
+                ]
+            }
         };
 
         // ── 資料初始化 ────────────────────────────────────────
@@ -510,6 +552,33 @@
                 container.innerHTML = `
                     <h2 class="text-3xl font-bold mb-8 text-center magazine-title">在地美食紀錄</h2>
                     <div class="max-w-4xl mx-auto">${foodHtml}</div>
+                `;
+
+            } else if (pageId === 'phrases') {
+                const ph = data.phrases || defaultData.phrases;
+                const groupsHtml = ph.groups.map(g => `
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold mb-4 border-b-2 border-blue-900 inline-block pb-1">${g.title}</h3>
+                        <div class="space-y-3">
+                            ${g.items.map(it => `
+                                <div class="bg-white p-4 rounded shadow-sm border-l-4 border-orange-500">
+                                    <p class="text-lg md:text-xl font-medium leading-relaxed" lang="ja">${it.jp}</p>
+                                    <p class="text-sm text-gray-500 mt-2">${it.zh}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `).join('');
+                container.innerHTML = `
+                    <h2 class="text-3xl font-bold mb-8 text-center magazine-title">忌口日文點餐卡</h2>
+                    <div class="max-w-3xl mx-auto">
+                        <div class="bg-red-50 border-2 border-red-200 rounded-lg p-4 mb-8 text-center">
+                            <p class="text-xs text-red-500 mb-1">全團飲食限制</p>
+                            <p class="font-bold text-red-700">${ph.limits}</p>
+                        </div>
+                        <p class="text-center text-sm text-gray-500 mb-8">把手機轉過去給店員看即可 👇</p>
+                        ${groupsHtml}
+                    </div>
                 `;
 
             } else if (pageId === 'map') {
