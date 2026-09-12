@@ -125,6 +125,9 @@
         details.notes > summary::-webkit-details-marker { display: none; }
         details.notes .toggle-label::after { content: '點開 ▾'; }
         details.notes[open] .toggle-label::after { content: '收合 ▴'; }
+        /* 可愛散策圖 */
+        .cute-map { width: 100%; max-width: 430px; margin: 0 auto; display: block; }
+        .cute-map text { font-family: 'Noto Sans TC', sans-serif; }
         /* 集合／硬底線：紅點紅字 */
         .timeline-item.is-key::before { background: #dc2626; }
         /* 移動：灰點、整列淡化 */
@@ -209,7 +212,7 @@
 
     <script>
         const defaultData = {
-            dataVersion: 15,
+            dataVersion: 16,
             info: {
                 title: "福岡旅行攻略",
                 subtitle: "2026.09.29 - 10.04｜5夜6天",
@@ -891,6 +894,7 @@
             } else if (pageId === 'map') {
                 container.innerHTML = `
                     <h2 class="text-3xl font-bold mb-8 text-center magazine-title">地圖導航</h2>
+                    ${yakuinMapSVG()}
                     <div class="card overflow-hidden h-[600px]">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d106363.37687258322!2d130.34215757913386!3d33.58309852331575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z56aP5bKhIEdSQU5EIEJBU0UgSGFrYXRhIE5hcmF5YSDkvY_lrr8g5L2P5ZCJ56We56S-IOWNmuWkmumBi-ays-WfjiDnlLHluIPpmaLnq5kg6YeR6b6X5rmWIOemj-WztuWFq-W5oeWuruS5i-iUteW6lyDlpKrmr7Dot6_liY3pmoog6IK26ZaA56We56S-!5e0!3m2!1szh-TW!2stw!4v1710000000000!5m2!1szh-TW!2stw"
@@ -1400,6 +1404,76 @@
             data.shopping.splice(idx, 1);
             saveData(data);
             renderAdminSection('reservations');
+        }
+
+
+        // ── 薬院散策 可愛地圖（SVG，非地理精確，重點是走法與關門時間） ──
+        function yakuinMapSVG() {
+            const clusters = [
+                { step: "1", name: "白金 1丁目", hint: "先來這區！", fill: "#FFEBEF", stroke: "#F4B9C5", chip: "#EF8DA3",
+                  shops: [
+                    { icon: "🍳", name: "Kitchen Paradise", time: "10:30–17:00", warn: "17:00就關⏰" },
+                    { icon: "✏️", name: "HIGHTIDE STORE", time: "11:00–19:00", warn: "" }
+                  ]},
+                { step: "2", name: "薬院 1丁目", hint: "中段", fill: "#E6F6EF", stroke: "#A9DCC4", chip: "#5FBF95",
+                  shops: [
+                    { icon: "🧵", name: "Dua 手芸屋", time: "11:00–20:00", warn: "無休" },
+                    { icon: "🍽️", name: "BBB POTTERS ＋ BBB&", time: "11:00–19:00", warn: "2F咖啡OS18:30" }
+                  ]},
+                { step: "3", name: "薬院 2・3丁目", hint: "關最晚，墊底", fill: "#FFF6E0", stroke: "#F2D98B", chip: "#DDA22E",
+                  shops: [
+                    { icon: "🪑", name: "NEST", time: "11:00–20:00", warn: "丹麥復古家具" },
+                    { icon: "🕰️", name: "NONE TOO SOON", time: "11:00–19:30", warn: "" },
+                    { icon: "☕", name: "FEELS GOOD STORE", time: "12:00–19:00", warn: "one drink制" },
+                    { icon: "👗", name: "Pearl 歐洲古著", time: "12:30–20:00", warn: "" }
+                  ]}
+            ];
+            const W = 360, PAD = 20, ROW_H = 46, ROW_GAP = 6, HEAD = 40, FOOT = 12, GAP = 56;
+            let y = 76, body = "";
+
+            clusters.forEach((c, ci) => {
+                const h = HEAD + c.shops.length * ROW_H + (c.shops.length - 1) * ROW_GAP + FOOT;
+                body += `<rect x="${PAD}" y="${y}" width="${W - PAD * 2}" height="${h}" rx="18"
+                    fill="${c.fill}" stroke="${c.stroke}" stroke-width="2" stroke-dasharray="7 5"/>
+                    <circle cx="${PAD + 24}" cy="${y + 24}" r="13" fill="${c.chip}"/>
+                    <text x="${PAD + 24}" y="${y + 29}" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">${c.step}</text>
+                    <text x="${PAD + 46}" y="${y + 29}" font-size="14" font-weight="700" fill="#4A4A4A">${c.name}</text>
+                    <text x="${W - PAD - 12}" y="${y + 29}" font-size="11" fill="${c.chip}" text-anchor="end">${c.hint}</text>`;
+                let ry = y + HEAD;
+                c.shops.forEach(sp => {
+                    body += `<rect x="${PAD + 14}" y="${ry}" width="${W - PAD * 2 - 28}" height="${ROW_H}" rx="12" fill="#fff" opacity="0.9"/>
+                        <text x="${PAD + 30}" y="${ry + 29}" font-size="17">${sp.icon}</text>
+                        <text x="${PAD + 56}" y="${ry + 21}" font-size="12.5" font-weight="700" fill="#3C3C3C">${sp.name}</text>
+                        <text x="${PAD + 56}" y="${ry + 37}" font-size="10.5" fill="#9A9A9A">${sp.time}</text>
+                        ${sp.warn ? `<text x="${W - PAD - 26}" y="${ry + 37}" font-size="10" fill="${c.chip}" text-anchor="end">${sp.warn}</text>` : ''}`;
+                    ry += ROW_H + ROW_GAP;
+                });
+                y += h;
+                if (ci < clusters.length - 1) {
+                    body += `<path d="M ${W / 2} ${y + 8} L ${W / 2} ${y + GAP - 16}" stroke="#D8D8D8" stroke-width="2.5" stroke-dasharray="5 6" stroke-linecap="round"/>
+                        <text x="${W / 2}" y="${y + GAP - 4}" font-size="15" text-anchor="middle">🚶</text>
+                        <text x="${W / 2 + 18}" y="${y + GAP - 6}" font-size="10" fill="#B4B4B4">走路就到</text>`;
+                    y += GAP;
+                }
+            });
+
+            const total = y + 74;
+            return `
+            <div class="bg-white rounded-xl shadow-sm p-4 mb-8">
+                <svg class="cute-map" viewBox="0 0 ${W} ${total}" role="img" aria-label="薬院散策路線圖">
+                    <text x="${W / 2}" y="30" font-size="18" font-weight="700" fill="#3C3C3C" text-anchor="middle">🎀 薬院さんぽ MAP</text>
+                    <text x="${W / 2}" y="50" font-size="11" fill="#9A9A9A" text-anchor="middle">15:30 西鐵藥院站出發 → 18:45 集合</text>
+                    <text x="${W / 2}" y="66" font-size="10" fill="#C4A0AC" text-anchor="middle">※ 走法示意圖，不是等比例地圖</text>
+                    ${body}
+                    <path d="M ${W / 2} ${y + 8} L ${W / 2} ${y + 26}" stroke="#D8D8D8" stroke-width="2.5" stroke-dasharray="5 6" stroke-linecap="round"/>
+                    <rect x="${PAD + 40}" y="${y + 32}" width="${W - PAD * 2 - 80}" height="34" rx="17" fill="#FFE3D6" stroke="#F0A886" stroke-width="2"/>
+                    <text x="${W / 2}" y="${y + 54}" font-size="12.5" font-weight="700" fill="#C25A2E" text-anchor="middle">🍖 19:00 焼肉ベンジャミン</text>
+                </svg>
+                <p class="text-xs text-gray-400 text-center mt-3 leading-relaxed">
+                    店都很小，8 人建議分頭逛 · 18:45 約一個點集合<br>
+                    詳細地址與電話看「景點介紹 → 🍵 藥院・八女」
+                </p>
+            </div>`;
         }
 
         // ── 導覽 ──
