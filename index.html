@@ -184,7 +184,7 @@
 
     <script>
         const defaultData = {
-            dataVersion: 5,
+            dataVersion: 6,
             info: {
                 title: "福岡旅行攻略",
                 subtitle: "2026.09.29 - 10.04｜5夜6天",
@@ -199,85 +199,155 @@
                 ]
             },
             itinerary: [
-                { day: 1, date: "9/29 (二)", title: "抵達 × 中洲", items: [
-                    { time: "10:30", event: "🔴 桃園機場第一航廈 虎航報到櫃檯集合（其他班次自行前往）", cost: 0 },
+                { day: 1, date: "9/29 (二)", title: "抵達 × 中洲",
+                  notes: [
+                    "🔴 10:30 在虎航報到櫃檯集合，其他班次自行前往",
+                    "⚠️ 地鐵站在國內線，國際線沒有，要先搭免費接駁",
+                    "🏠 民宿為自助入住，密碼取得方式先確認並分享全員",
+                    "📍 日文地址：〒812-0025 福岡県福岡市博多区奈良屋町8-12",
+                    "🍜 一蘭 24h營業、單人隔間座 ✅ 無牛無海鮮無內臟",
+                    "🎵 和樂團在3F陽台、15分鐘、免費，但不是每天有 — 出發前查官網",
+                    "🛒 採買宵夜＋隔日早餐"
+                  ],
+                  items: [
+                    { time: "10:30", event: "桃園機場第一航廈 集合", cost: 0 },
                     { time: "13:25", event: "桃園起飛", cost: 0 },
                     { time: "16:55", event: "抵達福岡機場", cost: 0 },
-                    { time: "17:00", event: "各自入境、領行李、搭地鐵 ⚠️ 地鐵站在國內線，國際線沒有，要先搭免費接駁", cost: 260 },
-                    { time: "18:00", event: "🔴 民宿集合、Check-in（〒812-0025 福岡県福岡市博多区奈良屋町8-12）⚠️ 自助入住，密碼取得方式先確認並分享全員", cost: 0 },
-                    { time: "18:35", event: "出發前往中洲（步行約12分）", cost: 0 },
-                    { time: "18:50", event: "晚餐：一蘭 本社總本店（24h營業、單人隔間座）✅ 無牛無海鮮無內臟", cost: 0 },
-                    { time: "20:00", event: "一蘭和樂團演出（3F陽台，15分鐘，免費）⚠️ 不是每天有，出發前查官網", cost: 0 },
-                    { time: "20:30", event: "超市／唐吉訶德採買（宵夜＋隔日早餐）", cost: 0 },
+                    { time: "17:00", event: "入境、領行李、搭地鐵", cost: 260 },
+                    { time: "18:00", event: "民宿 Check-in", cost: 0 },
+                    { time: "18:35", event: "出發前往中洲", cost: 0 },
+                    { time: "18:50", event: "晚餐：一蘭 本社總本店", cost: 0 },
+                    { time: "20:00", event: "一蘭和樂團演出", cost: 0 },
+                    { time: "20:30", event: "超市／唐吉訶德採買", cost: 0 },
                     { time: "21:00", event: "回民宿", cost: 0 }
-                ]},
-                { day: 2, date: "9/30 (三)", title: "自由活動 × 天神百貨", outfit: "走最多路、又進出百貨冷氣：好走的鞋＋一件薄外套。百貨拍照背景乾淨，適合穿顏色明確的單品。", items: [
-                    { time: "09:20", event: "（自由）住吉神社參拜 — 博多最古老神社，安靜不用排隊，約30分", cost: 0 },
-                    { time: "10:00", event: "（自由）The Full Full Hakata 開門 — 明太子法國麵包 ⚠️ 10點到已在排，11點到要排50分", cost: 0 },
-                    { time: "11:30", event: "（自由）いとおかし（魚ト肴）⚠️ 海鮮店，不吃海鮮者這段自理", cost: 0 },
-                    { time: "13:00", event: "🛍️ 天神逛街：岩田屋本店（時尚最強・免稅櫃台新館7F）／大丸（鞋類最強，買鞋來這裡）／福岡三越（直連西鐵站）", cost: 0 },
-                    { time: "15:00", event: "ONE FUKUOKA BLDG.「ワンビル」2025新地標，約130店 ⭐ B1「iiTo TENJIN」450席美食廳，8間餐廳可混點共食（忌口保底方案）", cost: 0 },
-                    { time: "16:30", event: "天神地下街 — 590m、153店，歐風石板路，連通各大百貨，下雨免出地面", cost: 0 },
-                    { time: "17:30", event: "（自由）福岡大名ガーデンシティ — 草地公園＋質感選物，最好拍", cost: 0 },
-                    { time: "18:00", event: "⚠️ 免稅收工 — 百貨要到免稅櫃台統一辦，帶護照，留20–30分", cost: 0 },
-                    { time: "18:45", event: "步行前往西中洲（約10分）", cost: 0 },
-                    { time: "19:00", event: "🔴 晚餐：博多華味鳥 西中洲本店 ✅已預約｜花コース¥5,000｜有個室 ⚠️ 出發前3天電話請店家把內臟與鶏刺し換熟食", cost: 0 },
+                  ]},
+                { day: 2, date: "9/30 (三)", title: "自由活動 × 天神百貨",
+                  outfit: "走最多路、又進出百貨冷氣：好走的鞋＋一件薄外套。百貨拍照背景乾淨，適合穿顏色明確的單品。",
+                  notes: [
+                    "📌 今天不排團體時間軸，19:00 華味鳥是唯一硬底線",
+                    "🥖 The Full Full：10點到已在排，11點到要排50分",
+                    "🐟 いとおかし是海鮮店，不吃海鮮者這段自理",
+                    "🛍️ 天神百貨：岩田屋本店（時尚最強・免稅櫃台新館7F）／大丸（鞋類最強，買鞋來這裡）／福岡三越（直連西鐵站）",
+                    "⭐ ワンビル B1「iiTo TENJIN」450席美食廳，8間餐廳可混點共食 — 忌口保底方案",
+                    "🚇 天神地下街 590m、153店，連通各大百貨，下雨免出地面",
+                    "🧾 百貨免稅要到免稅櫃台統一辦，帶護照，留20–30分",
+                    "🔴 華味鳥 ✅已預約｜花コース¥5,000｜有個室",
+                    "☎️ 出發前3天電話請店家把內臟與鶏刺し換熟食"
+                  ],
+                  items: [
+                    { time: "09:20", event: "（自由）住吉神社", cost: 0 },
+                    { time: "10:00", event: "（自由）The Full Full Hakata", cost: 0 },
+                    { time: "11:30", event: "（自由）いとおかし（魚ト肴）", cost: 0 },
+                    { time: "13:00", event: "天神逛街", cost: 0 },
+                    { time: "15:00", event: "ONE FUKUOKA BLDG.（ワンビル）", cost: 0 },
+                    { time: "16:30", event: "天神地下街", cost: 0 },
+                    { time: "17:30", event: "（自由）福岡大名ガーデンシティ", cost: 0 },
+                    { time: "18:00", event: "免稅收工", cost: 0 },
+                    { time: "18:45", event: "步行前往西中洲", cost: 0 },
+                    { time: "19:00", event: "晚餐：博多華味鳥 西中洲本店", cost: 0 },
                     { time: "21:00", event: "回飯店", cost: 0 }
-                ]},
-                { day: 3, date: "10/1 (四)", title: "由布院", outfit: "森林系，上淺下深 — 米白／奶油色上衣 ＋ 卡其或深橄欖下身。十月初還沒紅葉、背景全綠，全身橄欖綠會糊掉。", items: [
-                    { time: "09:15", event: "🔴 博多站在來線剪票口集合", cost: 0 },
-                    { time: "10:11", event: "由布院之森 3號 ✅已購 ⚠️ 別府行，不是終點站 — 設12:20鬧鐘", cost: 0 },
-                    { time: "12:27", event: "抵達由布院 → 先去 B-speak 預約生乳捲", cost: 0 },
-                    { time: "12:30", event: "逛街拍照：湯之坪街道 → 金鱗湖（一條線走到底再折返，SNOOPY茶屋與吉卜力都在回程順路）", cost: 0 },
-                    { time: "12:30", event: "午餐：邊走邊吃（金賞可樂餅／telato／Milch）／陽だまり食堂（全體友善）／由布まぶし心 ⚠️ 12:30尖峰排45分起", cost: 0 },
-                    { time: "16:30", event: "取 B-speak 生乳捲、最後採買 ⚠️ 小店現金優先，帶可折疊購物袋", cost: 0 },
-                    { time: "17:00", event: "🔴 由布院車站集合（硬底線，拍照購物16:45收工；錯過要等到19:27，晚兩小時）", cost: 0 },
-                    { time: "17:17", event: "由布院之森 6號 ✅已購", cost: 0 },
+                  ]},
+                { day: 3, date: "10/1 (四)", title: "由布院",
+                  outfit: "森林系，上淺下深 — 米白／奶油色上衣 ＋ 卡其或深橄欖下身。十月初還沒紅葉、背景全綠，全身橄欖綠會糊掉。",
+                  notes: [
+                    "⚠️ 3號是別府行，不是終點站 — 設12:20鬧鐘",
+                    "🍰 抵達先去 B-speak 預約生乳捲，離開前再取",
+                    "🗺️ 動線：車站→湯之坪街道→金鱗湖走到底再折返，SNOOPY茶屋與吉卜力回程順路",
+                    "🍽️ 午餐選項：邊走邊吃（金賞可樂餅／telato／Milch）／陽だまり食堂（全體友善）／由布まぶし心（⚠️12:30尖峰排45分起）",
+                    "🔴 17:00 是硬底線，拍照購物16:45收工 — 錯過要等到19:27，晚兩小時",
+                    "💵 小店現金優先，帶可折疊購物袋",
+                    "🍚 晚餐：浜勝 博多デイトス 豬排定食（✅無牛無海鮮無內臟）／ShinShin 豚骨拉麵（關最晚最保險）"
+                  ],
+                  items: [
+                    { time: "09:15", event: "博多站在來線剪票口集合", cost: 0 },
+                    { time: "10:11", event: "由布院之森 3號", cost: 0 },
+                    { time: "12:27", event: "抵達由布院", cost: 0 },
+                    { time: "12:30", event: "湯之坪街道 → 金鱗湖", cost: 0 },
+                    { time: "12:30", event: "午餐", cost: 0 },
+                    { time: "16:30", event: "取生乳捲、最後採買", cost: 0 },
+                    { time: "17:00", event: "由布院車站集合", cost: 0 },
+                    { time: "17:17", event: "由布院之森 6號", cost: 0 },
                     { time: "19:27", event: "抵達博多", cost: 0 },
-                    { time: "20:00", event: "晚餐（博多站內）：浜勝 博多デイトス 豬排定食（✅無牛無海鮮無內臟）／ShinShin 豚骨拉麵（關最晚最保險）", cost: 0 }
-                ]},
-                { day: 4, date: "10/2 (五)", title: "太宰府 × 和服", items: [
-                    { time: "09:00", event: "民宿出發，地鐵至天神。🎫 西鐵福岡（天神）駅北口人工窗口買「太宰府散策きっぷ」×8（自動售票機沒有）", cost: 210 },
-                    { time: "09:20", event: "🎫 散策きっぷ約¥1,060：往復＋梅ヶ枝餅2個＋九州國立博物館團體價。⚠️ 走人工閘口，途中下車只限都府樓前／二日市／五条", cost: 1060 },
-                    { time: "09:40", event: "西鐵天神 → 二日市 → 太宰府（約40分）", cost: 0 },
-                    { time: "10:20", event: "抵達太宰府駅，步行至和服店（約8分，参道上）", cost: 0 },
-                    { time: "10:30", event: "🔴 和服 第一梯（4人）✅已預約", cost: 0 },
-                    { time: "11:00", event: "🔴 和服 第二梯（4人）✅已預約（第一梯的人先去買梅枝餅、拍店門口）", cost: 0 },
-                    { time: "11:30", event: "全員集合 → 午餐（参道）：一蘭太宰府参道店 五角形「合格拉麵」（全世界唯一）／梅枝餅 ⚠️ 穿和服避開湯汁四濺的食物", cost: 0 },
-                    { time: "12:30", event: "太宰府天満宮（✅ 本殿124年大改修已完工）", cost: 0 },
-                    { time: "14:00", event: "参道、隈研吾星巴克、買御守（現金）。時間多可加九州國立博物館", cost: 0 },
-                    { time: "16:30", event: "⚠️ 歸還和服（17:00打烊，時間要抓緊）", cost: 0 },
-                    { time: "17:00", event: "西鐵太宰府 → 天神（約40分）", cost: 0 },
-                    { time: "18:00", event: "晚餐：天麩羅処ひらお 天神アクロス店（✅ 不吃海鮮可選雞／蔬菜）⚠️ 20:00打烊，18:00進不去直接改鳥貴族 博多筑紫口", cost: 0 },
+                    { time: "20:00", event: "晚餐（博多站內）", cost: 0 }
+                  ]},
+                { day: 4, date: "10/2 (五)", title: "太宰府 × 和服",
+                  notes: [
+                    "🎫 散策きっぷ約¥1,060：往復 ＋ 梅ヶ枝餅2個 ＋ 九州國立博物館團體價",
+                    "🎫 只在西鐵福岡（天神）駅北口人工窗口賣，自動售票機沒有；要走人工閘口",
+                    "🎫 途中下車只限都府樓前／二日市／五条",
+                    "👘 第一梯11:00完成後有30分空檔，可先買梅枝餅、拍店門口",
+                    "🍡 午餐吃輕食：穿和服不方便坐下吃正餐，参道邊走邊吃為主，避開湯汁四濺的食物",
+                    "✅ 太宰府天満宮本殿124年大改修已完工",
+                    "⏰ 14:00–16:00 有兩小時，参道加星巴克約1–1.5小時，想填滿可加九州國立博物館",
+                    "⚠️ 和服店17:00打烊，歸還時間要抓緊",
+                    "⚠️ ひらお 20:00打烊，18:00進不去直接改鳥貴族 博多筑紫口",
+                    "✅ ひらお 不吃海鮮可選雞／蔬菜"
+                  ],
+                  items: [
+                    { time: "09:00", event: "民宿出發，地鐵至天神", cost: 210 },
+                    { time: "09:20", event: "西鐵窗口買散策きっぷ ×8", cost: 1060 },
+                    { time: "09:40", event: "西鐵天神 → 二日市 → 太宰府", cost: 0 },
+                    { time: "10:20", event: "抵達太宰府，步行至和服店", cost: 0 },
+                    { time: "10:30", event: "和服 第一梯（4人）", cost: 0 },
+                    { time: "11:00", event: "和服 第二梯（4人）", cost: 0 },
+                    { time: "11:30", event: "全員集合 → 参道邊走邊吃", cost: 0 },
+                    { time: "12:30", event: "太宰府天満宮", cost: 0 },
+                    { time: "14:00", event: "参道、星巴克、買御守", cost: 0 },
+                    { time: "16:30", event: "歸還和服", cost: 0 },
+                    { time: "17:00", event: "西鐵太宰府 → 天神", cost: 0 },
+                    { time: "18:00", event: "晚餐：ひらお 天神アクロス店", cost: 0 },
                     { time: "19:30", event: "天神地下街", cost: 0 },
                     { time: "20:30", event: "回民宿", cost: 0 }
-                ]},
-                { day: 5, date: "10/3 (六)", title: "八女 × 藥院", outfit: "藍色系。白壁老街是白色土藏建築，深藍／靛藍在白牆前對比最強，避免全身淺藍。晚上吃燒肉有油煙，淺色上衣易吸味。", items: [
-                    { time: "08:30", event: "民宿出發，步行至中洲川端站（約5分）", cost: 0 },
-                    { time: "08:35", event: "中洲川端 → 天神（地鐵2分）", cost: 210 },
-                    { time: "08:40", event: "步行至西鐵福岡（天神）站（地下街相連約5分）", cost: 0 },
-                    { time: "08:50", event: "西鐵天神大牟田線 特急（約35分）", cost: 640 },
-                    { time: "09:25", event: "西鐵久留米，出站即巴士中心 ⚠️ 看電子看板找「八女営業所行」", cost: 0 },
-                    { time: "09:38", event: "31號巴士（約40分）⚠️ 上車抽整理券、下車付錢，可刷nimoca／Suica／ICOCA", cost: 750 },
-                    { time: "10:18", event: "西唐人町下車，步行3–5分", cost: 0 },
-                    { time: "10:20", event: "福島八幡宮（授與所9:00–16:30｜切繪御朱印約¥800、柴犬版¥2,000限量｜招牌豆柴「小白」）⚠️ 燈籠人形是每年9月，10/3沒有", cost: 0 },
+                  ]},
+                { day: 5, date: "10/3 (六)", title: "八女 × 藥院",
+                  outfit: "藍色系。白壁老街是白色土藏建築，深藍／靛藍在白牆前對比最強，避免全身淺藍。晚上吃燒肉有油煙，淺色上衣易吸味。",
+                  notes: [
+                    "🚌 巴士：上車抽整理券、下車付錢，可刷nimoca／Suica／ICOCA",
+                    "🚌 西鐵久留米出站即巴士中心，看電子看板找「八女営業所行」",
+                    "⛩️ 福島八幡宮授與所9:00–16:30｜切繪御朱印約¥800、柴犬版¥2,000限量｜招牌豆柴「小白」",
+                    "⚠️ 燈籠人形是每年9月，10/3沒有",
+                    "🍽️ 午餐：豚かつ吉岡（✅全無忌口問題）／Ao cafe（蔬食最安全）",
+                    "❌ うどん茶寮 花むらさき 週六公休",
+                    "🍵 矢部屋許斐本家：1704年創立，八女最古老茶行",
+                    "🚕 14:00巴士沒搭上：叫計程車到西鐵久留米，約30分¥5,500／台，2台分攤每人約¥1,375",
+                    "⚠️ 15:30下車是西鐵藥院，不是地鐵七隈線藥院",
+                    "⚠️ 焼肉ベンジャミン在警固不在藥院站旁；菜單有ホルモン，點餐避開",
+                    "🔎 出發前必查：西鐵巴士2026年10月改點、週六班次、實際車資 → jik.nishitetsu.jp/menu"
+                  ],
+                  items: [
+                    { time: "08:30", event: "民宿出發，步行至中洲川端站", cost: 0 },
+                    { time: "08:35", event: "中洲川端 → 天神", cost: 210 },
+                    { time: "08:40", event: "步行至西鐵福岡（天神）站", cost: 0 },
+                    { time: "08:50", event: "西鐵特急", cost: 640 },
+                    { time: "09:25", event: "西鐵久留米 → 巴士中心", cost: 0 },
+                    { time: "09:38", event: "31號巴士", cost: 750 },
+                    { time: "10:18", event: "西唐人町下車", cost: 0 },
+                    { time: "10:20", event: "福島八幡宮", cost: 0 },
                     { time: "11:30", event: "白壁老街散策", cost: 0 },
-                    { time: "12:30", event: "午餐：豚かつ吉岡（✅全無忌口問題）／Ao cafe（蔬食最安全）⚠️ うどん茶寮花むらさき週六公休", cost: 0 },
-                    { time: "13:30", event: "矢部屋許斐本家（八女茶，1704年創立）", cost: 0 },
-                    { time: "14:00", event: "西唐人町搭31號巴士（約40分）※ 沒搭上可叫計程車到西鐵久留米，約30分¥5,500／台，2台分攤每人約¥1,375", cost: 750 },
-                    { time: "14:55", event: "西鐵久留米 → 西鐵特急（往天神方向，約33分）", cost: 640 },
-                    { time: "15:30", event: "西鐵藥院站直接下車（不用轉車）⚠️ 是西鐵藥院，不是地鐵七隈線藥院", cost: 0 },
-                    { time: "15:40", event: "BBB POTTERS（三層樓生活食器雜貨）", cost: 0 },
+                    { time: "12:30", event: "午餐", cost: 0 },
+                    { time: "13:30", event: "矢部屋許斐本家（八女茶）", cost: 0 },
+                    { time: "14:00", event: "西唐人町搭 31號巴士", cost: 750 },
+                    { time: "14:55", event: "西鐵特急（往天神）", cost: 640 },
+                    { time: "15:30", event: "西鐵藥院站下車", cost: 0 },
+                    { time: "15:40", event: "BBB POTTERS", cost: 0 },
                     { time: "17:00", event: "白金小圈圈、藥院古著小店", cost: 0 },
-                    { time: "19:00", event: "🔴 晚餐：焼肉ベンジャミン ✅已預約（步行約8分）⚠️ 餐廳在警固不在藥院站旁；菜單有ホルモン，點餐避開", cost: 0 },
-                    { time: "21:30", event: "回民宿（步行至天神站 → 地鐵）", cost: 0 }
-                ]},
-                { day: 6, date: "10/4 (日)", title: "返程", items: [
-                    { time: "09:30", event: "博多站最後採買（マイング横丁：努努雞、福砂屋長崎蛋糕、明太子醬）", cost: 0 },
-                    { time: "11:00", event: "退房、整理行李 ⚠️ 先秤重！鞋盒全拆、鞋內塞衣服", cost: 0 },
-                    { time: "13:30", event: "前往福岡機場（地鐵約15分）⚠️ 整段抓30分，地鐵只到國內線，國際線要再搭免費接駁", cost: 260 },
-                    { time: "16:20", event: "福岡機場起飛 ⚠️ 免稅封袋不可拆｜海關限量：錠狀膠囊食品每種≤12瓶、合計≤36瓶", cost: 0 }
-                ]}
+                    { time: "19:00", event: "晚餐：焼肉ベンジャミン", cost: 0 },
+                    { time: "21:30", event: "回民宿", cost: 0 }
+                  ]},
+                { day: 6, date: "10/4 (日)", title: "返程",
+                  notes: [
+                    "🛍️ マイング横丁：努努雞、福砂屋長崎蛋糕、明太子醬",
+                    "⚖️ 行李秤重放在退房前，鞋盒全拆、鞋內塞衣服",
+                    "⚠️ 地鐵只到國內線，國際線要再搭免費接駁 — 整段抓30分",
+                    "🧾 消耗品免稅封袋不可拆",
+                    "🛂 海關限量：錠狀膠囊食品每種≤12瓶、合計≤36瓶"
+                  ],
+                  items: [
+                    { time: "09:30", event: "博多站最後採買", cost: 0 },
+                    { time: "11:00", event: "退房、整理行李", cost: 0 },
+                    { time: "13:30", event: "前往福岡機場", cost: 260 },
+                    { time: "16:20", event: "福岡機場起飛", cost: 0 }
+                  ]}
             ],
             attractions: [
                 { name: "住吉神社", desc: "博多最古老神社，氛圍莊嚴靜謐。步行約15分可達。", tag: "文化", mapUrl: "https://www.google.com/maps/search/住吉神社+福岡市博多区住吉3丁目1-51" },
@@ -532,7 +602,14 @@
                             </div>
                             <div class="bg-white p-6 rounded-b-lg shadow-sm">
                                 ${itemsHtml}
-                                ${day.outfit ? `<div class="mt-4 pt-4 border-t text-sm bg-orange-50 -mx-6 -mb-6 px-6 py-4 rounded-b-lg"><span class="font-bold text-orange-700">👗 穿搭　</span><span class="text-gray-600">${day.outfit}</span></div>` : ''}
+                                ${(day.notes && day.notes.length) ? `
+                                    <div class="mt-2 pt-4 border-t">
+                                        <p class="font-bold text-sm mb-3" style="color: var(--color-deep-blue);">📌 補充說明</p>
+                                        <ul class="space-y-2">
+                                            ${day.notes.map(n => `<li class="text-sm text-gray-600 leading-relaxed flex gap-2"><span class="text-gray-300 shrink-0">・</span><span>${n}</span></li>`).join('')}
+                                        </ul>
+                                    </div>` : ''}
+                                ${day.outfit ? `<div class="mt-4 text-sm bg-orange-50 -mx-6 -mb-6 px-6 py-4 rounded-b-lg"><span class="font-bold text-orange-700">👗 穿搭　</span><span class="text-gray-600">${day.outfit}</span></div>` : ''}
                             </div>
                         </div>
                     `;
@@ -825,7 +902,16 @@
                             </tr>
                         `;
                     });
-                    html += '</tbody></table></div>';
+                    html += `</tbody></table>
+                        <div class="mt-4">
+                            <label class="block text-xs font-bold mb-1">📌 補充說明（一行一條）</label>
+                            <textarea class="w-full border p-2 rounded text-sm h-32" onchange="updateDayNotes(${dayIdx}, this.value)">${escHtml((day.notes || []).join('\n'))}</textarea>
+                        </div>
+                        <div class="mt-3">
+                            <label class="block text-xs font-bold mb-1">👗 穿搭建議（留空則不顯示）</label>
+                            <input class="w-full border p-2 rounded text-sm" value="${escHtml(day.outfit || '')}" onchange="updateDayField(${dayIdx}, 'outfit', this.value)">
+                        </div>
+                    </div>`;
                 });
                 content.innerHTML = html;
 
@@ -1033,6 +1119,17 @@
             const data = getData();
             if (field === 'cost') value = parseInt(value) || 0;
             data.itinerary[dayIdx].items[itemIdx][field] = value;
+            saveData(data);
+        }
+        function updateDayNotes(dayIdx, value) {
+            const data = getData();
+            data.itinerary[dayIdx].notes = value.split('\n').map(x => x.trim()).filter(x => x);
+            saveData(data);
+        }
+        function updateDayField(dayIdx, field, value) {
+            const data = getData();
+            if (value) { data.itinerary[dayIdx][field] = value; }
+            else { delete data.itinerary[dayIdx][field]; }
             saveData(data);
         }
         function addItineraryItem(dayIdx) {
