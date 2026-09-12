@@ -125,6 +125,11 @@
         details.notes > summary::-webkit-details-marker { display: none; }
         details.notes .toggle-label::after { content: '點開 ▾'; }
         details.notes[open] .toggle-label::after { content: '收合 ▴'; }
+        /* 集合／硬底線：紅點紅字 */
+        .timeline-item.is-key::before { background: #dc2626; }
+        /* 移動：灰點、整列淡化 */
+        .timeline-item.is-move::before { background: #d1d5db; width: 10px; height: 10px; left: -6px; }
+        .timeline-item.is-move { border-left-style: dashed; }
         /* 手機：時間軸收窄、字距收緊 */
         @media (max-width: 767px) {
             .timeline-item {
@@ -204,7 +209,7 @@
 
     <script>
         const defaultData = {
-            dataVersion: 13,
+            dataVersion: 14,
             info: {
                 title: "福岡旅行攻略",
                 subtitle: "2026.09.29 - 10.04｜5夜6天",
@@ -236,15 +241,11 @@
                     "🛒 採買宵夜＋隔日早餐"
                   ],
                   items: [
-                    { time: "10:30", event: "桃園機場第一航廈 集合", cost: 0 },
-                    { time: "13:25", event: "桃園起飛", cost: 0 },
-                    { time: "16:55", event: "抵達福岡機場", cost: 0 },
-                    { time: "17:00", event: "入境、領行李、前往博多", cost: 0 },
-                    { time: "18:00", event: "民宿 Check-in", cost: 0 },
-                    { time: "18:35", event: "出發前往中洲", cost: 0 },
-                    { time: "18:50", event: "晚餐：一蘭 本社總本店", cost: 0 },
-                    { time: "20:00", event: "一蘭和樂團演出", cost: 0 },
-                    { time: "20:30", event: "超市／唐吉訶德採買", cost: 0 },
+                    { time: "10:30", event: "集合：桃園機場 T1・虎航報到櫃檯", kind: "key", cost: 0 },
+                    { time: "13:25", until: "16:55", event: "飛行（桃園 → 福岡）", cost: 0 },
+                    { time: "", event: "移動 約65分・入境 → 接駁 → 地鐵 → 步行", kind: "move", cost: 0 },
+                    { time: "18:00", event: "集合：民宿 Check-in", kind: "key", cost: 0 },
+                    { time: "18:50", until: "20:30", event: "中洲：一蘭晚餐 → 和樂團演出 → 超市採買", cost: 0 },
                     { time: "21:00", event: "回民宿", cost: 0 }
                   ]},
                 { day: 2, date: "9/30 (三)", title: "自由活動 × 天神百貨",
@@ -259,21 +260,16 @@
                     "🛍️ 天神百貨：岩田屋本店（時尚最強・免稅櫃台新館7F）／大丸（鞋類最強，買鞋來這裡）／福岡三越（直連西鐵站）",
                     "⭐ ワンビル B1「iiTo TENJIN」450席美食廳，8間餐廳可混點共食 — 忌口保底方案",
                     "🚇 天神地下街 590m、153店，連通各大百貨，下雨免出地面",
+                    "🌿 福岡大名ガーデンシティ：2023全面開業，麗思卡爾頓進駐，草地公園＋質感選物，天神最好拍的一區",
                     "🧾 百貨免稅要到免稅櫃台統一辦，帶護照，留20–30分",
                     "🔴 華味鳥 ✅已預約｜花コース¥5,000｜有個室",
                     "☎️ 出發前3天電話請店家把內臟與鶏刺し換熟食"
                   ],
                   items: [
-                    { time: "09:20", event: "（自由）住吉神社", cost: 0 },
-                    { time: "10:00", event: "（自由）The Full Full Hakata", cost: 0 },
-                    { time: "11:30", event: "（自由）いとおかし（魚ト肴）", cost: 0 },
-                    { time: "13:00", event: "天神逛街", cost: 0 },
-                    { time: "15:00", event: "ONE FUKUOKA BLDG.（ワンビル）", cost: 0 },
-                    { time: "16:30", event: "天神地下街", cost: 0 },
-                    { time: "17:30", event: "（自由）福岡大名ガーデンシティ", cost: 0 },
-                    { time: "18:00", event: "免稅收工", cost: 0 },
-                    { time: "18:45", event: "步行前往西中洲", cost: 0 },
-                    { time: "19:00", event: "晚餐：博多華味鳥 西中洲本店", cost: 0 },
+                    { time: "09:20", until: "12:30", event: "上午自由（住吉神社／The Full Full／いとおかし）", cost: 0 },
+                    { time: "13:00", until: "18:00", event: "天神逛街：百貨 → ワンビル → 地下街 → 大名ガーデンシティ", cost: 0 },
+                    { time: "", event: "移動 約10分・天神 → 西中洲 步行", kind: "move", cost: 0 },
+                    { time: "19:00", event: "集合：博多華味鳥 西中洲本店（✅已預約）", kind: "key", cost: 0 },
                     { time: "21:00", event: "回飯店", cost: 0 }
                   ]},
                 { day: 3, date: "10/1 (四)", title: "由布院",
@@ -294,15 +290,11 @@
                     "🍚 晚餐【推薦・未定案】：浜勝 博多デイトス 豬排定食（✅無牛無海鮮無內臟）／ShinShin 豚骨拉麵（關最晚最保險）"
                   ],
                   items: [
-                    { time: "09:15", event: "博多站在來線剪票口集合", cost: 0 },
-                    { time: "10:11", event: "由布院之森 3號", cost: 0 },
-                    { time: "12:27", event: "抵達由布院", cost: 0 },
-                    { time: "12:30", event: "湯之坪街道 → 金鱗湖", cost: 0 },
-                    { time: "12:30", event: "午餐", cost: 0 },
-                    { time: "16:30", event: "取生乳捲、最後採買", cost: 0 },
-                    { time: "17:00", event: "由布院車站集合", cost: 0 },
-                    { time: "17:17", event: "由布院之森 6號", cost: 0 },
-                    { time: "19:27", event: "抵達博多", cost: 0 },
+                    { time: "09:15", event: "集合：博多站・在來線剪票口", kind: "key", cost: 0 },
+                    { time: "", event: "10:11 → 12:27 由布院之森3號・2小時16分 ⚠️別府行", kind: "move", cost: 0 },
+                    { time: "12:30", until: "16:30", event: "由布院散策：湯之坪街道 → 金鱗湖（含午餐、取生乳捲）", cost: 0 },
+                    { time: "17:00", event: "集合：由布院車站（16:45收工，錯過晚兩小時）", kind: "key", cost: 0 },
+                    { time: "", event: "17:17 → 19:27 由布院之森6號・2小時10分", kind: "move", cost: 0 },
                     { time: "20:00", event: "晚餐（博多站內）", cost: 0 }
                   ]},
                 { day: 4, date: "10/2 (五)", title: "太宰府 × 和服",
@@ -333,18 +325,15 @@
                     "✅ ひらお 不吃海鮮可選雞／蔬菜"
                   ],
                   items: [
-                    { time: "09:00", event: "出發前往太宰府（先買散策きっぷ）", cost: 0 },
-                    { time: "10:20", event: "抵達太宰府，步行至和服店", cost: 0 },
-                    { time: "10:30", event: "和服 第一梯（4人）", cost: 0 },
-                    { time: "11:00", event: "和服 第二梯（4人）", cost: 0 },
-                    { time: "11:30", event: "全員集合 → 参道邊走邊吃", cost: 0 },
-                    { time: "12:30", event: "太宰府天満宮", cost: 0 },
-                    { time: "14:00", event: "参道、星巴克、買御守", cost: 0 },
-                    { time: "16:30", event: "歸還和服", cost: 0 },
-                    { time: "17:00", event: "返回天神", cost: 0 },
-                    { time: "18:00", event: "晚餐：ひらお 天神アクロス店", cost: 0 },
-                    { time: "19:30", event: "天神地下街", cost: 0 },
-                    { time: "20:30", event: "回民宿", cost: 0 }
+                    { time: "09:00", event: "出發（先在西鐵天神北口買散策きっぷ）", cost: 0 },
+                    { time: "", event: "移動 約80分・地鐵＋西鐵 ⚠️二日市轉車", kind: "move", cost: 0 },
+                    { time: "10:30", event: "和服 第一梯（4人）", kind: "key", cost: 0 },
+                    { time: "11:00", event: "和服 第二梯（4人）", kind: "key", cost: 0 },
+                    { time: "11:30", event: "集合：和服店前（全員）", kind: "key", cost: 0 },
+                    { time: "11:30", until: "16:30", event: "太宰府：参道邊走邊吃 → 天満宮 → 星巴克・御守", cost: 0 },
+                    { time: "16:30", event: "歸還和服（17:00打烊，要抓緊）", kind: "key", cost: 0 },
+                    { time: "", event: "移動 約60分・西鐵回天神", kind: "move", cost: 0 },
+                    { time: "18:00", until: "20:30", event: "天神：ひらお晚餐 → 地下街 → 回民宿", cost: 0 }
                   ]},
                 { day: 5, date: "10/3 (六)", title: "八女 × 藥院",
                   transfers: [
@@ -374,17 +363,12 @@
                     "🔎 出發前必查：西鐵巴士2026年10月改點、週六班次、實際車資 → jik.nishitetsu.jp/menu"
                   ],
                   items: [
-                    { time: "08:30", event: "民宿出發，前往八女", cost: 0 },
-                    { time: "10:18", event: "抵達西唐人町", cost: 0 },
-                    { time: "10:20", event: "福島八幡宮", cost: 0 },
-                    { time: "11:30", event: "白壁老街散策", cost: 0 },
-                    { time: "12:30", event: "午餐", cost: 0 },
-                    { time: "13:30", event: "矢部屋許斐本家（八女茶）", cost: 0 },
-                    { time: "14:00", event: "出發返回藥院", cost: 0 },
-                    { time: "15:30", event: "抵達西鐵藥院站", cost: 0 },
-                    { time: "15:40", event: "BBB POTTERS", cost: 0 },
-                    { time: "17:00", event: "白金小圈圈、藥院古著小店", cost: 0 },
-                    { time: "19:00", event: "晚餐：焼肉ベンジャミン", cost: 0 },
+                    { time: "08:30", event: "集合：出發前往八女", kind: "key", cost: 0 },
+                    { time: "", event: "移動 約110分・地鐵＋西鐵特急＋31號巴士", kind: "move", cost: 0 },
+                    { time: "10:20", until: "14:00", event: "八女：福島八幡宮 → 白壁老街 → 午餐 → 八女茶", cost: 0 },
+                    { time: "", event: "移動 約100分・31號巴士＋西鐵特急（直達藥院）", kind: "move", cost: 0 },
+                    { time: "15:40", until: "18:45", event: "藥院：BBB POTTERS → 白金小圈圈・古著店", cost: 0 },
+                    { time: "19:00", event: "集合：焼肉ベンジャミン（✅已預約）", kind: "key", cost: 0 },
                     { time: "21:30", event: "回民宿", cost: 0 }
                   ]},
                 { day: 6, date: "10/4 (日)", title: "返程",
@@ -400,10 +384,10 @@
                     "🛂 海關限量：錠狀膠囊食品每種≤12瓶、合計≤36瓶"
                   ],
                   items: [
-                    { time: "09:30", event: "博多站最後採買", cost: 0 },
-                    { time: "11:00", event: "退房、整理行李", cost: 0 },
-                    { time: "13:30", event: "前往福岡機場", cost: 0 },
-                    { time: "16:20", event: "福岡機場起飛", cost: 0 }
+                    { time: "09:30", until: "11:00", event: "博多站最後採買（マイング横丁）", cost: 0 },
+                    { time: "11:00", event: "退房 ⚠️ 行李先秤重", cost: 0 },
+                    { time: "", event: "移動 約30分・地鐵＋接駁", kind: "move", cost: 0 },
+                    { time: "16:20", event: "福岡機場起飛", kind: "key", cost: 0 }
                   ]}
             ],
             attractions: [
@@ -664,10 +648,10 @@
                     let itemsHtml = '';
                     day.items.forEach(item => {
                         itemsHtml += `
-                            <div class="timeline-item">
+                            <div class="timeline-item ${item.kind === 'key' ? 'is-key' : ''} ${item.kind === 'move' ? 'is-move' : ''}">
                                 <div class="flex items-baseline gap-2 md:gap-3">
-                                    <span class="font-bold text-orange-700 text-sm w-11 shrink-0 tabular-nums">${item.time}</span>
-                                    <span class="flex-grow text-sm md:text-base leading-snug">${item.event}</span>
+                                    <span class="text-sm w-11 shrink-0 tabular-nums ${item.kind === 'key' ? 'font-bold text-red-600' : item.kind === 'move' ? 'text-gray-300' : 'font-bold text-orange-700'}">${item.kind === 'move' ? '⇣' : item.time}</span>
+                                    <span class="flex-grow min-w-0 break-words leading-snug ${item.kind === 'key' ? 'text-sm md:text-base font-bold text-red-600' : item.kind === 'move' ? 'text-xs text-gray-400' : 'text-sm md:text-base'}">${item.event}${item.until ? ` <span class="text-xs text-gray-400 font-normal whitespace-nowrap">～${item.until}</span>` : ''}</span>
                                     ${item.cost > 0 ? `<span class="text-xs bg-gray-100 px-2 py-0.5 rounded text-gray-500 shrink-0">¥${item.cost}</span>` : ''}
                                 </div>
                             </div>
@@ -996,13 +980,19 @@
                             </div>
                             <table class="w-full text-sm">
                                 <thead><tr class="text-left border-b">
-                                    <th class="py-2">時間</th><th class="py-2">內容</th><th class="py-2">費用(¥)</th><th class="py-2">操作</th>
+                                    <th class="py-2">時間</th><th class="py-2">結束</th><th class="py-2">類型</th><th class="py-2">內容</th><th class="py-2">費用(¥)</th><th class="py-2">操作</th>
                                 </tr></thead><tbody>
                     `;
                     day.items.forEach((item, itemIdx) => {
                         html += `
                             <tr class="border-b">
                                 <td class="py-2"><input type="text" value="${escHtml(item.time)}" onchange="updateItinerary(${dayIdx}, ${itemIdx}, 'time', this.value)" class="border rounded px-1 w-16"></td>
+                                <td class="py-2"><input type="text" value="${escHtml(item.until || '')}" onchange="updateItinerary(${dayIdx}, ${itemIdx}, 'until', this.value)" class="border rounded px-1 w-16" placeholder="結束"></td>
+                                <td class="py-2"><select onchange="updateItinerary(${dayIdx}, ${itemIdx}, 'kind', this.value)" class="border rounded px-1">
+                                    <option value="" ${!item.kind ? 'selected' : ''}>一般</option>
+                                    <option value="key" ${item.kind === 'key' ? 'selected' : ''}>🔴集合</option>
+                                    <option value="move" ${item.kind === 'move' ? 'selected' : ''}>⇣移動</option>
+                                </select></td>
                                 <td class="py-2"><input type="text" value="${escHtml(item.event)}" onchange="updateItinerary(${dayIdx}, ${itemIdx}, 'event', this.value)" class="border rounded px-1 w-full"></td>
                                 <td class="py-2"><input type="number" value="${item.cost}" onchange="updateItinerary(${dayIdx}, ${itemIdx}, 'cost', this.value)" class="border rounded px-1 w-20"></td>
                                 <td class="py-2"><button onclick="deleteItineraryItem(${dayIdx}, ${itemIdx})" class="text-red-500">刪除</button></td>
