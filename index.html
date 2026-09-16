@@ -209,7 +209,7 @@
 
     <script>
         const defaultData = {
-            dataVersion: 26,
+            dataVersion: 27,
             info: {
                 title: "福岡旅行攻略",
                 subtitle: "2026.09.29 - 10.04｜5夜6天",
@@ -501,6 +501,11 @@
                     { route: "博多 ⇄ 由布院", way: "由布院之森 3／6 號", cost: "已購" },
                     { route: "博多 → 太宰府 → 天神", way: "地鐵＋西鐵（散策きっぷ）", cost: "約 ¥1,270" },
                     { route: "博多 → 八女 → 藥院", way: "地鐵＋西鐵＋31號巴士", cost: "約 ¥2,990" }
+                ],
+                emergency: [
+                    { label: "台北駐大阪經濟文化辦事處 福岡分處", tel: "092-734-2810", note: "週一～五 09:00–18:00（12:00–13:00 午休）" },
+                    { label: "急難救助行動電話", tel: "090-1922-9740", note: "限車禍、緊急醫療等急難狀況，非急難請打上面那支" },
+                    { label: "辦事處地址", tel: "", note: "福岡市中央区桜坂3-12-42" }
                 ],
                 payment: [
                     { icon: "✅", text: "IC卡可用：地鐵、JR在來線、西鐵電車、西鐵巴士" },
@@ -849,6 +854,17 @@
                                     ${prep.payment.map(x => `<p class="text-sm flex gap-2"><span class="shrink-0">${x.icon}</span><span>${x.text}</span></p>`).join('')}
                                 </div>
                             </div>
+                        </div>
+
+                        <h3 class="text-xl font-bold mb-4 border-b-2 border-blue-900 inline-block pb-1">🆘 緊急聯絡</h3>
+                        <div class="bg-white rounded shadow-sm p-4 mb-10 space-y-3">
+                            ${(prep.emergency || []).map(e => `
+                                <div class="border-b last:border-0 pb-3 last:pb-0">
+                                    <p class="text-sm font-medium">${e.label}</p>
+                                    ${e.tel ? `<a href="tel:${e.tel.replace(/-/g, '')}" class="text-lg font-bold text-blue-700 tracking-wide">${e.tel}</a>` : ''}
+                                    ${e.note ? `<p class="text-xs text-gray-500 mt-1">${e.note}</p>` : ''}
+                                </div>`).join('')}
+                            <p class="text-xs text-gray-400 pt-1">日本境內報警 110／救護車・消防 119</p>
                         </div>
 
                         <h3 class="text-xl font-bold mb-4 border-b-2 border-blue-900 inline-block pb-1">🚃 交通速查</h3>
