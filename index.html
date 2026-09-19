@@ -209,7 +209,7 @@
 
     <script>
         const defaultData = {
-            dataVersion: 40,
+            dataVersion: 41,
             info: {
                 title: "福岡旅行攻略",
                 subtitle: "2026.09.29 - 10.04｜5夜6天",
@@ -452,7 +452,7 @@
                 { name: "暖暮拉麵", area: "太宰府", cat: "拉麵", desc: "九州拉麵總選舉第一名的豚骨拉麵", reserve: false, mapUrl: "https://www.google.com/maps/search/暖暮拉麵+太宰府" },
                 { name: "焼肉ベンジャミン", area: "藥院・八女", cat: "燒肉", desc: "10/3晚餐 ✅ 已預約19:00。有豚バラ供不吃牛的人 ⚠️ 菜單有ホルモン，點餐避開", reserve: true, mapUrl: "https://www.google.com/maps/search/焼肉ベンジャミン+福岡" },
                 { name: "The Full Full Hakata", area: "博多・天神", cat: "麵包", desc: "明太子法國麵包，排隊名店 ⚠️ 10點開門就已經在排", reserve: false, mapUrl: "https://www.google.com/maps/search/The+Full+Full+Hakata" },
-                { name: "努努雞", area: "博多・天神", cat: "小食", desc: "冰著吃的炸雞，鹹甜口味，博多特色伴手禮", reserve: false, mapUrl: "https://www.google.com/maps/search/奴奴鶏+福岡" },
+                { name: "努努雞", area: "博多・天神", cat: "小食", desc: "冰著吃的炸雞，鹹甜口味 ⚠️ 冷藏品不能帶上飛機，只能在當地吃", reserve: false, mapUrl: "https://www.google.com/maps/search/奴奴鶏+福岡" },
                 { name: "福砂屋長崎蛋糕", area: "博多・天神", cat: "甜點", desc: "底部砂糖顆粒是精華，伴手禮首選", reserve: false, mapUrl: "https://www.google.com/maps/search/福砂屋+博多" },
                 { name: "iiTo TENJIN（ワンビル B1）", area: "博多・天神", cat: "美食廳", desc: "天神最大美食廳，450席、8間餐廳可混點同桌共食 ⭐ 忌口分歧的保底方案", reserve: false, mapUrl: "https://www.google.com/maps/search/iiTo+TENJIN+ONE+FUKUOKA+BLDG" },
                 { name: "梅ヶ枝餅（参道30+家）", area: "太宰府", cat: "小食", desc: "太宰府第一名物，紅豆餡現烤麻糬 ¥150（30+家同價）✅ 全體OK，散策きっぷ可換2個", reserve: false, mapUrl: "https://www.google.com/maps/search/梅ヶ枝餅+太宰府参道" },
@@ -489,7 +489,6 @@
             ],
             shopping: [
                 { item: "明太子醬", done: false },
-                { item: "努努雞", done: false },
                 { item: "福砂屋長崎蛋糕", done: false },
                 { item: "B-speak生乳捲", done: false },
                 { item: "八女茶（矢部屋許斐本家）", done: false },
@@ -513,10 +512,12 @@
             ],
             prep: {
                 transport: [
-                    { route: "機場 ↔ 博多", way: "免費接駁＋地鐵空港線", cost: "¥260" },
-                    { route: "博多 ⇄ 由布院", way: "由布院之森 3／6 號", cost: "已購" },
-                    { route: "博多 → 太宰府 → 天神", way: "地鐵＋西鐵（散策きっぷ）", cost: "約 ¥1,480" },
-                    { route: "博多 → 八女 → 藥院", way: "地鐵＋西鐵＋31號巴士", cost: "約 ¥2,850" }
+                    { route: "Day 1 機場 → 民宿", way: "免費接駁＋空港線到中洲川端", cost: "¥260" },
+                    { route: "Day 3 博多 ⇄ 由布院", way: "由布院之森 3／6 號", cost: "已購" },
+                    { route: "Day 4 太宰府來回", way: "空港線＋西鐵（散策きっぷ¥1,060）", cost: "¥1,480" },
+                    { route: "Day 5 八女 → 藥院", way: "空港線＋西鐵＋31號巴士", cost: "¥2,850" },
+                    { route: "Day 6 民宿 → 機場", way: "空港線＋免費接駁", cost: "¥260" },
+                    { route: "全程每人合計", way: "Day 2 全程步行、Day 3 車票已購", cost: "¥4,850" }
                 ],
                 emergency: [
                     { label: "台北駐大阪經濟文化辦事處 福岡分處", tel: "092-734-2810", note: "週一～五 09:00–18:00（12:00–13:00 午休）" },
